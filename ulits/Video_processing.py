@@ -97,7 +97,7 @@ class Video_processing:
             return self.person_count
 
     def get_error(self):
-        if self.get_person_count() > 4:
+        if self.get_person_count() >= 1:
             return "警告:当前区域人数已经超限"
         else:
             return ""
