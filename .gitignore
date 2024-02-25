@@ -156,7 +156,7 @@ build/bdist.win-amd64/*
 build/main/*
 build/temp.win-amd64-cpython-310/*
 main.spec
-.idea/
+.idea/*
 __pycache__/
 test.py
 main.spec
