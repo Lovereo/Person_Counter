@@ -8,9 +8,7 @@ import sys
 from fastapi import HTTPException, UploadFile, File
 
 from log import logs
-from ulits.Auto_adapt import AutoAdapt
 
-AutoAdapt = AutoAdapt()
 logger = logs.Logger()
 
 
@@ -70,15 +68,6 @@ def check_files(file_name: str):
         logger.error("Output folder is live")
     else:
         os.mkdir(file_name)
-
-
-def get_max_radius(image):
-    maxRadius = AutoAdapt.get_max_radius(image)
-    if maxRadius is None:
-        logger.error("Error: Get Max Radius")
-        return None, False
-    else:
-        return maxRadius, True
 
 
 def check_variables(*args):

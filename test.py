@@ -5,9 +5,9 @@ import torchvision
 from torchvision.transforms import ToTensor
 from PIL import Image
 
-model = YOLO("./weights/yolov8s.pt")
+model = YOLO("../../../Python_Project/Person_Counter_exe/weights/yolov8s.pt")
 
-ip_camera_url = "rtsp://admin:tangtangtui123@192.168.3.66/live"
+ip_camera_url = "rtsp://admin:tangtangtui123.@192.168.3.66/live"
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
@@ -60,4 +60,5 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
+cap.release()
+cv2.destroyAllWindows()
