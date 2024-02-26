@@ -109,7 +109,6 @@ ultralytics==8.1.17
 undetected-chromedriver==3.4.7
 urllib3==1.26.16
 uvicorn==0.20.0
-uvloop==0.17.0
 watchfiles==0.18.1
 websockets==10.4
 Werkzeug==2.3.6
