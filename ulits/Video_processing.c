@@ -1479,15 +1479,16 @@ struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator;
 struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_2_get_frame;
 struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number;
 
-/* "ulits/Video_processing.py":41
+/* "ulits/Video_processing.py":45
+ *         return alive_num
  * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
  *         loop = asyncio.get_event_loop()
  */
 struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames {
   PyObject_HEAD
+  PyObject *__pyx_v_camera_url;
   PyObject *__pyx_v_frame;
   PyObject *__pyx_v_frame_generator;
   PyObject *__pyx_v_loop;
@@ -1496,7 +1497,7 @@ struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames {
 };
 
 
-/* "ulits/Video_processing.py":45
+/* "ulits/Video_processing.py":49
  *         loop = asyncio.get_event_loop()
  * 
  *         async def frame_generator():             # <<<<<<<<<<<<<<
@@ -1523,7 +1524,7 @@ struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator 
 };
 
 
-/* "ulits/Video_processing.py":97
+/* "ulits/Video_processing.py":101
  *         self.cap.release()
  * 
  *     async def get_frame(self):             # <<<<<<<<<<<<<<
@@ -1536,7 +1537,7 @@ struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_2_get_frame {
 };
 
 
-/* "ulits/Video_processing.py":122
+/* "ulits/Video_processing.py":126
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -1761,10 +1762,6 @@ static CYTHON_INLINE int __Pyx_PyUnicode_Equals(PyObject* s1, PyObject* s2, int 
 #define __Pyx_ArgsSlice_FASTCALL(args, start, stop) PyTuple_GetSlice(args, start, stop)
 #endif
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
-
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
@@ -1774,14 +1771,9 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject *const *kwvalues
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,
     const char* function_name);
 
-/* PyObjectSetAttrStr.proto */
-#if CYTHON_USE_TYPE_SLOTS
-#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o, n, NULL)
-static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value);
-#else
-#define __Pyx_PyObject_DelAttrStr(o,n)   PyObject_DelAttr(o,n)
-#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
-#endif
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
 
 /* PyDictVersioning.proto */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
@@ -1880,6 +1872,15 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject
 /* PyObjectFastCall.proto */
 #define __Pyx_PyObject_FastCall(func, args, nargs)  __Pyx_PyObject_FastCallDict(func, args, (size_t)(nargs), NULL)
 static CYTHON_INLINE PyObject* __Pyx_PyObject_FastCallDict(PyObject *func, PyObject **args, size_t nargs, PyObject *kwargs);
+
+/* PyObjectSetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o, n, NULL)
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value);
+#else
+#define __Pyx_PyObject_DelAttrStr(o,n)   PyObject_DelAttr(o,n)
+#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
+#endif
 
 /* PyObjectCallOneArg.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
@@ -2508,7 +2509,7 @@ static const char __pyx_k__12[] = "\350\255\246\345\221\212:\345\275\223\345\211
 static const char __pyx_k__13[] = "";
 static const char __pyx_k__16[] = "*";
 static const char __pyx_k__17[] = ".";
-static const char __pyx_k__31[] = "?";
+static const char __pyx_k__33[] = "?";
 static const char __pyx_k_cap[] = "cap";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_cpu[] = "cpu";
@@ -2528,6 +2529,7 @@ static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_exit[] = "__exit__";
 static const char __pyx_k_init[] = "__init__";
 static const char __pyx_k_item[] = "item";
+static const char __pyx_k_live[] = "/live";
 static const char __pyx_k_loop[] = "loop";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
@@ -2602,6 +2604,7 @@ static const char __pyx_k_scheduler[] = "scheduler";
 static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_time_diff[] = "time_diff";
 static const char __pyx_k_camera_url[] = "camera_url";
+static const char __pyx_k_get_camera[] = "get_camera";
 static const char __pyx_k_model_path[] = "model_path";
 static const char __pyx_k_prev_boxes[] = "prev_boxes";
 static const char __pyx_k_frame_count[] = "frame_count";
@@ -2640,6 +2643,7 @@ static const char __pyx_k_FONT_HERSHEY_SIMPLEX[] = "FONT_HERSHEY_SIMPLEX";
 static const char __pyx_k_ulits_Video_processing[] = "ulits.Video_processing";
 static const char __pyx_k_Video_processing___init[] = "Video_processing.__init__";
 static const char __pyx_k_Video_processing_is_alive[] = "Video_processing.is_alive";
+static const char __pyx_k_rtsp_admin_tangtangtui123[] = "rtsp://admin:tangtangtui123.@";
 static const char __pyx_k_ulits_Video_processing_py[] = "ulits\\Video_processing.py";
 static const char __pyx_k_Video_processing_get_error[] = "Video_processing.get_error";
 static const char __pyx_k_Video_processing_get_frame[] = "Video_processing.get_frame";
@@ -2651,9 +2655,10 @@ static const char __pyx_k_Video_processing_get_person_coun[] = "Video_processing
 static const char __pyx_k_Video_processing_reset_error_num[] = "Video_processing.reset_error_number";
 static const char __pyx_k_Video_processing_generate_frames_2[] = "Video_processing.generate_frames.<locals>.frame_generator";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_path, PyObject *__pyx_v_camera_url, PyObject *__pyx_v_max_queue_size); /* proto */
+static PyObject *__pyx_pf_5ulits_16Video_processing_get_camera(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_camera_url); /* proto */
+static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_path, PyObject *__pyx_v_max_queue_size); /* proto */
 static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_camera_url); /* proto */
 static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_15generate_frames_frame_generator(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_7get_frame(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_person_count(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -2728,7 +2733,7 @@ typedef struct {
   PyObject *__pyx_kp_s__13;
   PyObject *__pyx_n_s__16;
   PyObject *__pyx_kp_u__17;
-  PyObject *__pyx_n_s__31;
+  PyObject *__pyx_n_s__33;
   PyObject *__pyx_kp_b__7;
   PyObject *__pyx_n_s__8;
   PyObject *__pyx_n_s_aiter;
@@ -2775,6 +2780,7 @@ typedef struct {
   PyObject *__pyx_kp_u_gc;
   PyObject *__pyx_n_s_generate_frames;
   PyObject *__pyx_n_s_get;
+  PyObject *__pyx_n_s_get_camera;
   PyObject *__pyx_n_s_get_error;
   PyObject *__pyx_n_s_get_error_number;
   PyObject *__pyx_n_s_get_event_loop;
@@ -2796,6 +2802,7 @@ typedef struct {
   PyObject *__pyx_n_s_item;
   PyObject *__pyx_kp_s_jpg;
   PyObject *__pyx_n_s_jpg_as_text;
+  PyObject *__pyx_kp_s_live;
   PyObject *__pyx_n_s_localtime;
   PyObject *__pyx_n_s_loop;
   PyObject *__pyx_n_s_main;
@@ -2829,6 +2836,7 @@ typedef struct {
   PyObject *__pyx_n_s_ret;
   PyObject *__pyx_n_s_return;
   PyObject *__pyx_n_s_round;
+  PyObject *__pyx_kp_s_rtsp_admin_tangtangtui123;
   PyObject *__pyx_n_s_run_in_executor;
   PyObject *__pyx_n_s_sched;
   PyObject *__pyx_n_s_scheduler;
@@ -2885,20 +2893,22 @@ typedef struct {
   PyObject *__pyx_tuple__14;
   PyObject *__pyx_tuple__18;
   PyObject *__pyx_tuple__20;
-  PyObject *__pyx_tuple__21;
+  PyObject *__pyx_tuple__22;
   PyObject *__pyx_tuple__23;
-  PyObject *__pyx_tuple__24;
+  PyObject *__pyx_tuple__25;
   PyObject *__pyx_tuple__26;
-  PyObject *__pyx_tuple__30;
+  PyObject *__pyx_tuple__28;
+  PyObject *__pyx_tuple__32;
   PyObject *__pyx_codeobj__10;
   PyObject *__pyx_codeobj__11;
   PyObject *__pyx_codeobj__15;
   PyObject *__pyx_codeobj__19;
-  PyObject *__pyx_codeobj__22;
-  PyObject *__pyx_codeobj__25;
+  PyObject *__pyx_codeobj__21;
+  PyObject *__pyx_codeobj__24;
   PyObject *__pyx_codeobj__27;
-  PyObject *__pyx_codeobj__28;
   PyObject *__pyx_codeobj__29;
+  PyObject *__pyx_codeobj__30;
+  PyObject *__pyx_codeobj__31;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -2975,7 +2985,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_s__13);
   Py_CLEAR(clear_module_state->__pyx_n_s__16);
   Py_CLEAR(clear_module_state->__pyx_kp_u__17);
-  Py_CLEAR(clear_module_state->__pyx_n_s__31);
+  Py_CLEAR(clear_module_state->__pyx_n_s__33);
   Py_CLEAR(clear_module_state->__pyx_kp_b__7);
   Py_CLEAR(clear_module_state->__pyx_n_s__8);
   Py_CLEAR(clear_module_state->__pyx_n_s_aiter);
@@ -3022,6 +3032,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_u_gc);
   Py_CLEAR(clear_module_state->__pyx_n_s_generate_frames);
   Py_CLEAR(clear_module_state->__pyx_n_s_get);
+  Py_CLEAR(clear_module_state->__pyx_n_s_get_camera);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_error);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_error_number);
   Py_CLEAR(clear_module_state->__pyx_n_s_get_event_loop);
@@ -3043,6 +3054,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_item);
   Py_CLEAR(clear_module_state->__pyx_kp_s_jpg);
   Py_CLEAR(clear_module_state->__pyx_n_s_jpg_as_text);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_live);
   Py_CLEAR(clear_module_state->__pyx_n_s_localtime);
   Py_CLEAR(clear_module_state->__pyx_n_s_loop);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
@@ -3076,6 +3088,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_ret);
   Py_CLEAR(clear_module_state->__pyx_n_s_return);
   Py_CLEAR(clear_module_state->__pyx_n_s_round);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_rtsp_admin_tangtangtui123);
   Py_CLEAR(clear_module_state->__pyx_n_s_run_in_executor);
   Py_CLEAR(clear_module_state->__pyx_n_s_sched);
   Py_CLEAR(clear_module_state->__pyx_n_s_scheduler);
@@ -3132,20 +3145,22 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__14);
   Py_CLEAR(clear_module_state->__pyx_tuple__18);
   Py_CLEAR(clear_module_state->__pyx_tuple__20);
-  Py_CLEAR(clear_module_state->__pyx_tuple__21);
+  Py_CLEAR(clear_module_state->__pyx_tuple__22);
   Py_CLEAR(clear_module_state->__pyx_tuple__23);
-  Py_CLEAR(clear_module_state->__pyx_tuple__24);
+  Py_CLEAR(clear_module_state->__pyx_tuple__25);
   Py_CLEAR(clear_module_state->__pyx_tuple__26);
-  Py_CLEAR(clear_module_state->__pyx_tuple__30);
+  Py_CLEAR(clear_module_state->__pyx_tuple__28);
+  Py_CLEAR(clear_module_state->__pyx_tuple__32);
   Py_CLEAR(clear_module_state->__pyx_codeobj__10);
   Py_CLEAR(clear_module_state->__pyx_codeobj__11);
   Py_CLEAR(clear_module_state->__pyx_codeobj__15);
   Py_CLEAR(clear_module_state->__pyx_codeobj__19);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__22);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__25);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__21);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__24);
   Py_CLEAR(clear_module_state->__pyx_codeobj__27);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__28);
   Py_CLEAR(clear_module_state->__pyx_codeobj__29);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__30);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__31);
   return 0;
 }
 #endif
@@ -3200,7 +3215,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_s__13);
   Py_VISIT(traverse_module_state->__pyx_n_s__16);
   Py_VISIT(traverse_module_state->__pyx_kp_u__17);
-  Py_VISIT(traverse_module_state->__pyx_n_s__31);
+  Py_VISIT(traverse_module_state->__pyx_n_s__33);
   Py_VISIT(traverse_module_state->__pyx_kp_b__7);
   Py_VISIT(traverse_module_state->__pyx_n_s__8);
   Py_VISIT(traverse_module_state->__pyx_n_s_aiter);
@@ -3247,6 +3262,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_u_gc);
   Py_VISIT(traverse_module_state->__pyx_n_s_generate_frames);
   Py_VISIT(traverse_module_state->__pyx_n_s_get);
+  Py_VISIT(traverse_module_state->__pyx_n_s_get_camera);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_error);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_error_number);
   Py_VISIT(traverse_module_state->__pyx_n_s_get_event_loop);
@@ -3268,6 +3284,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_item);
   Py_VISIT(traverse_module_state->__pyx_kp_s_jpg);
   Py_VISIT(traverse_module_state->__pyx_n_s_jpg_as_text);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_live);
   Py_VISIT(traverse_module_state->__pyx_n_s_localtime);
   Py_VISIT(traverse_module_state->__pyx_n_s_loop);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
@@ -3301,6 +3318,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_ret);
   Py_VISIT(traverse_module_state->__pyx_n_s_return);
   Py_VISIT(traverse_module_state->__pyx_n_s_round);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_rtsp_admin_tangtangtui123);
   Py_VISIT(traverse_module_state->__pyx_n_s_run_in_executor);
   Py_VISIT(traverse_module_state->__pyx_n_s_sched);
   Py_VISIT(traverse_module_state->__pyx_n_s_scheduler);
@@ -3357,20 +3375,22 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__14);
   Py_VISIT(traverse_module_state->__pyx_tuple__18);
   Py_VISIT(traverse_module_state->__pyx_tuple__20);
-  Py_VISIT(traverse_module_state->__pyx_tuple__21);
+  Py_VISIT(traverse_module_state->__pyx_tuple__22);
   Py_VISIT(traverse_module_state->__pyx_tuple__23);
-  Py_VISIT(traverse_module_state->__pyx_tuple__24);
+  Py_VISIT(traverse_module_state->__pyx_tuple__25);
   Py_VISIT(traverse_module_state->__pyx_tuple__26);
-  Py_VISIT(traverse_module_state->__pyx_tuple__30);
+  Py_VISIT(traverse_module_state->__pyx_tuple__28);
+  Py_VISIT(traverse_module_state->__pyx_tuple__32);
   Py_VISIT(traverse_module_state->__pyx_codeobj__10);
   Py_VISIT(traverse_module_state->__pyx_codeobj__11);
   Py_VISIT(traverse_module_state->__pyx_codeobj__15);
   Py_VISIT(traverse_module_state->__pyx_codeobj__19);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__22);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__25);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__21);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__24);
   Py_VISIT(traverse_module_state->__pyx_codeobj__27);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__28);
   Py_VISIT(traverse_module_state->__pyx_codeobj__29);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__30);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__31);
   return 0;
 }
 #endif
@@ -3435,7 +3455,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_s__13 __pyx_mstate_global->__pyx_kp_s__13
 #define __pyx_n_s__16 __pyx_mstate_global->__pyx_n_s__16
 #define __pyx_kp_u__17 __pyx_mstate_global->__pyx_kp_u__17
-#define __pyx_n_s__31 __pyx_mstate_global->__pyx_n_s__31
+#define __pyx_n_s__33 __pyx_mstate_global->__pyx_n_s__33
 #define __pyx_kp_b__7 __pyx_mstate_global->__pyx_kp_b__7
 #define __pyx_n_s__8 __pyx_mstate_global->__pyx_n_s__8
 #define __pyx_n_s_aiter __pyx_mstate_global->__pyx_n_s_aiter
@@ -3482,6 +3502,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u_gc __pyx_mstate_global->__pyx_kp_u_gc
 #define __pyx_n_s_generate_frames __pyx_mstate_global->__pyx_n_s_generate_frames
 #define __pyx_n_s_get __pyx_mstate_global->__pyx_n_s_get
+#define __pyx_n_s_get_camera __pyx_mstate_global->__pyx_n_s_get_camera
 #define __pyx_n_s_get_error __pyx_mstate_global->__pyx_n_s_get_error
 #define __pyx_n_s_get_error_number __pyx_mstate_global->__pyx_n_s_get_error_number
 #define __pyx_n_s_get_event_loop __pyx_mstate_global->__pyx_n_s_get_event_loop
@@ -3503,6 +3524,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_item __pyx_mstate_global->__pyx_n_s_item
 #define __pyx_kp_s_jpg __pyx_mstate_global->__pyx_kp_s_jpg
 #define __pyx_n_s_jpg_as_text __pyx_mstate_global->__pyx_n_s_jpg_as_text
+#define __pyx_kp_s_live __pyx_mstate_global->__pyx_kp_s_live
 #define __pyx_n_s_localtime __pyx_mstate_global->__pyx_n_s_localtime
 #define __pyx_n_s_loop __pyx_mstate_global->__pyx_n_s_loop
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
@@ -3536,6 +3558,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_ret __pyx_mstate_global->__pyx_n_s_ret
 #define __pyx_n_s_return __pyx_mstate_global->__pyx_n_s_return
 #define __pyx_n_s_round __pyx_mstate_global->__pyx_n_s_round
+#define __pyx_kp_s_rtsp_admin_tangtangtui123 __pyx_mstate_global->__pyx_kp_s_rtsp_admin_tangtangtui123
 #define __pyx_n_s_run_in_executor __pyx_mstate_global->__pyx_n_s_run_in_executor
 #define __pyx_n_s_sched __pyx_mstate_global->__pyx_n_s_sched
 #define __pyx_n_s_scheduler __pyx_mstate_global->__pyx_n_s_scheduler
@@ -3592,26 +3615,204 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__14 __pyx_mstate_global->__pyx_tuple__14
 #define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
 #define __pyx_tuple__20 __pyx_mstate_global->__pyx_tuple__20
-#define __pyx_tuple__21 __pyx_mstate_global->__pyx_tuple__21
+#define __pyx_tuple__22 __pyx_mstate_global->__pyx_tuple__22
 #define __pyx_tuple__23 __pyx_mstate_global->__pyx_tuple__23
-#define __pyx_tuple__24 __pyx_mstate_global->__pyx_tuple__24
+#define __pyx_tuple__25 __pyx_mstate_global->__pyx_tuple__25
 #define __pyx_tuple__26 __pyx_mstate_global->__pyx_tuple__26
-#define __pyx_tuple__30 __pyx_mstate_global->__pyx_tuple__30
+#define __pyx_tuple__28 __pyx_mstate_global->__pyx_tuple__28
+#define __pyx_tuple__32 __pyx_mstate_global->__pyx_tuple__32
 #define __pyx_codeobj__10 __pyx_mstate_global->__pyx_codeobj__10
 #define __pyx_codeobj__11 __pyx_mstate_global->__pyx_codeobj__11
 #define __pyx_codeobj__15 __pyx_mstate_global->__pyx_codeobj__15
 #define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
-#define __pyx_codeobj__22 __pyx_mstate_global->__pyx_codeobj__22
-#define __pyx_codeobj__25 __pyx_mstate_global->__pyx_codeobj__25
+#define __pyx_codeobj__21 __pyx_mstate_global->__pyx_codeobj__21
+#define __pyx_codeobj__24 __pyx_mstate_global->__pyx_codeobj__24
 #define __pyx_codeobj__27 __pyx_mstate_global->__pyx_codeobj__27
-#define __pyx_codeobj__28 __pyx_mstate_global->__pyx_codeobj__28
 #define __pyx_codeobj__29 __pyx_mstate_global->__pyx_codeobj__29
+#define __pyx_codeobj__30 __pyx_mstate_global->__pyx_codeobj__30
+#define __pyx_codeobj__31 __pyx_mstate_global->__pyx_codeobj__31
 /* #### Code section: module_code ### */
 
-/* "ulits/Video_processing.py":12
+/* "ulits/Video_processing.py":11
+ * 
+ * 
+ * def get_camera(camera_url):             # <<<<<<<<<<<<<<
+ *     return cv2.VideoCapture(camera_url)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5ulits_16Video_processing_1get_camera(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_5ulits_16Video_processing_1get_camera = {"get_camera", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5ulits_16Video_processing_1get_camera, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5ulits_16Video_processing_1get_camera(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_camera_url = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_camera (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_camera_url,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_camera_url)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_camera") < 0)) __PYX_ERR(0, 11, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+    }
+    __pyx_v_camera_url = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("get_camera", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 11, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("ulits.Video_processing.get_camera", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_5ulits_16Video_processing_get_camera(__pyx_self, __pyx_v_camera_url);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5ulits_16Video_processing_get_camera(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_camera_url) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_camera", 1);
+
+  /* "ulits/Video_processing.py":12
+ * 
+ * def get_camera(camera_url):
+ *     return cv2.VideoCapture(camera_url)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VideoCapture); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_v_camera_url};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "ulits/Video_processing.py":11
+ * 
+ * 
+ * def get_camera(camera_url):             # <<<<<<<<<<<<<<
+ *     return cv2.VideoCapture(camera_url)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("ulits.Video_processing.get_camera", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "ulits/Video_processing.py":16
  * 
  * class Video_processing:
- *     def __init__(self, model_path, camera_url, max_queue_size=100):             # <<<<<<<<<<<<<<
+ *     def __init__(self, model_path, max_queue_size=100):             # <<<<<<<<<<<<<<
  *         self.number = 0
  *         self.person_count_lock = Lock()
  */
@@ -3634,13 +3835,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_model_path = 0;
-  PyObject *__pyx_v_camera_url = 0;
   PyObject *__pyx_v_max_queue_size = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[4] = {0,0,0,0};
+  PyObject* values[3] = {0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3656,13 +3856,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_model_path,&__pyx_n_s_camera_url,&__pyx_n_s_max_queue_size,0};
-    values[3] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_100)));
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_model_path,&__pyx_n_s_max_queue_size,0};
+    values[2] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_100)));
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
       switch (__pyx_nargs) {
-        case  4: values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
-        CYTHON_FALLTHROUGH;
         case  3: values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
         CYTHON_FALLTHROUGH;
         case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
@@ -3679,7 +3877,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -3687,38 +3885,27 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 4, 1); __PYX_ERR(0, 12, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, 1); __PYX_ERR(0, 16, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_camera_url)) != 0)) {
-          (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
-          kw_args--;
-        }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
-        else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 4, 2); __PYX_ERR(0, 12, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  3:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max_queue_size);
-          if (value) { values[3] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
+          if (value) { values[2] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 16, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
-        case  4: values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
-        CYTHON_FALLTHROUGH;
         case  3: values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
-        values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
         values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
         break;
         default: goto __pyx_L5_argtuple_error;
@@ -3726,12 +3913,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     }
     __pyx_v_self = values[0];
     __pyx_v_model_path = values[1];
-    __pyx_v_camera_url = values[2];
-    __pyx_v_max_queue_size = values[3];
+    __pyx_v_max_queue_size = values[2];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 4, __pyx_nargs); __PYX_ERR(0, 12, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 16, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3745,7 +3931,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5ulits_16Video_processing_16Video_processing___init__(__pyx_self, __pyx_v_self, __pyx_v_model_path, __pyx_v_camera_url, __pyx_v_max_queue_size);
+  __pyx_r = __pyx_pf_5ulits_16Video_processing_16Video_processing___init__(__pyx_self, __pyx_v_self, __pyx_v_model_path, __pyx_v_max_queue_size);
 
   /* function exit code */
   {
@@ -3758,7 +3944,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_path, PyObject *__pyx_v_camera_url, PyObject *__pyx_v_max_queue_size) {
+static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_path, PyObject *__pyx_v_max_queue_size) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3773,23 +3959,23 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 1);
 
-  /* "ulits/Video_processing.py":13
+  /* "ulits/Video_processing.py":17
  * class Video_processing:
- *     def __init__(self, model_path, camera_url, max_queue_size=100):
+ *     def __init__(self, model_path, max_queue_size=100):
  *         self.number = 0             # <<<<<<<<<<<<<<
  *         self.person_count_lock = Lock()
  *         self.model = YOLO(model_path)
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":14
- *     def __init__(self, model_path, camera_url, max_queue_size=100):
+  /* "ulits/Video_processing.py":18
+ *     def __init__(self, model_path, max_queue_size=100):
  *         self.number = 0
  *         self.person_count_lock = Lock()             # <<<<<<<<<<<<<<
  *         self.model = YOLO(model_path)
  *         if torch.cuda.is_available():
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -3809,21 +3995,21 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_person_count_lock, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_person_count_lock, __pyx_t_1) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":15
+  /* "ulits/Video_processing.py":19
  *         self.number = 0
  *         self.person_count_lock = Lock()
  *         self.model = YOLO(model_path)             # <<<<<<<<<<<<<<
  *         if torch.cuda.is_available():
  *             self.device = torch.device("cuda")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_YOLO); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_YOLO); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -3843,26 +4029,26 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
     PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_model_path};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_model, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_model, __pyx_t_1) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":16
+  /* "ulits/Video_processing.py":20
  *         self.person_count_lock = Lock()
  *         self.model = YOLO(model_path)
  *         if torch.cuda.is_available():             # <<<<<<<<<<<<<<
  *             self.device = torch.device("cuda")
  *         else:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_torch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_torch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cuda); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cuda); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_is_available); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_is_available); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -3883,24 +4069,24 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
 
-    /* "ulits/Video_processing.py":17
+    /* "ulits/Video_processing.py":21
  *         self.model = YOLO(model_path)
  *         if torch.cuda.is_available():
  *             self.device = torch.device("cuda")             # <<<<<<<<<<<<<<
  *         else:
  *             self.device = torch.device("cpu")
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_torch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_torch); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_device); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_device); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -3921,14 +4107,14 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
       PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_n_s_cuda};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_device, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_device, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":16
+    /* "ulits/Video_processing.py":20
  *         self.person_count_lock = Lock()
  *         self.model = YOLO(model_path)
  *         if torch.cuda.is_available():             # <<<<<<<<<<<<<<
@@ -3938,17 +4124,17 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
     goto __pyx_L3;
   }
 
-  /* "ulits/Video_processing.py":19
+  /* "ulits/Video_processing.py":23
  *             self.device = torch.device("cuda")
  *         else:
  *             self.device = torch.device("cpu")             # <<<<<<<<<<<<<<
  *         self.model.to(self.device)
- *         self.camera_url = camera_url
+ *         # self.camera_url = camera_url
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_torch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_torch); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_device); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_device); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -3969,28 +4155,28 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_n_s_cpu};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_device, __pyx_t_1) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_device, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "ulits/Video_processing.py":20
+  /* "ulits/Video_processing.py":24
  *         else:
  *             self.device = torch.device("cpu")
  *         self.model.to(self.device)             # <<<<<<<<<<<<<<
- *         self.camera_url = camera_url
- *         self.person_count = 0
+ *         # self.camera_url = camera_url
+ *         self.camera_url = None
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_to); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_to); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_device); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_device); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   __pyx_t_4 = 0;
@@ -4011,113 +4197,139 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":21
- *             self.device = torch.device("cpu")
+  /* "ulits/Video_processing.py":26
  *         self.model.to(self.device)
- *         self.camera_url = camera_url             # <<<<<<<<<<<<<<
+ *         # self.camera_url = camera_url
+ *         self.camera_url = None             # <<<<<<<<<<<<<<
  *         self.person_count = 0
  *         self.max_queue_size = max_queue_size
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_camera_url, __pyx_v_camera_url) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_camera_url, Py_None) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":22
- *         self.model.to(self.device)
- *         self.camera_url = camera_url
+  /* "ulits/Video_processing.py":27
+ *         # self.camera_url = camera_url
+ *         self.camera_url = None
  *         self.person_count = 0             # <<<<<<<<<<<<<<
  *         self.max_queue_size = max_queue_size
  *         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_person_count, __pyx_int_0) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_person_count, __pyx_int_0) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":23
- *         self.camera_url = camera_url
+  /* "ulits/Video_processing.py":28
+ *         self.camera_url = None
  *         self.person_count = 0
  *         self.max_queue_size = max_queue_size             # <<<<<<<<<<<<<<
  *         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
  *         self.prev_boxes = []  #
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_queue_size, __pyx_v_max_queue_size) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_max_queue_size, __pyx_v_max_queue_size) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":24
+  /* "ulits/Video_processing.py":29
  *         self.person_count = 0
  *         self.max_queue_size = max_queue_size
  *         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)             # <<<<<<<<<<<<<<
  *         self.prev_boxes = []  #
  *         self.frame_count = 0  #
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Queue); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Queue); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_maxsize, __pyx_v_max_queue_size) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_maxsize, __pyx_v_max_queue_size) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_frame_queue, __pyx_t_2) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_frame_queue, __pyx_t_2) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ulits/Video_processing.py":25
+  /* "ulits/Video_processing.py":30
  *         self.max_queue_size = max_queue_size
  *         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
  *         self.prev_boxes = []  #             # <<<<<<<<<<<<<<
  *         self.frame_count = 0  #
  *         self.camera_number = 1
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_prev_boxes, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_prev_boxes, __pyx_t_2) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ulits/Video_processing.py":26
+  /* "ulits/Video_processing.py":31
  *         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
  *         self.prev_boxes = []  #
  *         self.frame_count = 0  #             # <<<<<<<<<<<<<<
  *         self.camera_number = 1
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *         self.cap = None
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_frame_count, __pyx_int_0) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_frame_count, __pyx_int_0) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":27
+  /* "ulits/Video_processing.py":32
  *         self.prev_boxes = []  #
  *         self.frame_count = 0  #
  *         self.camera_number = 1             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *         self.cap = None
  *         self.error_number = 0
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_camera_number, __pyx_int_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_camera_number, __pyx_int_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":28
+  /* "ulits/Video_processing.py":33
  *         self.frame_count = 0  #
  *         self.camera_number = 1
- *         self.cap = cv2.VideoCapture(self.camera_url)             # <<<<<<<<<<<<<<
+ *         self.cap = None             # <<<<<<<<<<<<<<
  *         self.error_number = 0
  *         self.scheduler = sched.scheduler(time.time, time.sleep)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_cv2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cap, Py_None) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
+
+  /* "ulits/Video_processing.py":34
+ *         self.camera_number = 1
+ *         self.cap = None
+ *         self.error_number = 0             # <<<<<<<<<<<<<<
+ *         self.scheduler = sched.scheduler(time.time, time.sleep)
+ * 
+ */
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+
+  /* "ulits/Video_processing.py":35
+ *         self.cap = None
+ *         self.error_number = 0
+ *         self.scheduler = sched.scheduler(time.time, time.sleep)             # <<<<<<<<<<<<<<
+ * 
+ *     def is_alive(self) -> int:
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sched); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_VideoCapture); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_scheduler); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_camera_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = NULL;
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sleep); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = NULL;
   __pyx_t_4 = 0;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_6)) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_1)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_1);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_3, function);
       __pyx_t_4 = 1;
@@ -4125,79 +4337,22 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_t_1};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
-    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+    PyObject *__pyx_callargs[3] = {__pyx_t_1, __pyx_t_6, __pyx_t_7};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_cap, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_scheduler, __pyx_t_2) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ulits/Video_processing.py":29
- *         self.camera_number = 1
- *         self.cap = cv2.VideoCapture(self.camera_url)
- *         self.error_number = 0             # <<<<<<<<<<<<<<
- *         self.scheduler = sched.scheduler(time.time, time.sleep)
- * 
- */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
-
-  /* "ulits/Video_processing.py":30
- *         self.cap = cv2.VideoCapture(self.camera_url)
- *         self.error_number = 0
- *         self.scheduler = sched.scheduler(time.time, time.sleep)             # <<<<<<<<<<<<<<
- * 
- *     def is_alive(self) -> int:
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_sched); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_scheduler); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_sleep); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = NULL;
-  __pyx_t_4 = 0;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-      __pyx_t_4 = 1;
-    }
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_t_6, __pyx_t_7};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_scheduler, __pyx_t_2) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "ulits/Video_processing.py":12
+  /* "ulits/Video_processing.py":16
  * 
  * class Video_processing:
- *     def __init__(self, model_path, camera_url, max_queue_size=100):             # <<<<<<<<<<<<<<
+ *     def __init__(self, model_path, max_queue_size=100):             # <<<<<<<<<<<<<<
  *         self.number = 0
  *         self.person_count_lock = Lock()
  */
@@ -4219,7 +4374,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing___init__(
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":32
+/* "ulits/Video_processing.py":37
  *         self.scheduler = sched.scheduler(time.time, time.sleep)
  * 
  *     def is_alive(self) -> int:             # <<<<<<<<<<<<<<
@@ -4280,12 +4435,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "is_alive") < 0)) __PYX_ERR(0, 32, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "is_alive") < 0)) __PYX_ERR(0, 37, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4296,7 +4451,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("is_alive", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 32, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("is_alive", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 37, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4341,7 +4496,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_alive", 1);
 
-  /* "ulits/Video_processing.py":34
+  /* "ulits/Video_processing.py":39
  *     def is_alive(self) -> int:
  *         # cap = cv2.VideoCapture(self.camera_url)
  *         alive_num = 0             # <<<<<<<<<<<<<<
@@ -4351,16 +4506,16 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_alive_num = __pyx_int_0;
 
-  /* "ulits/Video_processing.py":35
+  /* "ulits/Video_processing.py":40
  *         # cap = cv2.VideoCapture(self.camera_url)
  *         alive_num = 0
  *         for i in range(self.camera_number):             # <<<<<<<<<<<<<<
  *             if self.cap.isOpened():
  *                 alive_num += 1
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_camera_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_camera_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
@@ -4368,9 +4523,9 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
     __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -4379,28 +4534,28 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -4410,7 +4565,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 35, __pyx_L1_error)
+          else __PYX_ERR(0, 40, __pyx_L1_error)
         }
         break;
       }
@@ -4419,16 +4574,16 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "ulits/Video_processing.py":36
+    /* "ulits/Video_processing.py":41
  *         alive_num = 0
  *         for i in range(self.camera_number):
  *             if self.cap.isOpened():             # <<<<<<<<<<<<<<
  *                 alive_num += 1
  *         return alive_num
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4449,27 +4604,27 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
       PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
 
-      /* "ulits/Video_processing.py":37
+      /* "ulits/Video_processing.py":42
  *         for i in range(self.camera_number):
  *             if self.cap.isOpened():
  *                 alive_num += 1             # <<<<<<<<<<<<<<
  *         return alive_num
  * 
  */
-      __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_alive_num, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_alive_num, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF_SET(__pyx_v_alive_num, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "ulits/Video_processing.py":36
+      /* "ulits/Video_processing.py":41
  *         alive_num = 0
  *         for i in range(self.camera_number):
  *             if self.cap.isOpened():             # <<<<<<<<<<<<<<
@@ -4478,7 +4633,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
  */
     }
 
-    /* "ulits/Video_processing.py":35
+    /* "ulits/Video_processing.py":40
  *         # cap = cv2.VideoCapture(self.camera_url)
  *         alive_num = 0
  *         for i in range(self.camera_number):             # <<<<<<<<<<<<<<
@@ -4488,20 +4643,20 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":38
+  /* "ulits/Video_processing.py":43
  *             if self.cap.isOpened():
  *                 alive_num += 1
  *         return alive_num             # <<<<<<<<<<<<<<
  * 
- * 
+ *     async def generate_frames(self, camera_url):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_alive_num))||((__pyx_v_alive_num) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_alive_num))) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_alive_num))||((__pyx_v_alive_num) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_alive_num))) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_alive_num);
   __pyx_r = ((PyObject*)__pyx_v_alive_num);
   goto __pyx_L0;
 
-  /* "ulits/Video_processing.py":32
+  /* "ulits/Video_processing.py":37
  *         self.scheduler = sched.scheduler(time.time, time.sleep)
  * 
  *     def is_alive(self) -> int:             # <<<<<<<<<<<<<<
@@ -4526,11 +4681,11 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_2is_alive
 }
 static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "ulits/Video_processing.py":41
+/* "ulits/Video_processing.py":45
+ *         return alive_num
  * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
  *         loop = asyncio.get_event_loop()
  */
 
@@ -4551,11 +4706,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_camera_url = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[1] = {0};
+  PyObject* values[2] = {0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4571,10 +4727,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_camera_url,0};
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
       switch (__pyx_nargs) {
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
         case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -4587,23 +4745,35 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 41, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_camera_url)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 45, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("generate_frames", 1, 2, 2, 1); __PYX_ERR(0, 45, __pyx_L3_error)
+        }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "generate_frames") < 0)) __PYX_ERR(0, 41, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "generate_frames") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
       }
-    } else if (unlikely(__pyx_nargs != 1)) {
+    } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
     __pyx_v_self = values[0];
+    __pyx_v_camera_url = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("generate_frames", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("generate_frames", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 45, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4617,7 +4787,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(__pyx_self, __pyx_v_self, __pyx_v_camera_url);
 
   /* function exit code */
   {
@@ -4630,7 +4800,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate_frames(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_camera_url) {
   struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames *__pyx_cur_scope;
   PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generate_frames_2generator3 = 0;
   PyObject *__pyx_r = NULL;
@@ -4643,15 +4813,18 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 41, __pyx_L1_error)
+    __PYX_ERR(0, 45, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_camera_url = __pyx_v_camera_url;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_camera_url);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_camera_url);
   {
-    __pyx_CoroutineObject *gen = __Pyx_AsyncGen_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_6generator, __pyx_codeobj_, (PyObject *) __pyx_cur_scope, __pyx_n_s_generate_frames, __pyx_n_s_Video_processing_generate_frames, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_AsyncGen_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_6generator, __pyx_codeobj_, (PyObject *) __pyx_cur_scope, __pyx_n_s_generate_frames, __pyx_n_s_Video_processing_generate_frames, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4669,7 +4842,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_4generate
 }
 static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generate_frames_2generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "ulits/Video_processing.py":45
+/* "ulits/Video_processing.py":49
  *         loop = asyncio.get_event_loop()
  * 
  *         async def frame_generator():             # <<<<<<<<<<<<<<
@@ -4705,7 +4878,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_15generat
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 49, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4713,7 +4886,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_15generat
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_outer_scope);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_AsyncGen_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_15generate_frames_2generator3, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_frame_generator, __pyx_n_s_Video_processing_generate_frames_2, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_AsyncGen_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_15generate_frames_2generator3, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_frame_generator, __pyx_n_s_Video_processing_generate_frames_2, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4765,9 +4938,9 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 49, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":46
+  /* "ulits/Video_processing.py":50
  * 
  *         async def frame_generator():
  *             while self.cap.isOpened():             # <<<<<<<<<<<<<<
@@ -4775,10 +4948,10 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  *                 if not ret:
  */
   while (1) {
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 46, __pyx_L1_error) }
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 50, __pyx_L1_error) }
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -4799,25 +4972,25 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_5) break;
 
-    /* "ulits/Video_processing.py":47
+    /* "ulits/Video_processing.py":51
  *         async def frame_generator():
  *             while self.cap.isOpened():
  *                 ret, frame = self.cap.read()             # <<<<<<<<<<<<<<
  *                 if not ret:
  *                     break
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 47, __pyx_L1_error) }
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 51, __pyx_L1_error) }
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_read); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_read); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -4838,7 +5011,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
@@ -4848,7 +5021,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 47, __pyx_L1_error)
+        __PYX_ERR(0, 51, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -4861,15 +5034,15 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_7 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_6);
@@ -4877,7 +5050,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_GOTREF(__pyx_t_2);
       index = 1; __pyx_t_3 = __pyx_t_7(__pyx_t_6); if (unlikely(!__pyx_t_3)) goto __pyx_L6_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 2) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
       __pyx_t_7 = NULL;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       goto __pyx_L7_unpacking_done;
@@ -4885,7 +5058,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 47, __pyx_L1_error)
+      __PYX_ERR(0, 51, __pyx_L1_error)
       __pyx_L7_unpacking_done:;
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_ret);
@@ -4897,18 +5070,18 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "ulits/Video_processing.py":48
+    /* "ulits/Video_processing.py":52
  *             while self.cap.isOpened():
  *                 ret, frame = self.cap.read()
  *                 if not ret:             # <<<<<<<<<<<<<<
  *                     break
  * 
  */
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_ret); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_ret); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 52, __pyx_L1_error)
     __pyx_t_8 = (!__pyx_t_5);
     if (__pyx_t_8) {
 
-      /* "ulits/Video_processing.py":49
+      /* "ulits/Video_processing.py":53
  *                 ret, frame = self.cap.read()
  *                 if not ret:
  *                     break             # <<<<<<<<<<<<<<
@@ -4917,7 +5090,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
       goto __pyx_L5_break;
 
-      /* "ulits/Video_processing.py":48
+      /* "ulits/Video_processing.py":52
  *             while self.cap.isOpened():
  *                 ret, frame = self.cap.read()
  *                 if not ret:             # <<<<<<<<<<<<<<
@@ -4926,60 +5099,60 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
     }
 
-    /* "ulits/Video_processing.py":51
+    /* "ulits/Video_processing.py":55
  *                     break
  * 
  *                 self.frame_count += 1             # <<<<<<<<<<<<<<
  * 
  *                 if self.frame_count % 25 == 0:
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 51, __pyx_L1_error) }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 55, __pyx_L1_error) }
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 51, __pyx_L1_error) }
-    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count, __pyx_t_3) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 55, __pyx_L1_error) }
+    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count, __pyx_t_3) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "ulits/Video_processing.py":53
+    /* "ulits/Video_processing.py":57
  *                 self.frame_count += 1
  * 
  *                 if self.frame_count % 25 == 0:             # <<<<<<<<<<<<<<
  *                     pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))  #
  *                     results = await loop.run_in_executor(None, self.model, pil_frame)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 53, __pyx_L1_error) }
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 57, __pyx_L1_error) }
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_frame_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyInt_RemainderObjC(__pyx_t_3, __pyx_int_25, 25, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_RemainderObjC(__pyx_t_3, __pyx_int_25, 25, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_8 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_1, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_1, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "ulits/Video_processing.py":54
+      /* "ulits/Video_processing.py":58
  * 
  *                 if self.frame_count % 25 == 0:
  *                     pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))  #             # <<<<<<<<<<<<<<
  *                     results = await loop.run_in_executor(None, self.model, pil_frame)
  *                     boxes = results[0].boxes
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Image); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_fromarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cvtColor); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_COLOR_BGR2RGB); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_COLOR_BGR2RGB); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_6 = NULL;
@@ -5001,7 +5174,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
@@ -5024,7 +5197,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       }
@@ -5033,18 +5206,18 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "ulits/Video_processing.py":55
+      /* "ulits/Video_processing.py":59
  *                 if self.frame_count % 25 == 0:
  *                     pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))  #
  *                     results = await loop.run_in_executor(None, self.model, pil_frame)             # <<<<<<<<<<<<<<
  *                     boxes = results[0].boxes
  * 
  */
-      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_loop)) { __Pyx_RaiseClosureNameError("loop"); __PYX_ERR(0, 55, __pyx_L1_error) }
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_loop, __pyx_n_s_run_in_executor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_loop)) { __Pyx_RaiseClosureNameError("loop"); __PYX_ERR(0, 59, __pyx_L1_error) }
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_loop, __pyx_n_s_run_in_executor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 55, __pyx_L1_error) }
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+      if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 59, __pyx_L1_error) }
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_9 = NULL;
       __pyx_t_4 = 0;
@@ -5065,7 +5238,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 3+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       }
@@ -5080,11 +5253,11 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_generator->resume_label = 1;
         return __pyx_r;
         __pyx_L10_resume_from_await:;
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 55, __pyx_L1_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 59, __pyx_L1_error)
         __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
       } else {
         __pyx_t_1 = NULL;
-        if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+        if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_results);
@@ -5092,16 +5265,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "ulits/Video_processing.py":56
+      /* "ulits/Video_processing.py":60
  *                     pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))  #
  *                     results = await loop.run_in_executor(None, self.model, pil_frame)
  *                     boxes = results[0].boxes             # <<<<<<<<<<<<<<
  * 
  *                     with self.person_count_lock:
  */
-      __pyx_t_1 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_boxes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_boxes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_boxes);
@@ -5109,7 +5282,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_GIVEREF(__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "ulits/Video_processing.py":58
+      /* "ulits/Video_processing.py":62
  *                     boxes = results[0].boxes
  * 
  *                     with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -5117,12 +5290,12 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  * 
  */
       /*with:*/ {
-        if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 58, __pyx_L1_error) }
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 62, __pyx_L1_error) }
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 58, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 62, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L11_error)
+        __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L11_error)
         __Pyx_GOTREF(__pyx_t_3);
         __pyx_t_9 = NULL;
         __pyx_t_4 = 0;
@@ -5142,7 +5315,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
           PyObject *__pyx_callargs[2] = {__pyx_t_9, NULL};
           __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L11_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L11_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         }
@@ -5156,17 +5329,17 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_XGOTREF(__pyx_t_14);
             /*try:*/ {
 
-              /* "ulits/Video_processing.py":59
+              /* "ulits/Video_processing.py":63
  * 
  *                     with self.person_count_lock:
  *                         self.person_count = 0             # <<<<<<<<<<<<<<
  * 
  *                     for boxs in boxes:
  */
-              if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 59, __pyx_L17_error) }
-              if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count, __pyx_int_0) < 0) __PYX_ERR(0, 59, __pyx_L17_error)
+              if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 63, __pyx_L17_error) }
+              if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count, __pyx_int_0) < 0) __PYX_ERR(0, 63, __pyx_L17_error)
 
-              /* "ulits/Video_processing.py":58
+              /* "ulits/Video_processing.py":62
  *                     boxes = results[0].boxes
  * 
  *                     with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -5187,20 +5360,20 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
             /*except:*/ {
               __Pyx_AddTraceback("ulits.Video_processing.Video_processing.generate_frames.frame_generator", __pyx_clineno, __pyx_lineno, __pyx_filename);
-              if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) __PYX_ERR(0, 58, __pyx_L19_except_error)
+              if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) __PYX_ERR(0, 62, __pyx_L19_except_error)
               __Pyx_XGOTREF(__pyx_t_2);
               __Pyx_XGOTREF(__pyx_t_1);
               __Pyx_XGOTREF(__pyx_t_3);
-              __pyx_t_9 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 58, __pyx_L19_except_error)
+              __pyx_t_9 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L19_except_error)
               __Pyx_GOTREF(__pyx_t_9);
               __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL);
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
               __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-              if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 58, __pyx_L19_except_error)
+              if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 62, __pyx_L19_except_error)
               __Pyx_GOTREF(__pyx_t_15);
               __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_15);
               __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-              if (__pyx_t_8 < 0) __PYX_ERR(0, 58, __pyx_L19_except_error)
+              if (__pyx_t_8 < 0) __PYX_ERR(0, 62, __pyx_L19_except_error)
               __pyx_t_5 = (!__pyx_t_8);
               if (unlikely(__pyx_t_5)) {
                 __Pyx_GIVEREF(__pyx_t_2);
@@ -5208,7 +5381,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
                 __Pyx_XGIVEREF(__pyx_t_3);
                 __Pyx_ErrRestoreWithState(__pyx_t_2, __pyx_t_1, __pyx_t_3);
                 __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_3 = 0; 
-                __PYX_ERR(0, 58, __pyx_L19_except_error)
+                __PYX_ERR(0, 62, __pyx_L19_except_error)
               }
               __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5234,7 +5407,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             if (__pyx_t_11) {
               __pyx_t_14 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__2, NULL);
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 58, __pyx_L1_error)
+              if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 62, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_14);
               __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
             }
@@ -5249,7 +5422,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_L28:;
       }
 
-      /* "ulits/Video_processing.py":61
+      /* "ulits/Video_processing.py":65
  *                         self.person_count = 0
  * 
  *                     for boxs in boxes:             # <<<<<<<<<<<<<<
@@ -5261,9 +5434,9 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __pyx_t_16 = 0;
         __pyx_t_17 = NULL;
       } else {
-        __pyx_t_16 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_boxes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_16 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_boxes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_17 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_17 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 65, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_17)) {
@@ -5271,28 +5444,28 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             {
               Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
               #if !CYTHON_ASSUME_SAFE_MACROS
-              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 61, __pyx_L1_error)
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
               #endif
               if (__pyx_t_16 >= __pyx_temp) break;
             }
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_16); __Pyx_INCREF(__pyx_t_1); __pyx_t_16++; if (unlikely((0 < 0))) __PYX_ERR(0, 61, __pyx_L1_error)
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_16); __Pyx_INCREF(__pyx_t_1); __pyx_t_16++; if (unlikely((0 < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
             #else
-            __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             #endif
           } else {
             {
               Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
               #if !CYTHON_ASSUME_SAFE_MACROS
-              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 61, __pyx_L1_error)
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
               #endif
               if (__pyx_t_16 >= __pyx_temp) break;
             }
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_16); __Pyx_INCREF(__pyx_t_1); __pyx_t_16++; if (unlikely((0 < 0))) __PYX_ERR(0, 61, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_16); __Pyx_INCREF(__pyx_t_1); __pyx_t_16++; if (unlikely((0 < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
             #else
-            __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             #endif
           }
@@ -5302,7 +5475,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 61, __pyx_L1_error)
+              else __PYX_ERR(0, 65, __pyx_L1_error)
             }
             break;
           }
@@ -5313,24 +5486,24 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __Pyx_GIVEREF(__pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "ulits/Video_processing.py":62
+        /* "ulits/Video_processing.py":66
  * 
  *                     for boxs in boxes:
  *                         if results[0].names[boxs.cls[0].item()] == 'person':             # <<<<<<<<<<<<<<
  *                             with self.person_count_lock:
  *                                 self.person_count += 1
  */
-        __pyx_t_1 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_names); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_names); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_cls); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_cls); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_item); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_item); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_10 = NULL;
@@ -5351,19 +5524,19 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
           PyObject *__pyx_callargs[2] = {__pyx_t_10, NULL};
           __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
-        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_9, __pyx_n_s_person, Py_EQ)); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 62, __pyx_L1_error)
+        __pyx_t_5 = (__Pyx_PyString_Equals(__pyx_t_9, __pyx_n_s_person, Py_EQ)); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 66, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_5) {
 
-          /* "ulits/Video_processing.py":63
+          /* "ulits/Video_processing.py":67
  *                     for boxs in boxes:
  *                         if results[0].names[boxs.cls[0].item()] == 'person':
  *                             with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -5371,12 +5544,12 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  *                             x1, y1, x2, y2 = boxs.xyxy[0].tolist()
  */
           /*with:*/ {
-            if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 63, __pyx_L1_error) }
-            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 63, __pyx_L1_error)
+            if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 67, __pyx_L1_error) }
+            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 67, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_9);
-            __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 63, __pyx_L1_error)
+            __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 67, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
-            __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L32_error)
+            __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_9, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L32_error)
             __Pyx_GOTREF(__pyx_t_2);
             __pyx_t_10 = NULL;
             __pyx_t_4 = 0;
@@ -5396,7 +5569,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
               PyObject *__pyx_callargs[2] = {__pyx_t_10, NULL};
               __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
               __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-              if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L32_error)
+              if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L32_error)
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             }
@@ -5410,24 +5583,24 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
                 __Pyx_XGOTREF(__pyx_t_12);
                 /*try:*/ {
 
-                  /* "ulits/Video_processing.py":64
+                  /* "ulits/Video_processing.py":68
  *                         if results[0].names[boxs.cls[0].item()] == 'person':
  *                             with self.person_count_lock:
  *                                 self.person_count += 1             # <<<<<<<<<<<<<<
  *                             x1, y1, x2, y2 = boxs.xyxy[0].tolist()
  *                             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
  */
-                  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 64, __pyx_L38_error) }
-                  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 64, __pyx_L38_error)
+                  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 68, __pyx_L38_error) }
+                  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 68, __pyx_L38_error)
                   __Pyx_GOTREF(__pyx_t_9);
-                  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_9, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L38_error)
+                  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_9, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L38_error)
                   __Pyx_GOTREF(__pyx_t_1);
                   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-                  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 64, __pyx_L38_error) }
-                  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count, __pyx_t_1) < 0) __PYX_ERR(0, 64, __pyx_L38_error)
+                  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 68, __pyx_L38_error) }
+                  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count, __pyx_t_1) < 0) __PYX_ERR(0, 68, __pyx_L38_error)
                   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-                  /* "ulits/Video_processing.py":63
+                  /* "ulits/Video_processing.py":67
  *                     for boxs in boxes:
  *                         if results[0].names[boxs.cls[0].item()] == 'person':
  *                             with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -5447,20 +5620,20 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
                 __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
                 /*except:*/ {
                   __Pyx_AddTraceback("ulits.Video_processing.Video_processing.generate_frames.frame_generator", __pyx_clineno, __pyx_lineno, __pyx_filename);
-                  if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_9, &__pyx_t_2) < 0) __PYX_ERR(0, 63, __pyx_L40_except_error)
+                  if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_9, &__pyx_t_2) < 0) __PYX_ERR(0, 67, __pyx_L40_except_error)
                   __Pyx_XGOTREF(__pyx_t_1);
                   __Pyx_XGOTREF(__pyx_t_9);
                   __Pyx_XGOTREF(__pyx_t_2);
-                  __pyx_t_10 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_9, __pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 63, __pyx_L40_except_error)
+                  __pyx_t_10 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_9, __pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 67, __pyx_L40_except_error)
                   __Pyx_GOTREF(__pyx_t_10);
                   __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_10, NULL);
                   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
                   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-                  if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 63, __pyx_L40_except_error)
+                  if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 67, __pyx_L40_except_error)
                   __Pyx_GOTREF(__pyx_t_15);
                   __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_15);
                   __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-                  if (__pyx_t_5 < 0) __PYX_ERR(0, 63, __pyx_L40_except_error)
+                  if (__pyx_t_5 < 0) __PYX_ERR(0, 67, __pyx_L40_except_error)
                   __pyx_t_8 = (!__pyx_t_5);
                   if (unlikely(__pyx_t_8)) {
                     __Pyx_GIVEREF(__pyx_t_1);
@@ -5468,7 +5641,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
                     __Pyx_XGIVEREF(__pyx_t_2);
                     __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_9, __pyx_t_2);
                     __pyx_t_1 = 0; __pyx_t_9 = 0; __pyx_t_2 = 0; 
-                    __PYX_ERR(0, 63, __pyx_L40_except_error)
+                    __PYX_ERR(0, 67, __pyx_L40_except_error)
                   }
                   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
                   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -5494,7 +5667,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
                 if (__pyx_t_11) {
                   __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__2, NULL);
                   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-                  if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 63, __pyx_L1_error)
+                  if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 67, __pyx_L1_error)
                   __Pyx_GOTREF(__pyx_t_12);
                   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
                 }
@@ -5509,19 +5682,19 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __pyx_L49:;
           }
 
-          /* "ulits/Video_processing.py":65
+          /* "ulits/Video_processing.py":69
  *                             with self.person_count_lock:
  *                                 self.person_count += 1
  *                             x1, y1, x2, y2 = boxs.xyxy[0].tolist()             # <<<<<<<<<<<<<<
  *                             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
  * 
  */
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_xyxy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_xyxy); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_tolist); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __pyx_t_1 = NULL;
@@ -5542,7 +5715,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
             __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -5552,7 +5725,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             if (unlikely(size != 4)) {
               if (size > 4) __Pyx_RaiseTooManyValuesError(4);
               else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-              __PYX_ERR(0, 65, __pyx_L1_error)
+              __PYX_ERR(0, 69, __pyx_L1_error)
             }
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
             if (likely(PyTuple_CheckExact(sequence))) {
@@ -5575,7 +5748,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
               Py_ssize_t i;
               PyObject** temps[4] = {&__pyx_t_9,&__pyx_t_1,&__pyx_t_10,&__pyx_t_6};
               for (i=0; i < 4; i++) {
-                PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 65, __pyx_L1_error)
+                PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 69, __pyx_L1_error)
                 __Pyx_GOTREF(item);
                 *(temps[i]) = item;
               }
@@ -5585,7 +5758,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
           } else {
             Py_ssize_t index = -1;
             PyObject** temps[4] = {&__pyx_t_9,&__pyx_t_1,&__pyx_t_10,&__pyx_t_6};
-            __pyx_t_18 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 65, __pyx_L1_error)
+            __pyx_t_18 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 69, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_18);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             __pyx_t_7 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_18);
@@ -5594,7 +5767,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
               __Pyx_GOTREF(item);
               *(temps[index]) = item;
             }
-            if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_18), 4) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+            if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_18), 4) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
             __pyx_t_7 = NULL;
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
             goto __pyx_L51_unpacking_done;
@@ -5602,7 +5775,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
             __pyx_t_7 = NULL;
             if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-            __PYX_ERR(0, 65, __pyx_L1_error)
+            __PYX_ERR(0, 69, __pyx_L1_error)
             __pyx_L51_unpacking_done:;
           }
           __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_x1);
@@ -5622,20 +5795,20 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
           __Pyx_GIVEREF(__pyx_t_6);
           __pyx_t_6 = 0;
 
-          /* "ulits/Video_processing.py":66
+          /* "ulits/Video_processing.py":70
  *                                 self.person_count += 1
  *                             x1, y1, x2, y2 = boxs.xyxy[0].tolist()
  *                             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)             # <<<<<<<<<<<<<<
  * 
  *                             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
  */
-          __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_x1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_x1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_y1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_y1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_x2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 66, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_x2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 70, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_y2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_y2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x1);
           __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_x1, __pyx_t_2);
@@ -5654,34 +5827,34 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
           __Pyx_GIVEREF(__pyx_t_1);
           __pyx_t_1 = 0;
 
-          /* "ulits/Video_processing.py":68
+          /* "ulits/Video_processing.py":72
  *                             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
  * 
  *                             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)             # <<<<<<<<<<<<<<
  *                             cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_cv2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 68, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_cv2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_rectangle); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 68, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_rectangle); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 68, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_x1);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_x1);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 68, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 72, __pyx_L1_error);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_y1);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_y1);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_cur_scope->__pyx_v_y1)) __PYX_ERR(0, 68, __pyx_L1_error);
-          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_cur_scope->__pyx_v_y1)) __PYX_ERR(0, 72, __pyx_L1_error);
+          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_x2);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_x2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_cur_scope->__pyx_v_x2)) __PYX_ERR(0, 68, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_cur_scope->__pyx_v_x2)) __PYX_ERR(0, 72, __pyx_L1_error);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_y2);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_y2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_cur_scope->__pyx_v_y2)) __PYX_ERR(0, 68, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_cur_scope->__pyx_v_y2)) __PYX_ERR(0, 72, __pyx_L1_error);
           __pyx_t_9 = NULL;
           __pyx_t_4 = 0;
           #if CYTHON_UNPACK_METHODS
@@ -5702,35 +5875,35 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           }
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "ulits/Video_processing.py":69
+          /* "ulits/Video_processing.py":73
  * 
  *                             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
  *                             cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),             # <<<<<<<<<<<<<<
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  *                                         0.5, (0, 255, 0), 2)
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_putText); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_putText); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_GetItemInt(__pyx_cur_scope->__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_names); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_names); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_cls); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_cls); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_18 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_GetItemInt(__pyx_t_9, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_18, __pyx_n_s_item); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_18, __pyx_n_s_item); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
           __pyx_t_18 = NULL;
@@ -5751,39 +5924,39 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             PyObject *__pyx_callargs[2] = {__pyx_t_18, NULL};
             __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
             __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
-            if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
+            if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_6);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
-          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_10, __pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_10, __pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyInt_SubtractObjC(__pyx_cur_scope->__pyx_v_y1, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyInt_SubtractObjC(__pyx_cur_scope->__pyx_v_y1, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 69, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_x1);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_x1);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 69, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 73, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_6);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error);
           __pyx_t_6 = 0;
 
-          /* "ulits/Video_processing.py":70
+          /* "ulits/Video_processing.py":74
  *                             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
  *                             cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                                         0.5, (0, 255, 0), 2)
  *                             cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 74, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 70, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 74, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "ulits/Video_processing.py":71
+          /* "ulits/Video_processing.py":75
  *                             cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  *                                         0.5, (0, 255, 0), 2)             # <<<<<<<<<<<<<<
@@ -5811,30 +5984,30 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           }
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "ulits/Video_processing.py":72
+          /* "ulits/Video_processing.py":76
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  *                                         0.5, (0, 255, 0), 2)
  *                             cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),             # <<<<<<<<<<<<<<
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  *                                         0.5, (0, 255, 0), 2)
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_putText); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_putText); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_18);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_conf_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_boxs, __pyx_n_s_conf_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_10, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_GetItemInt(__pyx_t_10, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_item); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_item); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __pyx_t_9 = NULL;
@@ -5855,52 +6028,52 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             PyObject *__pyx_callargs[2] = {__pyx_t_9, NULL};
             __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error);
           __Pyx_INCREF(__pyx_int_2);
           __Pyx_GIVEREF(__pyx_int_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_2)) __PYX_ERR(0, 72, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_2)) __PYX_ERR(0, 76, __pyx_L1_error);
           __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_round, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __pyx_t_10 = __Pyx_PyObject_Str(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_Str(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = PyNumber_Add(__pyx_kp_s_conf, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_2 = PyNumber_Add(__pyx_kp_s_conf, __pyx_t_10); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __pyx_t_10 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_y1, __pyx_int_20, 20, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyInt_AddObjC(__pyx_cur_scope->__pyx_v_y1, __pyx_int_20, 20, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_x1);
           __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_x1);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 72, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_cur_scope->__pyx_v_x1)) __PYX_ERR(0, 76, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10)) __PYX_ERR(0, 72, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error);
           __pyx_t_10 = 0;
 
-          /* "ulits/Video_processing.py":73
+          /* "ulits/Video_processing.py":77
  *                                         0.5, (0, 255, 0), 2)
  *                             cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                                         0.5, (0, 255, 0), 2)
  * 
  */
-          __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_cv2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_cv2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "ulits/Video_processing.py":74
+          /* "ulits/Video_processing.py":78
  *                             cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  *                                         0.5, (0, 255, 0), 2)             # <<<<<<<<<<<<<<
@@ -5928,13 +6101,13 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
           }
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "ulits/Video_processing.py":62
+          /* "ulits/Video_processing.py":66
  * 
  *                     for boxs in boxes:
  *                         if results[0].names[boxs.cls[0].item()] == 'person':             # <<<<<<<<<<<<<<
@@ -5943,7 +6116,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
         }
 
-        /* "ulits/Video_processing.py":61
+        /* "ulits/Video_processing.py":65
  *                         self.person_count = 0
  * 
  *                     for boxs in boxes:             # <<<<<<<<<<<<<<
@@ -5953,7 +6126,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "ulits/Video_processing.py":53
+      /* "ulits/Video_processing.py":57
  *                 self.frame_count += 1
  * 
  *                 if self.frame_count % 25 == 0:             # <<<<<<<<<<<<<<
@@ -5962,7 +6135,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
     }
 
-    /* "ulits/Video_processing.py":76
+    /* "ulits/Video_processing.py":80
  *                                         0.5, (0, 255, 0), 2)
  * 
  *                 fontsize = 1.5             # <<<<<<<<<<<<<<
@@ -5971,43 +6144,43 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
     __pyx_cur_scope->__pyx_v_fontsize = 1.5;
 
-    /* "ulits/Video_processing.py":77
+    /* "ulits/Video_processing.py":81
  * 
  *                 fontsize = 1.5
  *                 if self.person_count > 4:             # <<<<<<<<<<<<<<
  *                     cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,
  *                                 (0, 255, 0), 3)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 77, __pyx_L1_error) }
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 81, __pyx_L1_error) }
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_int_4, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_int_4, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "ulits/Video_processing.py":78
+      /* "ulits/Video_processing.py":82
  *                 fontsize = 1.5
  *                 if self.person_count > 4:
  *                     cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,             # <<<<<<<<<<<<<<
  *                                 (0, 255, 0), 3)
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_putText); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_putText); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_18);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_fontsize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_fontsize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
 
-      /* "ulits/Video_processing.py":79
+      /* "ulits/Video_processing.py":83
  *                 if self.person_count > 4:
  *                     cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,
  *                                 (0, 255, 0), 3)             # <<<<<<<<<<<<<<
@@ -6034,13 +6207,13 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "ulits/Video_processing.py":77
+      /* "ulits/Video_processing.py":81
  * 
  *                 fontsize = 1.5
  *                 if self.person_count > 4:             # <<<<<<<<<<<<<<
@@ -6049,41 +6222,41 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
  */
     }
 
-    /* "ulits/Video_processing.py":81
+    /* "ulits/Video_processing.py":85
  *                                 (0, 255, 0), 3)
  * 
  *                 cv2.putText(frame, f"Persons detected: {self.person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                             fontsize, (0, 255, 0), 3)
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_18, __pyx_n_s_cv2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_18, __pyx_n_s_cv2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_18);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_18, __pyx_n_s_putText); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_18, __pyx_n_s_putText); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 81, __pyx_L1_error) }
-    __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 81, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 85, __pyx_L1_error) }
+    __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_18);
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_18, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_18, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
-    __pyx_t_18 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Persons_detected, __pyx_t_6); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_18 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Persons_detected, __pyx_t_6); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_18);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 85, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "ulits/Video_processing.py":82
+    /* "ulits/Video_processing.py":86
  * 
  *                 cv2.putText(frame, f"Persons detected: {self.person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,
  *                             fontsize, (0, 255, 0), 3)             # <<<<<<<<<<<<<<
  * 
  *                 # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
  */
-    __pyx_t_6 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_fontsize); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_6 = PyFloat_FromDouble(__pyx_cur_scope->__pyx_v_fontsize); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_2 = NULL;
     __pyx_t_4 = 0;
@@ -6106,22 +6279,22 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":85
+    /* "ulits/Video_processing.py":89
  * 
  *                 # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
  *                 frame = cv2.resize(frame, (670, 370))             # <<<<<<<<<<<<<<
  * 
  *                 _, buffer = cv2.imencode('.jpg', frame)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_cv2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_resize); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_resize); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -6142,7 +6315,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_frame, __pyx_tuple__6};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -6151,16 +6324,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":87
+    /* "ulits/Video_processing.py":91
  *                 frame = cv2.resize(frame, (670, 370))
  * 
  *                 _, buffer = cv2.imencode('.jpg', frame)             # <<<<<<<<<<<<<<
  *                 jpg_as_text = buffer.tobytes()
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imencode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_imencode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -6181,7 +6354,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_kp_s_jpg, __pyx_cur_scope->__pyx_v_frame};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -6191,7 +6364,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 87, __pyx_L1_error)
+        __PYX_ERR(0, 91, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -6204,15 +6377,15 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_9 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __pyx_t_9 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_7 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_9);
@@ -6220,7 +6393,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_GOTREF(__pyx_t_3);
       index = 1; __pyx_t_6 = __pyx_t_7(__pyx_t_9); if (unlikely(!__pyx_t_6)) goto __pyx_L54_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_9), 2) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_9), 2) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
       __pyx_t_7 = NULL;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       goto __pyx_L55_unpacking_done;
@@ -6228,7 +6401,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_7 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 87, __pyx_L1_error)
+      __PYX_ERR(0, 91, __pyx_L1_error)
       __pyx_L55_unpacking_done:;
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v__);
@@ -6240,14 +6413,14 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "ulits/Video_processing.py":88
+    /* "ulits/Video_processing.py":92
  * 
  *                 _, buffer = cv2.imencode('.jpg', frame)
  *                 jpg_as_text = buffer.tobytes()             # <<<<<<<<<<<<<<
  * 
  *                 yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_buffer, __pyx_n_s_tobytes); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_buffer, __pyx_n_s_tobytes); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_3 = NULL;
     __pyx_t_4 = 0;
@@ -6267,7 +6440,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -6276,16 +6449,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":90
+    /* "ulits/Video_processing.py":94
  *                 jpg_as_text = buffer.tobytes()
  * 
  *                 yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')             # <<<<<<<<<<<<<<
  * 
  *         async for frame in frame_generator():
  */
-    __pyx_t_1 = PyNumber_Add(__pyx_kp_b_frame_Content_Type_image_jpeg, __pyx_cur_scope->__pyx_v_jpg_as_text); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Add(__pyx_kp_b_frame_Content_Type_image_jpeg, __pyx_cur_scope->__pyx_v_jpg_as_text); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_kp_b__7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_kp_b__7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_6;
@@ -6297,12 +6470,12 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
     __pyx_generator->resume_label = 2;
     return __Pyx__PyAsyncGenValueWrapperNew(__pyx_r);
     __pyx_L56_resume_from_yield:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 94, __pyx_L1_error)
   }
   __pyx_L5_break:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "ulits/Video_processing.py":45
+  /* "ulits/Video_processing.py":49
  *         loop = asyncio.get_event_loop()
  * 
  *         async def frame_generator():             # <<<<<<<<<<<<<<
@@ -6334,11 +6507,11 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_15generat
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":41
+/* "ulits/Video_processing.py":45
+ *         return alive_num
  * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
  *         loop = asyncio.get_event_loop()
  */
 
@@ -6365,68 +6538,33 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 45, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":42
+  /* "ulits/Video_processing.py":46
  * 
- *     async def generate_frames(self):
- *         self.cap = cv2.VideoCapture(self.camera_url)             # <<<<<<<<<<<<<<
+ *     async def generate_frames(self, camera_url):
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")             # <<<<<<<<<<<<<<
  *         loop = asyncio.get_event_loop()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_cv2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_get_camera); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_VideoCapture); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Str(__pyx_cur_scope->__pyx_v_camera_url); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_camera_url); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = PyNumber_Add(__pyx_kp_s_rtsp_admin_tangtangtui123, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = PyNumber_Add(__pyx_t_4, __pyx_kp_s_live); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-      __pyx_t_5 = 1;
-    }
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_cap, __pyx_t_1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "ulits/Video_processing.py":43
- *     async def generate_frames(self):
- *         self.cap = cv2.VideoCapture(self.camera_url)
- *         loop = asyncio.get_event_loop()             # <<<<<<<<<<<<<<
- * 
- *         async def frame_generator():
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_get_event_loop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = NULL;
-  __pyx_t_5 = 0;
-  #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_4)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
       __pyx_t_5 = 1;
@@ -6434,51 +6572,89 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_3};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_cap, __pyx_t_1) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "ulits/Video_processing.py":47
+ *     async def generate_frames(self, camera_url):
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
+ *         loop = asyncio.get_event_loop()             # <<<<<<<<<<<<<<
+ * 
+ *         async def frame_generator():
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get_event_loop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  __pyx_t_5 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __pyx_t_5 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_loop = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":45
+  /* "ulits/Video_processing.py":49
  *         loop = asyncio.get_event_loop()
  * 
  *         async def frame_generator():             # <<<<<<<<<<<<<<
  *             while self.cap.isOpened():
  *                 ret, frame = self.cap.read()
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_15generate_frames_1frame_generator, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_generate_frames_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_15generate_frames_1frame_generator, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_generate_frames_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_frame_generator = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":92
+  /* "ulits/Video_processing.py":96
  *                 yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
  * 
  *         async for frame in frame_generator():             # <<<<<<<<<<<<<<
  *             yield frame
  * 
  */
-  __pyx_t_1 = __pyx_pf_5ulits_16Video_processing_16Video_processing_15generate_frames_frame_generator(__pyx_cur_scope->__pyx_v_frame_generator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_5ulits_16Video_processing_16Video_processing_15generate_frames_frame_generator(__pyx_cur_scope->__pyx_v_frame_generator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_Coroutine_GetAsyncIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Coroutine_GetAsyncIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
-    __pyx_t_1 = __Pyx_Coroutine_AsyncIterNext(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Coroutine_AsyncIterNext(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_r);
     if (likely(__pyx_r)) {
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
+      __Pyx_XGIVEREF(__pyx_t_3);
+      __pyx_cur_scope->__pyx_t_0 = __pyx_t_3;
       __Pyx_XGIVEREF(__pyx_r);
       __Pyx_RefNannyFinishContext();
       __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
@@ -6486,16 +6662,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
+      __pyx_t_3 = __pyx_cur_scope->__pyx_t_0;
       __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_t_3);
       if (unlikely(!__pyx_sent_value)) {
         PyObject* exc_type = __Pyx_PyErr_CurrentExceptionType();
         if (unlikely(exc_type && (exc_type == __Pyx_PyExc_StopAsyncIteration || ( exc_type != PyExc_StopIteration && exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, __Pyx_PyExc_StopAsyncIteration))))) {
           PyErr_Clear();
           break;
         }
-        __PYX_ERR(0, 92, __pyx_L1_error)
+        __PYX_ERR(0, 96, __pyx_L1_error)
       }
       __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
     } else {
@@ -6505,7 +6681,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
         break;
       }
       __pyx_t_1 = NULL;
-      if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+      if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_frame);
@@ -6513,7 +6689,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":93
+    /* "ulits/Video_processing.py":97
  * 
  *         async for frame in frame_generator():
  *             yield frame             # <<<<<<<<<<<<<<
@@ -6522,8 +6698,8 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
  */
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_frame);
     __pyx_r = __pyx_cur_scope->__pyx_v_frame;
-    __Pyx_XGIVEREF(__pyx_t_2);
-    __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
+    __Pyx_XGIVEREF(__pyx_t_3);
+    __pyx_cur_scope->__pyx_t_0 = __pyx_t_3;
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
     __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
@@ -6531,12 +6707,12 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
     __pyx_generator->resume_label = 2;
     return __Pyx__PyAsyncGenValueWrapperNew(__pyx_r);
     __pyx_L7_resume_from_yield:;
-    __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
+    __pyx_t_3 = __pyx_cur_scope->__pyx_t_0;
     __pyx_cur_scope->__pyx_t_0 = 0;
-    __Pyx_XGOTREF(__pyx_t_2);
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __Pyx_XGOTREF(__pyx_t_3);
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 97, __pyx_L1_error)
 
-    /* "ulits/Video_processing.py":92
+    /* "ulits/Video_processing.py":96
  *                 yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
  * 
  *         async for frame in frame_generator():             # <<<<<<<<<<<<<<
@@ -6544,50 +6720,50 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
  * 
  */
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "ulits/Video_processing.py":95
+  /* "ulits/Video_processing.py":99
  *             yield frame
  * 
  *         self.cap.release()             # <<<<<<<<<<<<<<
  * 
  *     async def get_frame(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_release); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_release); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
   __pyx_t_5 = 0;
   #if CYTHON_UNPACK_METHODS
-  if (likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
     if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
       __Pyx_INCREF(__pyx_t_1);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
       __pyx_t_5 = 1;
     }
   }
   #endif
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_5, 0+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "ulits/Video_processing.py":41
+  /* "ulits/Video_processing.py":45
+ *         return alive_num
  * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
  *         loop = asyncio.get_event_loop()
  */
 
@@ -6613,7 +6789,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_6generato
 }
 static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "ulits/Video_processing.py":97
+/* "ulits/Video_processing.py":101
  *         self.cap.release()
  * 
  *     async def get_frame(self):             # <<<<<<<<<<<<<<
@@ -6674,12 +6850,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 97, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_frame") < 0)) __PYX_ERR(0, 97, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_frame") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6690,7 +6866,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_frame", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 97, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_frame", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 101, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6729,7 +6905,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_7get_fram
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_2_get_frame *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 97, __pyx_L1_error)
+    __PYX_ERR(0, 101, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -6737,7 +6913,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_7get_fram
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_9generator1, __pyx_codeobj__11, (PyObject *) __pyx_cur_scope, __pyx_n_s_get_frame, __pyx_n_s_Video_processing_get_frame, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 97, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_9generator1, __pyx_codeobj__11, (PyObject *) __pyx_cur_scope, __pyx_n_s_get_frame, __pyx_n_s_Video_processing_get_frame, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6774,9 +6950,9 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 101, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":98
+  /* "ulits/Video_processing.py":102
  * 
  *     async def get_frame(self):
  *         return await self.frame_queue.get()             # <<<<<<<<<<<<<<
@@ -6784,9 +6960,9 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
  *     def get_person_count(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_frame_queue); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_frame_queue); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6807,7 +6983,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -6822,11 +6998,11 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 102, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else {
     __pyx_t_1 = NULL;
-    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (__Pyx_PyGen_FetchStopIterationValue(&__pyx_t_1) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = NULL; __Pyx_ReturnWithStopIteration(__pyx_t_1);
@@ -6834,7 +7010,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "ulits/Video_processing.py":97
+  /* "ulits/Video_processing.py":101
  *         self.cap.release()
  * 
  *     async def get_frame(self):             # <<<<<<<<<<<<<<
@@ -6860,7 +7036,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_9generato
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":100
+/* "ulits/Video_processing.py":104
  *         return await self.frame_queue.get()
  * 
  *     def get_person_count(self):             # <<<<<<<<<<<<<<
@@ -6921,12 +7097,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 100, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_person_count") < 0)) __PYX_ERR(0, 100, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_person_count") < 0)) __PYX_ERR(0, 104, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6937,7 +7113,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_person_count", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 100, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_person_count", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 104, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6984,7 +7160,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_person_count", 1);
 
-  /* "ulits/Video_processing.py":101
+  /* "ulits/Video_processing.py":105
  * 
  *     def get_person_count(self):
  *         with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -6992,11 +7168,11 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
  * 
  */
   /*with:*/ {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L3_error)
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L3_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -7016,7 +7192,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
       PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_6, 0+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L3_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -7032,7 +7208,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
         __Pyx_XGOTREF(__pyx_t_9);
         /*try:*/ {
 
-          /* "ulits/Video_processing.py":102
+          /* "ulits/Video_processing.py":106
  *     def get_person_count(self):
  *         with self.person_count_lock:
  *             return self.person_count             # <<<<<<<<<<<<<<
@@ -7040,13 +7216,13 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
  *     def get_error(self):
  */
           __Pyx_XDECREF(__pyx_r);
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L7_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_r = __pyx_t_1;
           __pyx_t_1 = 0;
           goto __pyx_L11_try_return;
 
-          /* "ulits/Video_processing.py":101
+          /* "ulits/Video_processing.py":105
  * 
  *     def get_person_count(self):
  *         with self.person_count_lock:             # <<<<<<<<<<<<<<
@@ -7061,20 +7237,20 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("ulits.Video_processing.Video_processing.get_person_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_3, &__pyx_t_4) < 0) __PYX_ERR(0, 101, __pyx_L9_except_error)
+          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_3, &__pyx_t_4) < 0) __PYX_ERR(0, 105, __pyx_L9_except_error)
           __Pyx_XGOTREF(__pyx_t_1);
           __Pyx_XGOTREF(__pyx_t_3);
           __Pyx_XGOTREF(__pyx_t_4);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L9_except_error)
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 101, __pyx_L9_except_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 105, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (__pyx_t_11 < 0) __PYX_ERR(0, 101, __pyx_L9_except_error)
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 105, __pyx_L9_except_error)
           __pyx_t_12 = (!__pyx_t_11);
           if (unlikely(__pyx_t_12)) {
             __Pyx_GIVEREF(__pyx_t_1);
@@ -7082,7 +7258,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
             __Pyx_XGIVEREF(__pyx_t_4);
             __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_3, __pyx_t_4);
             __pyx_t_1 = 0; __pyx_t_3 = 0; __pyx_t_4 = 0; 
-            __PYX_ERR(0, 101, __pyx_L9_except_error)
+            __PYX_ERR(0, 105, __pyx_L9_except_error)
           }
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7113,7 +7289,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
         if (__pyx_t_2) {
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__2, NULL);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 101, __pyx_L1_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 105, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
@@ -7125,7 +7301,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
         if (__pyx_t_2) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__2, NULL);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 101, __pyx_L1_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 105, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -7142,7 +7318,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
     __pyx_L16:;
   }
 
-  /* "ulits/Video_processing.py":100
+  /* "ulits/Video_processing.py":104
  *         return await self.frame_queue.get()
  * 
  *     def get_person_count(self):             # <<<<<<<<<<<<<<
@@ -7166,7 +7342,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_10get_per
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":104
+/* "ulits/Video_processing.py":108
  *             return self.person_count
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
@@ -7227,12 +7403,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error") < 0)) __PYX_ERR(0, 104, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error") < 0)) __PYX_ERR(0, 108, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7243,7 +7419,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 104, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 108, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7284,14 +7460,14 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_error", 1);
 
-  /* "ulits/Video_processing.py":105
+  /* "ulits/Video_processing.py":109
  * 
  *     def get_error(self):
  *         person_number = self.get_person_count()             # <<<<<<<<<<<<<<
  *         if person_number >= 5:
  *             if person_number != self.number:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_person_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_person_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -7311,65 +7487,65 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_v_person_number = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":106
+  /* "ulits/Video_processing.py":110
  *     def get_error(self):
  *         person_number = self.get_person_count()
  *         if person_number >= 5:             # <<<<<<<<<<<<<<
  *             if person_number != self.number:
  *                 self.error_number += 1
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_person_number, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_person_number, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
 
-    /* "ulits/Video_processing.py":107
+    /* "ulits/Video_processing.py":111
  *         person_number = self.get_person_count()
  *         if person_number >= 5:
  *             if person_number != self.number:             # <<<<<<<<<<<<<<
  *                 self.error_number += 1
  *                 self.number = person_number
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_person_number, __pyx_t_1, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_person_number, __pyx_t_1, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 107, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 111, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_5) {
 
-      /* "ulits/Video_processing.py":108
+      /* "ulits/Video_processing.py":112
  *         if person_number >= 5:
  *             if person_number != self.number:
  *                 self.error_number += 1             # <<<<<<<<<<<<<<
  *                 self.number = person_number
  *             return ":"
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_t_1) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_t_1) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "ulits/Video_processing.py":109
+      /* "ulits/Video_processing.py":113
  *             if person_number != self.number:
  *                 self.error_number += 1
  *                 self.number = person_number             # <<<<<<<<<<<<<<
  *             return ":"
  *         else:
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_v_person_number) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_v_person_number) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
 
-      /* "ulits/Video_processing.py":107
+      /* "ulits/Video_processing.py":111
  *         person_number = self.get_person_count()
  *         if person_number >= 5:
  *             if person_number != self.number:             # <<<<<<<<<<<<<<
@@ -7378,7 +7554,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
  */
     }
 
-    /* "ulits/Video_processing.py":110
+    /* "ulits/Video_processing.py":114
  *                 self.error_number += 1
  *                 self.number = person_number
  *             return ":"             # <<<<<<<<<<<<<<
@@ -7390,7 +7566,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
     __pyx_r = __pyx_kp_s__12;
     goto __pyx_L0;
 
-    /* "ulits/Video_processing.py":106
+    /* "ulits/Video_processing.py":110
  *     def get_error(self):
  *         person_number = self.get_person_count()
  *         if person_number >= 5:             # <<<<<<<<<<<<<<
@@ -7399,7 +7575,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
  */
   }
 
-  /* "ulits/Video_processing.py":112
+  /* "ulits/Video_processing.py":116
  *             return ":"
  *         else:
  *             self.number = 0             # <<<<<<<<<<<<<<
@@ -7407,9 +7583,9 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
  * 
  */
   /*else*/ {
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
 
-    /* "ulits/Video_processing.py":113
+    /* "ulits/Video_processing.py":117
  *         else:
  *             self.number = 0
  *             return ""             # <<<<<<<<<<<<<<
@@ -7422,7 +7598,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
     goto __pyx_L0;
   }
 
-  /* "ulits/Video_processing.py":104
+  /* "ulits/Video_processing.py":108
  *             return self.person_count
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
@@ -7444,7 +7620,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_12get_err
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":115
+/* "ulits/Video_processing.py":119
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
@@ -7505,12 +7681,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 115, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error_number") < 0)) __PYX_ERR(0, 115, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error_number") < 0)) __PYX_ERR(0, 119, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7521,7 +7697,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 115, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 119, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7557,7 +7733,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_14get_err
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_error_number", 1);
 
-  /* "ulits/Video_processing.py":116
+  /* "ulits/Video_processing.py":120
  * 
  *     def get_error_number(self):
  *         return self.error_number             # <<<<<<<<<<<<<<
@@ -7565,13 +7741,13 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_14get_err
  *     def clear_error_number(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ulits/Video_processing.py":115
+  /* "ulits/Video_processing.py":119
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
@@ -7590,7 +7766,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_14get_err
   return __pyx_r;
 }
 
-/* "ulits/Video_processing.py":118
+/* "ulits/Video_processing.py":122
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
@@ -7651,12 +7827,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 118, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 122, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clear_error_number") < 0)) __PYX_ERR(0, 118, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clear_error_number") < 0)) __PYX_ERR(0, 122, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7667,7 +7843,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("clear_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 118, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("clear_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 122, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7703,27 +7879,27 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_16clear_e
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("clear_error_number", 1);
 
-  /* "ulits/Video_processing.py":119
+  /* "ulits/Video_processing.py":123
  * 
  *     def clear_error_number(self):
  *         self.error_number = 0             # <<<<<<<<<<<<<<
  *         print("Error number cleared.")
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":120
+  /* "ulits/Video_processing.py":124
  *     def clear_error_number(self):
  *         self.error_number = 0
  *         print("Error number cleared.")             # <<<<<<<<<<<<<<
  * 
  *     async def reset_error_number(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ulits/Video_processing.py":118
+  /* "ulits/Video_processing.py":122
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
@@ -7745,7 +7921,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_16clear_e
 }
 static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "ulits/Video_processing.py":122
+/* "ulits/Video_processing.py":126
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -7806,12 +7982,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 122, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "reset_error_number") < 0)) __PYX_ERR(0, 122, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "reset_error_number") < 0)) __PYX_ERR(0, 126, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7822,7 +7998,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reset_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 122, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reset_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 126, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7861,7 +8037,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_18reset_e
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 122, __pyx_L1_error)
+    __PYX_ERR(0, 126, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -7869,7 +8045,7 @@ static PyObject *__pyx_pf_5ulits_16Video_processing_16Video_processing_18reset_e
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_20generator2, __pyx_codeobj__15, (PyObject *) __pyx_cur_scope, __pyx_n_s_reset_error_number, __pyx_n_s_Video_processing_reset_error_num, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 122, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5ulits_16Video_processing_16Video_processing_20generator2, __pyx_codeobj__15, (PyObject *) __pyx_cur_scope, __pyx_n_s_reset_error_number, __pyx_n_s_Video_processing_reset_error_num, __pyx_n_s_ulits_Video_processing); if (unlikely(!gen)) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7909,9 +8085,9 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 126, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":123
+  /* "ulits/Video_processing.py":127
  * 
  *     async def reset_error_number(self):
  *         while True:             # <<<<<<<<<<<<<<
@@ -7920,16 +8096,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
  */
   while (1) {
 
-    /* "ulits/Video_processing.py":124
+    /* "ulits/Video_processing.py":128
  *     async def reset_error_number(self):
  *         while True:
  *             current_time = time.localtime()             # <<<<<<<<<<<<<<
  *             #  00:00:00
  *             tomorrow = time.mktime(
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_localtime); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_localtime); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 128, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7950,7 +8126,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -7959,61 +8135,61 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":126
+    /* "ulits/Video_processing.py":130
  *             current_time = time.localtime()
  *             #  00:00:00
  *             tomorrow = time.mktime(             # <<<<<<<<<<<<<<
  *                 (current_time.tm_year, current_time.tm_mon, current_time.tm_mday + 1, 0, 0, 0, 0, 0, 0))
  *             #  00:00:00
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mktime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mktime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "ulits/Video_processing.py":127
+    /* "ulits/Video_processing.py":131
  *             #  00:00:00
  *             tomorrow = time.mktime(
  *                 (current_time.tm_year, current_time.tm_mon, current_time.tm_mday + 1, 0, 0, 0, 0, 0, 0))             # <<<<<<<<<<<<<<
  *             #  00:00:00
  *             time_diff = tomorrow - time.time()
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_year); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_year); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_mon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_mon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_mday); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_time, __pyx_n_s_tm_mday); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyTuple_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(9); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_3);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_GIVEREF(__pyx_t_5);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_GIVEREF(__pyx_t_7);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_7)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_7)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 7, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 7, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 8, __pyx_int_0)) __PYX_ERR(0, 127, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 8, __pyx_int_0)) __PYX_ERR(0, 131, __pyx_L1_error);
     __pyx_t_3 = 0;
     __pyx_t_5 = 0;
     __pyx_t_7 = 0;
@@ -8036,7 +8212,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
@@ -8045,16 +8221,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "ulits/Video_processing.py":129
+    /* "ulits/Video_processing.py":133
  *                 (current_time.tm_year, current_time.tm_mon, current_time.tm_mday + 1, 0, 0, 0, 0, 0, 0))
  *             #  00:00:00
  *             time_diff = tomorrow - time.time()             # <<<<<<<<<<<<<<
  *             #  00:00:00
  *             await asyncio.sleep(time_diff)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -8075,11 +8251,11 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
-    __pyx_t_6 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_tomorrow, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_tomorrow, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_time_diff);
@@ -8087,16 +8263,16 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "ulits/Video_processing.py":131
+    /* "ulits/Video_processing.py":135
  *             time_diff = tomorrow - time.time()
  *             #  00:00:00
  *             await asyncio.sleep(time_diff)             # <<<<<<<<<<<<<<
  *             #
  *             self.clear_error_number()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sleep); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sleep); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -8117,7 +8293,7 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_time_diff};
       __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 135, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
@@ -8132,22 +8308,22 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 131, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 135, __pyx_L1_error)
     } else {
       PyObject* exc_type = __Pyx_PyErr_CurrentExceptionType();
       if (exc_type) {
         if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-        else __PYX_ERR(0, 131, __pyx_L1_error)
+        else __PYX_ERR(0, 135, __pyx_L1_error)
       }
     }
 
-    /* "ulits/Video_processing.py":133
+    /* "ulits/Video_processing.py":137
  *             await asyncio.sleep(time_diff)
  *             #
  *             self.clear_error_number()             # <<<<<<<<<<<<<<
  *             print("Error number cleared.")
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_clear_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_clear_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = NULL;
     __pyx_t_4 = 0;
@@ -8167,24 +8343,24 @@ static PyObject *__pyx_gb_5ulits_16Video_processing_16Video_processing_20generat
       PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "ulits/Video_processing.py":134
+    /* "ulits/Video_processing.py":138
  *             #
  *             self.clear_error_number()
  *             print("Error number cleared.")             # <<<<<<<<<<<<<<
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 134, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "ulits/Video_processing.py":122
+  /* "ulits/Video_processing.py":126
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -8250,6 +8426,7 @@ static void __pyx_tp_dealloc_5ulits_16Video_processing___pyx_scope_struct__gener
   }
   #endif
   PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_camera_url);
   Py_CLEAR(p->__pyx_v_frame);
   Py_CLEAR(p->__pyx_v_frame_generator);
   Py_CLEAR(p->__pyx_v_loop);
@@ -8275,6 +8452,9 @@ static void __pyx_tp_dealloc_5ulits_16Video_processing___pyx_scope_struct__gener
 static int __pyx_tp_traverse_5ulits_16Video_processing___pyx_scope_struct__generate_frames(PyObject *o, visitproc v, void *a) {
   int e;
   struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames *p = (struct __pyx_obj_5ulits_16Video_processing___pyx_scope_struct__generate_frames *)o;
+  if (p->__pyx_v_camera_url) {
+    e = (*v)(p->__pyx_v_camera_url, a); if (e) return e;
+  }
   if (p->__pyx_v_frame) {
     e = (*v)(p->__pyx_v_frame, a); if (e) return e;
   }
@@ -8973,7 +9153,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_s__13, __pyx_k__13, sizeof(__pyx_k__13), 0, 0, 1, 0},
     {&__pyx_n_s__16, __pyx_k__16, sizeof(__pyx_k__16), 0, 0, 1, 1},
     {&__pyx_kp_u__17, __pyx_k__17, sizeof(__pyx_k__17), 0, 1, 0, 0},
-    {&__pyx_n_s__31, __pyx_k__31, sizeof(__pyx_k__31), 0, 0, 1, 1},
+    {&__pyx_n_s__33, __pyx_k__33, sizeof(__pyx_k__33), 0, 0, 1, 1},
     {&__pyx_kp_b__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 0, 0, 0},
     {&__pyx_n_s__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 0, 1, 1},
     {&__pyx_n_s_aiter, __pyx_k_aiter, sizeof(__pyx_k_aiter), 0, 0, 1, 1},
@@ -9020,6 +9200,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_u_gc, __pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0, 0},
     {&__pyx_n_s_generate_frames, __pyx_k_generate_frames, sizeof(__pyx_k_generate_frames), 0, 0, 1, 1},
     {&__pyx_n_s_get, __pyx_k_get, sizeof(__pyx_k_get), 0, 0, 1, 1},
+    {&__pyx_n_s_get_camera, __pyx_k_get_camera, sizeof(__pyx_k_get_camera), 0, 0, 1, 1},
     {&__pyx_n_s_get_error, __pyx_k_get_error, sizeof(__pyx_k_get_error), 0, 0, 1, 1},
     {&__pyx_n_s_get_error_number, __pyx_k_get_error_number, sizeof(__pyx_k_get_error_number), 0, 0, 1, 1},
     {&__pyx_n_s_get_event_loop, __pyx_k_get_event_loop, sizeof(__pyx_k_get_event_loop), 0, 0, 1, 1},
@@ -9041,6 +9222,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_item, __pyx_k_item, sizeof(__pyx_k_item), 0, 0, 1, 1},
     {&__pyx_kp_s_jpg, __pyx_k_jpg, sizeof(__pyx_k_jpg), 0, 0, 1, 0},
     {&__pyx_n_s_jpg_as_text, __pyx_k_jpg_as_text, sizeof(__pyx_k_jpg_as_text), 0, 0, 1, 1},
+    {&__pyx_kp_s_live, __pyx_k_live, sizeof(__pyx_k_live), 0, 0, 1, 0},
     {&__pyx_n_s_localtime, __pyx_k_localtime, sizeof(__pyx_k_localtime), 0, 0, 1, 1},
     {&__pyx_n_s_loop, __pyx_k_loop, sizeof(__pyx_k_loop), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
@@ -9074,6 +9256,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_ret, __pyx_k_ret, sizeof(__pyx_k_ret), 0, 0, 1, 1},
     {&__pyx_n_s_return, __pyx_k_return, sizeof(__pyx_k_return), 0, 0, 1, 1},
     {&__pyx_n_s_round, __pyx_k_round, sizeof(__pyx_k_round), 0, 0, 1, 1},
+    {&__pyx_kp_s_rtsp_admin_tangtangtui123, __pyx_k_rtsp_admin_tangtangtui123, sizeof(__pyx_k_rtsp_admin_tangtangtui123), 0, 0, 1, 0},
     {&__pyx_n_s_run_in_executor, __pyx_k_run_in_executor, sizeof(__pyx_k_run_in_executor), 0, 0, 1, 1},
     {&__pyx_n_s_sched, __pyx_k_sched, sizeof(__pyx_k_sched), 0, 0, 1, 1},
     {&__pyx_n_s_scheduler, __pyx_k_scheduler, sizeof(__pyx_k_scheduler), 0, 0, 1, 1},
@@ -9110,9 +9293,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 72, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 124, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -9123,185 +9306,197 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "ulits/Video_processing.py":58
+  /* "ulits/Video_processing.py":62
  *                     boxes = results[0].boxes
  * 
  *                     with self.person_count_lock:             # <<<<<<<<<<<<<<
  *                         self.person_count = 0
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "ulits/Video_processing.py":68
+  /* "ulits/Video_processing.py":72
  *                             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
  * 
  *                             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)             # <<<<<<<<<<<<<<
  *                             cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
  *                                         cv2.FONT_HERSHEY_SIMPLEX,
  */
-  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_int_0, __pyx_int_255, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_int_0, __pyx_int_255, __pyx_int_0); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "ulits/Video_processing.py":78
+  /* "ulits/Video_processing.py":82
  *                 fontsize = 1.5
  *                 if self.person_count > 4:
  *                     cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,             # <<<<<<<<<<<<<<
  *                                 (0, 255, 0), 3)
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_int_500, __pyx_int_500); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_int_500, __pyx_int_500); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "ulits/Video_processing.py":81
+  /* "ulits/Video_processing.py":85
  *                                 (0, 255, 0), 3)
  * 
  *                 cv2.putText(frame, f"Persons detected: {self.person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
  *                             fontsize, (0, 255, 0), 3)
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_int_20, __pyx_int_50); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_int_20, __pyx_int_50); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "ulits/Video_processing.py":85
+  /* "ulits/Video_processing.py":89
  * 
  *                 # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
  *                 frame = cv2.resize(frame, (670, 370))             # <<<<<<<<<<<<<<
  * 
  *                 _, buffer = cv2.imencode('.jpg', frame)
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_int_670, __pyx_int_370); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_int_670, __pyx_int_370); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "ulits/Video_processing.py":45
+  /* "ulits/Video_processing.py":49
  *         loop = asyncio.get_event_loop()
  * 
  *         async def frame_generator():             # <<<<<<<<<<<<<<
  *             while self.cap.isOpened():
  *                 ret, frame = self.cap.read()
  */
-  __pyx_tuple__9 = PyTuple_Pack(14, __pyx_n_s_ret, __pyx_n_s_frame, __pyx_n_s_pil_frame, __pyx_n_s_results, __pyx_n_s_boxes, __pyx_n_s_boxs, __pyx_n_s_x1, __pyx_n_s_y1, __pyx_n_s_x2, __pyx_n_s_y2, __pyx_n_s_fontsize, __pyx_n_s__8, __pyx_n_s_buffer, __pyx_n_s_jpg_as_text); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(14, __pyx_n_s_ret, __pyx_n_s_frame, __pyx_n_s_pil_frame, __pyx_n_s_results, __pyx_n_s_boxes, __pyx_n_s_boxs, __pyx_n_s_x1, __pyx_n_s_y1, __pyx_n_s_x2, __pyx_n_s_y2, __pyx_n_s_fontsize, __pyx_n_s__8, __pyx_n_s_buffer, __pyx_n_s_jpg_as_text); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_frame_generator, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_frame_generator, 49, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 49, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":120
+  /* "ulits/Video_processing.py":124
  *     def clear_error_number(self):
  *         self.error_number = 0
  *         print("Error number cleared.")             # <<<<<<<<<<<<<<
  * 
  *     async def reset_error_number(self):
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Error_number_cleared); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Error_number_cleared); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "ulits/Video_processing.py":12
+  /* "ulits/Video_processing.py":11
+ * 
+ * 
+ * def get_camera(camera_url):             # <<<<<<<<<<<<<<
+ *     return cv2.VideoCapture(camera_url)
+ * 
+ */
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_camera_url); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_camera, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 11, __pyx_L1_error)
+
+  /* "ulits/Video_processing.py":16
  * 
  * class Video_processing:
- *     def __init__(self, model_path, camera_url, max_queue_size=100):             # <<<<<<<<<<<<<<
+ *     def __init__(self, model_path, max_queue_size=100):             # <<<<<<<<<<<<<<
  *         self.number = 0
  *         self.person_count_lock = Lock()
  */
-  __pyx_tuple__18 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_model_path, __pyx_n_s_camera_url, __pyx_n_s_max_queue_size); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_init, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __pyx_tuple__20 = PyTuple_Pack(1, ((PyObject *)__pyx_int_100)); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_model_path, __pyx_n_s_max_queue_size); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_init, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(1, ((PyObject *)__pyx_int_100)); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__22);
+  __Pyx_GIVEREF(__pyx_tuple__22);
 
-  /* "ulits/Video_processing.py":32
+  /* "ulits/Video_processing.py":37
  *         self.scheduler = sched.scheduler(time.time, time.sleep)
  * 
  *     def is_alive(self) -> int:             # <<<<<<<<<<<<<<
  *         # cap = cv2.VideoCapture(self.camera_url)
  *         alive_num = 0
  */
-  __pyx_tuple__21 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_alive_num, __pyx_n_s_i); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__21);
-  __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_is_alive, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 32, __pyx_L1_error)
-
-  /* "ulits/Video_processing.py":41
- * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
- *         loop = asyncio.get_event_loop()
- */
-  __pyx_tuple__23 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_loop, __pyx_n_s_frame_generator, __pyx_n_s_frame_generator, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_alive_num, __pyx_n_s_i); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_generate_frames, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_is_alive, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 37, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":97
+  /* "ulits/Video_processing.py":45
+ *         return alive_num
+ * 
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
+ *         loop = asyncio.get_event_loop()
+ */
+  __pyx_tuple__25 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_camera_url, __pyx_n_s_loop, __pyx_n_s_frame_generator, __pyx_n_s_frame_generator, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__25);
+  __Pyx_GIVEREF(__pyx_tuple__25);
+  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_generate_frames, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 45, __pyx_L1_error)
+
+  /* "ulits/Video_processing.py":101
  *         self.cap.release()
  * 
  *     async def get_frame(self):             # <<<<<<<<<<<<<<
  *         return await self.frame_queue.get()
  * 
  */
-  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 97, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__24);
-  __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_frame, 97, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_frame, 101, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 101, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":100
+  /* "ulits/Video_processing.py":104
  *         return await self.frame_queue.get()
  * 
  *     def get_person_count(self):             # <<<<<<<<<<<<<<
  *         with self.person_count_lock:
  *             return self.person_count
  */
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_person_count, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_person_count, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 104, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":104
+  /* "ulits/Video_processing.py":108
  *             return self.person_count
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
  *         person_number = self.get_person_count()
  *         if person_number >= 5:
  */
-  __pyx_tuple__26 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_number); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__26);
-  __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_error, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_number); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_error, 108, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 108, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":115
+  /* "ulits/Video_processing.py":119
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
  *         return self.error_number
  * 
  */
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_error_number, 115, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_get_error_number, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 119, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":118
+  /* "ulits/Video_processing.py":122
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
  *         self.error_number = 0
  *         print("Error number cleared.")
  */
-  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_clear_error_number, 118, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_clear_error_number, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 122, __pyx_L1_error)
 
-  /* "ulits/Video_processing.py":122
+  /* "ulits/Video_processing.py":126
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             current_time = time.localtime()
  */
-  __pyx_tuple__30 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_current_time, __pyx_n_s_tomorrow, __pyx_n_s_time_diff); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 122, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__30);
-  __Pyx_GIVEREF(__pyx_tuple__30);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_reset_error_number, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_current_time, __pyx_n_s_tomorrow, __pyx_n_s_time_diff); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ulits_Video_processing_py, __pyx_n_s_reset_error_number, 126, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9379,15 +9574,15 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct__generate_frames_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames)) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct__generate_frames_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct__generate_frames_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames)) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct__generate_frames_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   #else
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames = &__pyx_type_5ulits_16Video_processing___pyx_scope_struct__generate_frames;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct__generate_frames->tp_print = 0;
@@ -9398,15 +9593,15 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator)) __PYX_ERR(0, 45, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator)) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
   #else
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator = &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_1_frame_generator->tp_print = 0;
@@ -9417,15 +9612,15 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_2_get_frame_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame)) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_2_get_frame_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_2_get_frame_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame)) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_2_get_frame_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #else
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame = &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_2_get_frame;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_2_get_frame->tp_print = 0;
@@ -9436,15 +9631,15 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number)) __PYX_ERR(0, 122, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number_spec, NULL); if (unlikely(!__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number)) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number_spec, __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   #else
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number = &__pyx_type_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5ulits_16Video_processing___pyx_scope_struct_3_reset_error_number->tp_print = 0;
@@ -9888,137 +10083,149 @@ if (!__Pyx_RefNanny) {
   /* "ulits/Video_processing.py":11
  * 
  * 
+ * def get_camera(camera_url):             # <<<<<<<<<<<<<<
+ *     return cv2.VideoCapture(camera_url)
+ * 
+ */
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_1get_camera, 0, __pyx_n_s_get_camera, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_camera, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "ulits/Video_processing.py":15
+ * 
+ * 
  * class Video_processing:             # <<<<<<<<<<<<<<
- *     def __init__(self, model_path, camera_url, max_queue_size=100):
+ *     def __init__(self, model_path, max_queue_size=100):
  *         self.number = 0
  */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Video_processing, __pyx_n_s_Video_processing, (PyObject *) NULL, __pyx_n_s_ulits_Video_processing, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Video_processing, __pyx_n_s_Video_processing, (PyObject *) NULL, __pyx_n_s_ulits_Video_processing, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "ulits/Video_processing.py":12
+  /* "ulits/Video_processing.py":16
  * 
  * class Video_processing:
- *     def __init__(self, model_path, camera_url, max_queue_size=100):             # <<<<<<<<<<<<<<
+ *     def __init__(self, model_path, max_queue_size=100):             # <<<<<<<<<<<<<<
  *         self.number = 0
  *         self.person_count_lock = Lock()
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_1__init__, 0, __pyx_n_s_Video_processing___init, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_1__init__, 0, __pyx_n_s_Video_processing___init, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__20);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__22);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ulits/Video_processing.py":32
+  /* "ulits/Video_processing.py":37
  *         self.scheduler = sched.scheduler(time.time, time.sleep)
  * 
  *     def is_alive(self) -> int:             # <<<<<<<<<<<<<<
  *         # cap = cv2.VideoCapture(self.camera_url)
  *         alive_num = 0
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_3is_alive, 0, __pyx_n_s_Video_processing_is_alive, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_3is_alive, 0, __pyx_n_s_Video_processing_is_alive, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_is_alive, __pyx_t_4) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_is_alive, __pyx_t_4) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":41
+  /* "ulits/Video_processing.py":45
+ *         return alive_num
  * 
- * 
- *     async def generate_frames(self):             # <<<<<<<<<<<<<<
- *         self.cap = cv2.VideoCapture(self.camera_url)
+ *     async def generate_frames(self, camera_url):             # <<<<<<<<<<<<<<
+ *         self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
  *         loop = asyncio.get_event_loop()
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_5generate_frames, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_generate_frames, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj_)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_5generate_frames, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_generate_frames, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj_)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_generate_frames, __pyx_t_4) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_generate_frames, __pyx_t_4) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":97
+  /* "ulits/Video_processing.py":101
  *         self.cap.release()
  * 
  *     async def get_frame(self):             # <<<<<<<<<<<<<<
  *         return await self.frame_queue.get()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_8get_frame, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_get_frame, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_8get_frame, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_get_frame, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_frame, __pyx_t_4) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_frame, __pyx_t_4) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":100
+  /* "ulits/Video_processing.py":104
  *         return await self.frame_queue.get()
  * 
  *     def get_person_count(self):             # <<<<<<<<<<<<<<
  *         with self.person_count_lock:
  *             return self.person_count
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_11get_person_count, 0, __pyx_n_s_Video_processing_get_person_coun, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_11get_person_count, 0, __pyx_n_s_Video_processing_get_person_coun, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_person_count, __pyx_t_4) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_person_count, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":104
+  /* "ulits/Video_processing.py":108
  *             return self.person_count
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
  *         person_number = self.get_person_count()
  *         if person_number >= 5:
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_13get_error, 0, __pyx_n_s_Video_processing_get_error, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_13get_error, 0, __pyx_n_s_Video_processing_get_error, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error, __pyx_t_4) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":115
+  /* "ulits/Video_processing.py":119
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
  *         return self.error_number
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_15get_error_number, 0, __pyx_n_s_Video_processing_get_error_numbe, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_15get_error_number, 0, __pyx_n_s_Video_processing_get_error_numbe, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":118
+  /* "ulits/Video_processing.py":122
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
  *         self.error_number = 0
  *         print("Error number cleared.")
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_17clear_error_number, 0, __pyx_n_s_Video_processing_clear_error_num, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_17clear_error_number, 0, __pyx_n_s_Video_processing_clear_error_num, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_clear_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_clear_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":122
+  /* "ulits/Video_processing.py":126
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             current_time = time.localtime()
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_19reset_error_number, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_reset_error_num, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5ulits_16Video_processing_16Video_processing_19reset_error_number, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_Video_processing_reset_error_num, NULL, __pyx_n_s_ulits_Video_processing, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_reset_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_reset_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "ulits/Video_processing.py":11
+  /* "ulits/Video_processing.py":15
  * 
  * 
  * class Video_processing:             # <<<<<<<<<<<<<<
- *     def __init__(self, model_path, camera_url, max_queue_size=100):
+ *     def __init__(self, model_path, max_queue_size=100):
  *         self.number = 0
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_n_s_Video_processing, __pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_n_s_Video_processing, __pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Video_processing, __pyx_t_4) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Video_processing, __pyx_t_4) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -10486,32 +10693,6 @@ bad:
 #endif
 #endif
 
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
-    } else {
-        num_expected = num_max;
-        more_or_less = "at most";
-    }
-    if (exact) {
-        more_or_less = "exactly";
-    }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
-}
-
 /* RaiseDoubleKeywords */
 static void __Pyx_RaiseDoubleKeywordsError(
     const char* func_name,
@@ -10682,19 +10863,31 @@ bad:
     return -1;
 }
 
-/* PyObjectSetAttrStr */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_setattro))
-        return tp->tp_setattro(obj, attr_name, value);
-#if PY_MAJOR_VERSION < 3
-    if (likely(tp->tp_setattr))
-        return tp->tp_setattr(obj, PyString_AS_STRING(attr_name), value);
-#endif
-    return PyObject_SetAttr(obj, attr_name, value);
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
 }
-#endif
 
 /* PyDictVersioning */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
@@ -11015,6 +11208,20 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_FastCallDict(PyObject *func, PyObj
     return __Pyx_PyObject_FastCall_fallback(func, args, (size_t)nargs, kwargs);
     #endif
 }
+
+/* PyObjectSetAttrStr */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_setattro))
+        return tp->tp_setattro(obj, attr_name, value);
+#if PY_MAJOR_VERSION < 3
+    if (likely(tp->tp_setattr))
+        return tp->tp_setattr(obj, PyString_AS_STRING(attr_name), value);
+#endif
+    return PyObject_SetAttr(obj, attr_name, value);
+}
+#endif
 
 /* PyObjectCallOneArg */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
@@ -16375,7 +16582,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__31);
+        name = __Pyx_NewRef(__pyx_n_s__33);
     }
     return name;
 }
