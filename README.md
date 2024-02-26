@@ -7,3 +7,4 @@ Count person number
 2. 把dist下的main.exe文件一起复制过去
 3. 把weights文件夹也放过去
 4. 双击打开即可
+

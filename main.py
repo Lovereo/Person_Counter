@@ -4,10 +4,13 @@ from uvicorn import run
 from api import Video
 from starlette.middleware.cors import CORSMiddleware
 
+from api.Video import video_processor
+
 # app.include_router(User.userRouter)
 # app.include_router(Miscellaneous.miscellaneousRouter)
 
 if __name__ == "__main__":
+
     app = FastAPI()
 
     origins = ["*"]

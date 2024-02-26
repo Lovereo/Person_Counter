@@ -1,3 +1,5 @@
+import time
+import sched
 import cv2
 import torch
 from ultralytics import YOLO
@@ -8,6 +10,7 @@ import asyncio
 
 class Video_processing:
     def __init__(self, model_path, camera_url, max_queue_size=100):
+        self.number = 0
         self.person_count_lock = Lock()
         self.model = YOLO(model_path)
         if torch.cuda.is_available():
@@ -23,6 +26,8 @@ class Video_processing:
         self.frame_count = 0  # 添加一个帧计数器
         self.camera_number = 1
         self.cap = cv2.VideoCapture(self.camera_url)
+        self.error_number = 0
+        self.scheduler = sched.scheduler(time.time, time.sleep)
 
     def is_alive(self) -> int:
         # cap = cv2.VideoCapture(self.camera_url)
@@ -97,10 +102,33 @@ class Video_processing:
             return self.person_count
 
     def get_error(self):
-        if self.get_person_count() >= 1:
+        person_number = self.get_person_count()
+        if person_number >= 5:
+            if person_number != self.number:
+                self.error_number += 1
+                self.number = person_number
             return "警告:当前区域人数已经超限"
         else:
+            self.number = 0
             return ""
 
+    def get_error_number(self):
+        return self.error_number
 
+    def clear_error_number(self):
+        self.error_number = 0
+        print("Error number cleared.")
 
+    async def reset_error_number(self):
+        while True:
+            current_time = time.localtime()
+            # 获取明天 00:00:00 的时间
+            tomorrow = time.mktime(
+                (current_time.tm_year, current_time.tm_mon, current_time.tm_mday + 1, 0, 0, 0, 0, 0, 0))
+            # 获取明天 00:00:00 与当前时间的时间差
+            time_diff = tomorrow - time.time()
+            # 等待到明天的 00:00:00
+            await asyncio.sleep(time_diff)
+            # 清零错误数
+            self.clear_error_number()
+            print("Error number cleared.")
