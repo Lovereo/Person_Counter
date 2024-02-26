@@ -2,7 +2,7 @@ import asyncio
 from typing import List
 
 import cv2
-from fastapi import APIRouter
+from fastapi import APIRouter, Request, Query
 from starlette.background import BackgroundTasks
 from starlette.responses import StreamingResponse, JSONResponse
 from model import video
@@ -11,12 +11,13 @@ from ulits.Video_processing import Video_processing
 
 videoRouter = APIRouter(prefix='/video', tags=['About Video'])
 
-video_processor = Video_processing("../weights/yolov8n.pt", "rtsp://admin:tangtangtui123.@192.168.3.66/live")
+video_processor = Video_processing("../weights/yolov8n.pt")
 
 
-@videoRouter.get("/output")
-async def video_feed():
-    return StreamingResponse(video_processor.generate_frames(), media_type="multipart/x-mixed-replace; boundary=frame")
+@videoRouter.get("/output/{camera_url}")
+async def video_feed(camera_url: str = Query(...)):
+    print(camera_url)
+    return StreamingResponse(video_processor.generate_frames(camera_url), media_type="multipart/x-mixed-replace; boundary=frame")
 
 
 @videoRouter.get("/number", response_model=video.Number)

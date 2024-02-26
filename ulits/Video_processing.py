@@ -8,8 +8,12 @@ from threading import Lock
 import asyncio
 
 
+def get_camera(camera_url):
+    return cv2.VideoCapture(camera_url)
+
+
 class Video_processing:
-    def __init__(self, model_path, camera_url, max_queue_size=100):
+    def __init__(self, model_path, max_queue_size=100):
         self.number = 0
         self.person_count_lock = Lock()
         self.model = YOLO(model_path)
@@ -18,14 +22,15 @@ class Video_processing:
         else:
             self.device = torch.device("cpu")
         self.model.to(self.device)
-        self.camera_url = camera_url
+        # self.camera_url = camera_url
+        self.camera_url = None
         self.person_count = 0
         self.max_queue_size = max_queue_size
         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
         self.prev_boxes = []  # 存储上一次检测到的边界框信息
         self.frame_count = 0  # 添加一个帧计数器
         self.camera_number = 1
-        self.cap = cv2.VideoCapture(self.camera_url)
+        self.cap = None
         self.error_number = 0
         self.scheduler = sched.scheduler(time.time, time.sleep)
 
@@ -37,9 +42,8 @@ class Video_processing:
                 alive_num += 1
         return alive_num
 
-
-    async def generate_frames(self):
-        self.cap = cv2.VideoCapture(self.camera_url)
+    async def generate_frames(self, camera_url):
+        self.cap = get_camera("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
         loop = asyncio.get_event_loop()
 
         async def frame_generator():
