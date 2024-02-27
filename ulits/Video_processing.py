@@ -107,7 +107,7 @@ class Video_processing:
 
     def get_error(self):
         person_number = self.get_person_count()
-        if person_number >= 5:
+        if person_number >= 9:
             if person_number != self.number:
                 self.error_number += 1
                 self.number = person_number
