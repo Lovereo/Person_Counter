@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     app = FastAPI()
 
-    origins = ["127.0.0.1", "localhost"]
+    origins = ["http://127.0.0.1:8000", "http://localhost:8000"]
 
     app.add_middleware(
         CORSMiddleware,
