@@ -19,3 +19,5 @@ How to Build?
 以下是更新日志：
 
 2.26: update api/video.py,   ulits/Video_processing.py   , change /output api, now need add ipaddress after /output, for example /ouput/192.168.3.66
+
+2.27: Update ulits/Video_processing.py
