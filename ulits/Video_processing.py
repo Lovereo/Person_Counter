@@ -107,13 +107,13 @@ class Video_processing:
 
     def get_error(self):
         person_number = self.get_person_count()
-        if person_number >= 5 and person_number != self.number:
-            # send_tcp_request("483A0170010100004544")
+        if person_number >= 9 and person_number != self.number:
+            send_tcp_request("483A0170010100004544")
             self.number = person_number
             self.error_number += 1
             return "警告:当前区域人数已经超限"
         elif person_number < 9:
-            # send_tcp_request("483A0170010000004544")
+            send_tcp_request("483A0170010000004544")
             self.number = 0
             return ""
 
