@@ -1,64 +1,27 @@
-import cv2
-from ultralytics import YOLO
-import torch
-import torchvision
-from torchvision.transforms import ToTensor
-from PIL import Image
+import socket
 
-model = YOLO("../../../Python_Project/Person_Counter_exe/weights/yolov8s.pt")
 
-ip_camera_url = "rtsp://admin:tangtangtui123.@192.168.3.66/live"
+def send_tcp_request(hex_data, server_ip, server_port):
+    # 将十六进制字符串转换为字节
+    data = bytes.fromhex(hex_data)
 
-if torch.cuda.is_available():
-    device = torch.device("cuda")
-else:
-    device = torch.device("cpu")
+    # 创建 TCP socket
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        # 连接到服务器
+        s.connect((server_ip, server_port))
 
-model.to(device)
+        # 发送数据
+        s.sendall(data)
+        print(f"Sent Hex Data: {hex_data}")
 
-cap = cv2.VideoCapture(ip_camera_url)
+        # 接收数据
+        received_data = s.recv(1024)
+        print(f"Received Hex Data: {received_data.hex()}")
 
-while True:
-    ret, frame = cap.read()
 
-    if not ret:
-        break
-
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-    pil_frame = Image.fromarray(frame)
-
-    results = model(pil_frame)
-
-    boxes = results[0].boxes
-    person_count = 0
-
-    for boxs in boxes:
-        if results[0].names[boxs.cls[0].item()] == 'person':
-            person_count += 1
-            box = boxs.xyxy[0]
-            x1, y1, x2, y2 = box.tolist()
-            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
-
-            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                        0.5, (0, 255, 0), 2)
-            cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20), cv2.FONT_HERSHEY_SIMPLEX,
-                        0.5, (0, 255, 0), 2)
-
-    fontsize = 1.5
-    if person_count > 4:
-        cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,
-                    (255, 0, 0), 3)
-
-    cv2.putText(frame, f"Perple detected: {person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                fontsize, (255, 0, 0), 3)
-
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-    cv2.imshow("Video", frame)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-cap.release()
-cv2.destroyAllWindows()
+# 使用示例
+if __name__ == "__main__":
+    hex_data = "483A0170010000004544"  # 待发送的十六进制数据
+    server_ip = "192.168.3.253"
+    server_port = 1030  # 服务器端口
+    send_tcp_request(hex_data, server_ip, server_port)

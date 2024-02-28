@@ -7,6 +7,8 @@ from PIL import Image
 from threading import Lock
 import asyncio
 
+from ulits.public_way import send_tcp_request
+
 
 def get_camera(camera_url):
     return cv2.VideoCapture(camera_url)
@@ -22,23 +24,21 @@ class Video_processing:
         else:
             self.device = torch.device("cpu")
         self.model.to(self.device)
-        # self.camera_url = camera_url
         self.camera_url = None
         self.person_count = 0
         self.max_queue_size = max_queue_size
         self.frame_queue = asyncio.Queue(maxsize=max_queue_size)
-        self.prev_boxes = []  # 存储上一次检测到的边界框信息
-        self.frame_count = 0  # 添加一个帧计数器
+        self.prev_boxes = []
+        self.frame_count = 0
         self.camera_number = 1
         self.cap = None
         self.error_number = 0
         self.scheduler = sched.scheduler(time.time, time.sleep)
 
     def is_alive(self) -> int:
-        # cap = cv2.VideoCapture(self.camera_url)
         alive_num = 0
         for i in range(self.camera_number):
-            if self.cap.isOpened():
+            if self.cap and self.cap.isOpened():
                 alive_num += 1
         return alive_num
 
@@ -47,56 +47,56 @@ class Video_processing:
         loop = asyncio.get_event_loop()
 
         async def frame_generator():
-            while self.cap.isOpened():
-                ret, frame = self.cap.read()
-                if not ret:
-                    break
+            try:
+                while self.cap.isOpened():
+                    ret, frame = self.cap.read()
+                    if not ret:
+                        break
 
-                self.frame_count += 1
+                    self.frame_count += 1
 
-                if self.frame_count % 25 == 0:
-                    pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))  # 在此处进行颜色空间转换
-                    results = await loop.run_in_executor(None, self.model, pil_frame)
-                    boxes = results[0].boxes
+                    if self.frame_count % 25 == 0:
+                        pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+                        results = await loop.run_in_executor(None, self.model, pil_frame)
+                        boxes = results[0].boxes
 
-                    with self.person_count_lock:
-                        self.person_count = 0
+                        with self.person_count_lock:
+                            self.person_count = 0
 
-                    for boxs in boxes:
-                        if results[0].names[boxs.cls[0].item()] == 'person':
-                            with self.person_count_lock:
-                                self.person_count += 1
-                            x1, y1, x2, y2 = boxs.xyxy[0].tolist()
-                            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+                        for boxs in boxes:
+                            if results[0].names[boxs.cls[0].item()] == 'person':
+                                with self.person_count_lock:
+                                    self.person_count += 1
+                                x1, y1, x2, y2 = boxs.xyxy[0].tolist()
+                                x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
-                            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                            cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
-                                        cv2.FONT_HERSHEY_SIMPLEX,
-                                        0.5, (0, 255, 0), 2)
-                            cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),
-                                        cv2.FONT_HERSHEY_SIMPLEX,
-                                        0.5, (0, 255, 0), 2)
+                                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                                cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
+                                            cv2.FONT_HERSHEY_SIMPLEX,
+                                            0.5, (0, 255, 0), 2)
+                                cv2.putText(frame, "conf:" + str(round(boxs.conf[0].item(), 2)), (x1, y1 + 20),
+                                            cv2.FONT_HERSHEY_SIMPLEX,
+                                            0.5, (0, 255, 0), 2)
 
-                fontsize = 1.5
-                if self.person_count > 4:
-                    cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,
-                                (0, 255, 0), 3)
+                    fontsize = 1.5
+                    if self.person_count > 4:
+                        cv2.putText(frame, "Max", (500, 500), cv2.FONT_HERSHEY_SIMPLEX, fontsize,
+                                    (0, 255, 0), 3)
 
-                cv2.putText(frame, f"Persons detected: {self.person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                            fontsize, (0, 255, 0), 3)
+                    cv2.putText(frame, f"Persons detected: {self.person_count}", (20, 50), cv2.FONT_HERSHEY_SIMPLEX,
+                                fontsize, (0, 255, 0), 3)
 
-                # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                frame = cv2.resize(frame, (670, 370))
+                    frame = cv2.resize(frame, (670, 370))
 
-                _, buffer = cv2.imencode('.jpg', frame)
-                jpg_as_text = buffer.tobytes()
+                    _, buffer = cv2.imencode('.jpg', frame)
+                    jpg_as_text = buffer.tobytes()
 
-                yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
+                    yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
+            finally:
+                self.cap.release()
 
         async for frame in frame_generator():
             yield frame
-
-        self.cap.release()
 
     async def get_frame(self):
         return await self.frame_queue.get()
@@ -107,12 +107,13 @@ class Video_processing:
 
     def get_error(self):
         person_number = self.get_person_count()
-        if person_number >= 9:
-            if person_number != self.number:
-                self.error_number += 1
-                self.number = person_number
+        if person_number >= 5 and person_number != self.number:
+            # send_tcp_request("483A0170010100004544")
+            self.number = person_number
+            self.error_number += 1
             return "警告:当前区域人数已经超限"
-        else:
+        elif person_number < 9:
+            # send_tcp_request("483A0170010000004544")
             self.number = 0
             return ""
 
@@ -125,13 +126,11 @@ class Video_processing:
 
     async def reset_error_number(self):
         while True:
-            current_time = time.localtime()
-            # 获取明天 00:00:00 的时间
-            tomorrow = time.mktime(
-                (current_time.tm_year, current_time.tm_mon, current_time.tm_mday + 1, 0, 0, 0, 0, 0, 0))
-            # 获取明天 00:00:00 与当前时间的时间差
-            time_diff = tomorrow - time.time()
-            # 等待到明天的 00:00:00
+            # 获取当前时间
+            current_time = time.time()
+            # 计算距离第二天零点的时间差
+            time_diff = 86400 - (current_time % 86400)
+            # 等待直到下一天
             await asyncio.sleep(time_diff)
             # 清零错误数
             self.clear_error_number()

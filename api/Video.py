@@ -11,7 +11,7 @@ from ulits.Video_processing import Video_processing
 
 videoRouter = APIRouter(prefix='/video', tags=['About Video'])
 
-video_processor = Video_processing("../weights/yolov8n.pt")
+video_processor = Video_processing("../weights/yolov8s.pt")
 
 
 @videoRouter.get("/output/{camera_url}")
