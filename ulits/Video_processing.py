@@ -55,7 +55,7 @@ class Video_processing:
 
                     self.frame_count += 1
 
-                    if self.frame_count % 25 == 0:
+                    if self.frame_count % 80 == 0:
                         pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
                         results = await loop.run_in_executor(None, self.model, pil_frame)
                         boxes = results[0].boxes
@@ -107,13 +107,13 @@ class Video_processing:
 
     def get_error(self):
         person_number = self.get_person_count()
-        if person_number >= 9 and person_number != self.number:
-            send_tcp_request("483A0170010100004544")
+        if person_number >= 5 and person_number != self.number:
+            # send_tcp_request("483A0170010100004544")
             self.number = person_number
             self.error_number += 1
             return "警告:当前区域人数已经超限"
-        elif person_number < 9:
-            send_tcp_request("483A0170010000004544")
+        elif person_number < 5:
+            # send_tcp_request("483A0170010000004544")
             self.number = 0
             return ""
 
