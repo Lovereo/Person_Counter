@@ -7,8 +7,6 @@ from PIL import Image
 from threading import Lock
 import asyncio
 
-from ulits.public_way import send_tcp_request
-
 
 def get_camera(camera_url):
     return cv2.VideoCapture(camera_url)

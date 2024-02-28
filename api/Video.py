@@ -1,10 +1,9 @@
 import asyncio
 from typing import List
 
-import cv2
 from fastapi import APIRouter, Request, Query
 from starlette.background import BackgroundTasks
-from starlette.responses import StreamingResponse, JSONResponse
+from starlette.responses import StreamingResponse
 from model import video
 
 from ulits.Video_processing import Video_processing
@@ -16,7 +15,6 @@ video_processor = Video_processing("../weights/yolov8n.pt")
 
 @videoRouter.get("/output/{camera_url}")
 async def video_feed(camera_url: str = Query(...)):
-    print(camera_url)
     return StreamingResponse(video_processor.generate_frames(camera_url), media_type="multipart/x-mixed-replace; boundary=frame")
 
 
