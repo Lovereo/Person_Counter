@@ -3,6 +3,6 @@ from Cython.Build import cythonize
 
 setup(
     name="Video_processing_pics",
-    ext_modules=cythonize(['api/Video.py']),
+    ext_modules=cythonize(['utils/video.py']),
     script_args=["install"]
 )

@@ -1496,7 +1496,7 @@ struct __pyx_obj_5utils_5video___pyx_scope_struct__generate_frames {
 };
 
 
-/* "utils/video.py":117
+/* "utils/video.py":107
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -2082,14 +2082,6 @@ static double __Pyx__PyObject_AsDouble(PyObject* obj);
 
 /* PyIntBinop.proto */
 #if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_SubtractObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
-#else
-#define __Pyx_PyInt_SubtractObjC(op1, op2, intval, inplace, zerodivision_check)\
-    (inplace ? PyNumber_InPlaceSubtract(op1, op2) : PyNumber_Subtract(op1, op2))
-#endif
-
-/* PyIntBinop.proto */
-#if !CYTHON_COMPILING_IN_PYPY
 static PyObject* __Pyx_PyInt_AddObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
 #else
 #define __Pyx_PyInt_AddObjC(op1, op2, intval, inplace, zerodivision_check)\
@@ -2602,19 +2594,15 @@ static PyObject *__pyx_builtin_print;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k__3[] = "\r\n";
-static const char __pyx_k__5[] = "\350\255\246\345\221\212:\345\275\223\345\211\215\345\214\272\345\237\237\344\272\272\346\225\260\345\267\262\347\273\217\350\266\205\351\231\220";
-static const char __pyx_k__6[] = "";
-static const char __pyx_k__9[] = "*";
+static const char __pyx_k__4[] = "\350\255\246\345\221\212:\345\275\223\345\211\215\345\214\272\345\237\237\344\272\272\346\225\260\345\267\262\347\273\217\350\266\205\351\231\220";
+static const char __pyx_k__5[] = "";
+static const char __pyx_k__8[] = "*";
+static const char __pyx_k__9[] = ".";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_to[] = "to";
-static const char __pyx_k_x1[] = "x1";
-static const char __pyx_k_x2[] = "x2";
-static const char __pyx_k_y1[] = "y1";
-static const char __pyx_k_y2[] = "y2";
 static const char __pyx_k_PIL[] = "PIL";
-static const char __pyx_k__10[] = ".";
-static const char __pyx_k__15[] = "_";
-static const char __pyx_k__29[] = "?";
+static const char __pyx_k__14[] = "_";
+static const char __pyx_k__28[] = "?";
 static const char __pyx_k_cap[] = "cap";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_cpu[] = "cpu";
@@ -2641,7 +2629,6 @@ static const char __pyx_k_send[] = "send";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_time[] = "time";
-static const char __pyx_k_xyxy[] = "xyxy";
 static const char __pyx_k_Image[] = "Image";
 static const char __pyx_k_Queue[] = "Queue";
 static const char __pyx_k_await[] = "__await__";
@@ -2672,17 +2659,13 @@ static const char __pyx_k_person[] = "person";
 static const char __pyx_k_resize[] = "resize";
 static const char __pyx_k_return[] = "return";
 static const char __pyx_k_target[] = "target";
-static const char __pyx_k_tolist[] = "tolist";
 static const char __pyx_k_asyncio[] = "asyncio";
 static const char __pyx_k_disable[] = "disable";
-static const char __pyx_k_imwrite[] = "imwrite";
 static const char __pyx_k_inspect[] = "inspect";
 static const char __pyx_k_prepare[] = "__prepare__";
-static const char __pyx_k_putText[] = "putText";
 static const char __pyx_k_release[] = "release";
 static const char __pyx_k_results[] = "results";
 static const char __pyx_k_tobytes[] = "tobytes";
-static const char __pyx_k_xxx_jpg[] = "xxx.jpg";
 static const char __pyx_k_cvtColor[] = "cvtColor";
 static const char __pyx_k_imencode[] = "imencode";
 static const char __pyx_k_isOpened[] = "isOpened";
@@ -2695,7 +2678,6 @@ static const char __pyx_k_get_error[] = "get_error";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_pil_frame[] = "pil_frame";
-static const char __pyx_k_rectangle[] = "rectangle";
 static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_time_diff[] = "time_diff";
 static const char __pyx_k_RTSPCamera[] = "RTSPCamera";
@@ -2724,7 +2706,6 @@ static const char __pyx_k_generate_frames[] = "generate_frames";
 static const char __pyx_k_last_frame_time[] = "last_frame_time";
 static const char __pyx_k_get_error_number[] = "get_error_number";
 static const char __pyx_k_get_person_count[] = "get_person_count";
-static const char __pyx_k_send_tcp_request[] = "send_tcp_request";
 static const char __pyx_k_utils_public_way[] = "utils.public_way";
 static const char __pyx_k_RTSPCamera___init[] = "RTSPCamera.__init__";
 static const char __pyx_k_RTSPCamera_release[] = "RTSPCamera.release";
@@ -2735,12 +2716,11 @@ static const char __pyx_k_reset_error_number[] = "reset_error_number";
 static const char __pyx_k_weights_yolov8s_pt[] = "../weights/yolov8s.pt";
 static const char __pyx_k_RTSPCamera_is_alive[] = "RTSPCamera.is_alive";
 static const char __pyx_k_dispose_frame_async[] = "dispose_frame_async";
-static const char __pyx_k_483A0170010000004544[] = "483A0170010000004544";
-static const char __pyx_k_483A0170010100004544[] = "483A0170010100004544";
+static const char __pyx_k_send_on_tcp_request[] = "send_on_tcp_request";
 static const char __pyx_k_Error_number_cleared[] = "Error number cleared.";
-static const char __pyx_k_FONT_HERSHEY_SIMPLEX[] = "FONT_HERSHEY_SIMPLEX";
 static const char __pyx_k_RTSPCamera_get_error[] = "RTSPCamera.get_error";
 static const char __pyx_k_process_frames_async[] = "process_frames_async";
+static const char __pyx_k_send_off_tcp_request[] = "send_off_tcp_request";
 static const char __pyx_k_RTSPCamera_generate_frames[] = "RTSPCamera.generate_frames";
 static const char __pyx_k_RTSPCamera_get_error_number[] = "RTSPCamera.get_error_number";
 static const char __pyx_k_RTSPCamera_get_person_count[] = "RTSPCamera.get_person_count";
@@ -2796,11 +2776,8 @@ typedef struct {
   #endif
   PyTypeObject *__pyx_ptype_5utils_5video___pyx_scope_struct__generate_frames;
   PyTypeObject *__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number;
-  PyObject *__pyx_kp_s_483A0170010000004544;
-  PyObject *__pyx_kp_s_483A0170010100004544;
   PyObject *__pyx_n_s_COLOR_BGR2RGB;
   PyObject *__pyx_kp_s_Error_number_cleared;
-  PyObject *__pyx_n_s_FONT_HERSHEY_SIMPLEX;
   PyObject *__pyx_n_s_Image;
   PyObject *__pyx_n_s_PIL;
   PyObject *__pyx_n_s_Queue;
@@ -2818,13 +2795,13 @@ typedef struct {
   PyObject *__pyx_n_s_RTSPCamera_reset_error_number;
   PyObject *__pyx_n_s_Thread;
   PyObject *__pyx_n_s_YOLO;
-  PyObject *__pyx_kp_u__10;
-  PyObject *__pyx_n_s__15;
-  PyObject *__pyx_n_s__29;
+  PyObject *__pyx_n_s__14;
+  PyObject *__pyx_n_s__28;
   PyObject *__pyx_kp_b__3;
+  PyObject *__pyx_kp_s__4;
   PyObject *__pyx_kp_s__5;
-  PyObject *__pyx_kp_s__6;
-  PyObject *__pyx_n_s__9;
+  PyObject *__pyx_n_s__8;
+  PyObject *__pyx_kp_u__9;
   PyObject *__pyx_n_s_alive_num;
   PyObject *__pyx_n_s_args;
   PyObject *__pyx_n_s_asyncio;
@@ -2870,7 +2847,6 @@ typedef struct {
   PyObject *__pyx_n_s_i;
   PyObject *__pyx_n_s_imencode;
   PyObject *__pyx_n_s_import;
-  PyObject *__pyx_n_s_imwrite;
   PyObject *__pyx_n_s_init;
   PyObject *__pyx_n_s_init_subclass;
   PyObject *__pyx_n_s_initializing;
@@ -2902,12 +2878,10 @@ typedef struct {
   PyObject *__pyx_n_s_process_frames_async;
   PyObject *__pyx_n_s_process_thread;
   PyObject *__pyx_n_s_put;
-  PyObject *__pyx_n_s_putText;
   PyObject *__pyx_n_s_qualname;
   PyObject *__pyx_n_s_queue;
   PyObject *__pyx_n_s_range;
   PyObject *__pyx_n_s_read;
-  PyObject *__pyx_n_s_rectangle;
   PyObject *__pyx_n_s_release;
   PyObject *__pyx_n_s_reset_error_number;
   PyObject *__pyx_n_s_resize;
@@ -2917,7 +2891,8 @@ typedef struct {
   PyObject *__pyx_n_s_rval;
   PyObject *__pyx_n_s_self;
   PyObject *__pyx_n_s_send;
-  PyObject *__pyx_n_s_send_tcp_request;
+  PyObject *__pyx_n_s_send_off_tcp_request;
+  PyObject *__pyx_n_s_send_on_tcp_request;
   PyObject *__pyx_n_s_set_name;
   PyObject *__pyx_n_s_sleep;
   PyObject *__pyx_n_s_spec;
@@ -2932,51 +2907,40 @@ typedef struct {
   PyObject *__pyx_n_s_time_diff;
   PyObject *__pyx_n_s_to;
   PyObject *__pyx_n_s_tobytes;
-  PyObject *__pyx_n_s_tolist;
   PyObject *__pyx_n_s_torch;
   PyObject *__pyx_n_s_ultralytics;
   PyObject *__pyx_n_s_utils_public_way;
   PyObject *__pyx_n_s_utils_video;
   PyObject *__pyx_kp_s_utils_video_py;
   PyObject *__pyx_kp_s_weights_yolov8s_pt;
-  PyObject *__pyx_n_s_x1;
-  PyObject *__pyx_n_s_x2;
-  PyObject *__pyx_kp_s_xxx_jpg;
-  PyObject *__pyx_n_s_xyxy;
-  PyObject *__pyx_n_s_y1;
-  PyObject *__pyx_n_s_y2;
-  PyObject *__pyx_float_0_5;
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_2;
   PyObject *__pyx_int_9;
-  PyObject *__pyx_int_10;
-  PyObject *__pyx_int_255;
   PyObject *__pyx_int_370;
   PyObject *__pyx_int_670;
   PyObject *__pyx_int_86400;
   PyObject *__pyx_codeobj_;
   PyObject *__pyx_tuple__2;
-  PyObject *__pyx_tuple__4;
-  PyObject *__pyx_tuple__7;
-  PyObject *__pyx_tuple__11;
-  PyObject *__pyx_tuple__13;
+  PyObject *__pyx_tuple__6;
+  PyObject *__pyx_tuple__10;
+  PyObject *__pyx_tuple__12;
+  PyObject *__pyx_tuple__15;
   PyObject *__pyx_tuple__16;
-  PyObject *__pyx_tuple__17;
-  PyObject *__pyx_tuple__19;
-  PyObject *__pyx_tuple__21;
-  PyObject *__pyx_tuple__24;
-  PyObject *__pyx_tuple__28;
-  PyObject *__pyx_codeobj__8;
-  PyObject *__pyx_codeobj__12;
-  PyObject *__pyx_codeobj__14;
-  PyObject *__pyx_codeobj__18;
-  PyObject *__pyx_codeobj__20;
+  PyObject *__pyx_tuple__18;
+  PyObject *__pyx_tuple__20;
+  PyObject *__pyx_tuple__23;
+  PyObject *__pyx_tuple__27;
+  PyObject *__pyx_codeobj__7;
+  PyObject *__pyx_codeobj__11;
+  PyObject *__pyx_codeobj__13;
+  PyObject *__pyx_codeobj__17;
+  PyObject *__pyx_codeobj__19;
+  PyObject *__pyx_codeobj__21;
   PyObject *__pyx_codeobj__22;
-  PyObject *__pyx_codeobj__23;
+  PyObject *__pyx_codeobj__24;
   PyObject *__pyx_codeobj__25;
   PyObject *__pyx_codeobj__26;
-  PyObject *__pyx_codeobj__27;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -3023,11 +2987,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_5utils_5video___pyx_scope_struct__generate_frames);
   Py_CLEAR(clear_module_state->__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number);
   Py_CLEAR(clear_module_state->__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_483A0170010000004544);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_483A0170010100004544);
   Py_CLEAR(clear_module_state->__pyx_n_s_COLOR_BGR2RGB);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Error_number_cleared);
-  Py_CLEAR(clear_module_state->__pyx_n_s_FONT_HERSHEY_SIMPLEX);
   Py_CLEAR(clear_module_state->__pyx_n_s_Image);
   Py_CLEAR(clear_module_state->__pyx_n_s_PIL);
   Py_CLEAR(clear_module_state->__pyx_n_s_Queue);
@@ -3045,13 +3006,13 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_RTSPCamera_reset_error_number);
   Py_CLEAR(clear_module_state->__pyx_n_s_Thread);
   Py_CLEAR(clear_module_state->__pyx_n_s_YOLO);
-  Py_CLEAR(clear_module_state->__pyx_kp_u__10);
-  Py_CLEAR(clear_module_state->__pyx_n_s__15);
-  Py_CLEAR(clear_module_state->__pyx_n_s__29);
+  Py_CLEAR(clear_module_state->__pyx_n_s__14);
+  Py_CLEAR(clear_module_state->__pyx_n_s__28);
   Py_CLEAR(clear_module_state->__pyx_kp_b__3);
+  Py_CLEAR(clear_module_state->__pyx_kp_s__4);
   Py_CLEAR(clear_module_state->__pyx_kp_s__5);
-  Py_CLEAR(clear_module_state->__pyx_kp_s__6);
-  Py_CLEAR(clear_module_state->__pyx_n_s__9);
+  Py_CLEAR(clear_module_state->__pyx_n_s__8);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__9);
   Py_CLEAR(clear_module_state->__pyx_n_s_alive_num);
   Py_CLEAR(clear_module_state->__pyx_n_s_args);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio);
@@ -3097,7 +3058,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_i);
   Py_CLEAR(clear_module_state->__pyx_n_s_imencode);
   Py_CLEAR(clear_module_state->__pyx_n_s_import);
-  Py_CLEAR(clear_module_state->__pyx_n_s_imwrite);
   Py_CLEAR(clear_module_state->__pyx_n_s_init);
   Py_CLEAR(clear_module_state->__pyx_n_s_init_subclass);
   Py_CLEAR(clear_module_state->__pyx_n_s_initializing);
@@ -3129,12 +3089,10 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_process_frames_async);
   Py_CLEAR(clear_module_state->__pyx_n_s_process_thread);
   Py_CLEAR(clear_module_state->__pyx_n_s_put);
-  Py_CLEAR(clear_module_state->__pyx_n_s_putText);
   Py_CLEAR(clear_module_state->__pyx_n_s_qualname);
   Py_CLEAR(clear_module_state->__pyx_n_s_queue);
   Py_CLEAR(clear_module_state->__pyx_n_s_range);
   Py_CLEAR(clear_module_state->__pyx_n_s_read);
-  Py_CLEAR(clear_module_state->__pyx_n_s_rectangle);
   Py_CLEAR(clear_module_state->__pyx_n_s_release);
   Py_CLEAR(clear_module_state->__pyx_n_s_reset_error_number);
   Py_CLEAR(clear_module_state->__pyx_n_s_resize);
@@ -3144,7 +3102,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_rval);
   Py_CLEAR(clear_module_state->__pyx_n_s_self);
   Py_CLEAR(clear_module_state->__pyx_n_s_send);
-  Py_CLEAR(clear_module_state->__pyx_n_s_send_tcp_request);
+  Py_CLEAR(clear_module_state->__pyx_n_s_send_off_tcp_request);
+  Py_CLEAR(clear_module_state->__pyx_n_s_send_on_tcp_request);
   Py_CLEAR(clear_module_state->__pyx_n_s_set_name);
   Py_CLEAR(clear_module_state->__pyx_n_s_sleep);
   Py_CLEAR(clear_module_state->__pyx_n_s_spec);
@@ -3159,51 +3118,40 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_time_diff);
   Py_CLEAR(clear_module_state->__pyx_n_s_to);
   Py_CLEAR(clear_module_state->__pyx_n_s_tobytes);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tolist);
   Py_CLEAR(clear_module_state->__pyx_n_s_torch);
   Py_CLEAR(clear_module_state->__pyx_n_s_ultralytics);
   Py_CLEAR(clear_module_state->__pyx_n_s_utils_public_way);
   Py_CLEAR(clear_module_state->__pyx_n_s_utils_video);
   Py_CLEAR(clear_module_state->__pyx_kp_s_utils_video_py);
   Py_CLEAR(clear_module_state->__pyx_kp_s_weights_yolov8s_pt);
-  Py_CLEAR(clear_module_state->__pyx_n_s_x1);
-  Py_CLEAR(clear_module_state->__pyx_n_s_x2);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_xxx_jpg);
-  Py_CLEAR(clear_module_state->__pyx_n_s_xyxy);
-  Py_CLEAR(clear_module_state->__pyx_n_s_y1);
-  Py_CLEAR(clear_module_state->__pyx_n_s_y2);
-  Py_CLEAR(clear_module_state->__pyx_float_0_5);
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_2);
   Py_CLEAR(clear_module_state->__pyx_int_9);
-  Py_CLEAR(clear_module_state->__pyx_int_10);
-  Py_CLEAR(clear_module_state->__pyx_int_255);
   Py_CLEAR(clear_module_state->__pyx_int_370);
   Py_CLEAR(clear_module_state->__pyx_int_670);
   Py_CLEAR(clear_module_state->__pyx_int_86400);
   Py_CLEAR(clear_module_state->__pyx_codeobj_);
   Py_CLEAR(clear_module_state->__pyx_tuple__2);
-  Py_CLEAR(clear_module_state->__pyx_tuple__4);
-  Py_CLEAR(clear_module_state->__pyx_tuple__7);
-  Py_CLEAR(clear_module_state->__pyx_tuple__11);
-  Py_CLEAR(clear_module_state->__pyx_tuple__13);
+  Py_CLEAR(clear_module_state->__pyx_tuple__6);
+  Py_CLEAR(clear_module_state->__pyx_tuple__10);
+  Py_CLEAR(clear_module_state->__pyx_tuple__12);
+  Py_CLEAR(clear_module_state->__pyx_tuple__15);
   Py_CLEAR(clear_module_state->__pyx_tuple__16);
-  Py_CLEAR(clear_module_state->__pyx_tuple__17);
-  Py_CLEAR(clear_module_state->__pyx_tuple__19);
-  Py_CLEAR(clear_module_state->__pyx_tuple__21);
-  Py_CLEAR(clear_module_state->__pyx_tuple__24);
-  Py_CLEAR(clear_module_state->__pyx_tuple__28);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__8);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__12);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__14);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__18);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__20);
+  Py_CLEAR(clear_module_state->__pyx_tuple__18);
+  Py_CLEAR(clear_module_state->__pyx_tuple__20);
+  Py_CLEAR(clear_module_state->__pyx_tuple__23);
+  Py_CLEAR(clear_module_state->__pyx_tuple__27);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__7);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__11);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__13);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__17);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__19);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__21);
   Py_CLEAR(clear_module_state->__pyx_codeobj__22);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__23);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__24);
   Py_CLEAR(clear_module_state->__pyx_codeobj__25);
   Py_CLEAR(clear_module_state->__pyx_codeobj__26);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__27);
   return 0;
 }
 #endif
@@ -3228,11 +3176,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_type_5utils_5video___pyx_scope_struct__generate_frames);
   Py_VISIT(traverse_module_state->__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number);
   Py_VISIT(traverse_module_state->__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_483A0170010000004544);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_483A0170010100004544);
   Py_VISIT(traverse_module_state->__pyx_n_s_COLOR_BGR2RGB);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Error_number_cleared);
-  Py_VISIT(traverse_module_state->__pyx_n_s_FONT_HERSHEY_SIMPLEX);
   Py_VISIT(traverse_module_state->__pyx_n_s_Image);
   Py_VISIT(traverse_module_state->__pyx_n_s_PIL);
   Py_VISIT(traverse_module_state->__pyx_n_s_Queue);
@@ -3250,13 +3195,13 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_RTSPCamera_reset_error_number);
   Py_VISIT(traverse_module_state->__pyx_n_s_Thread);
   Py_VISIT(traverse_module_state->__pyx_n_s_YOLO);
-  Py_VISIT(traverse_module_state->__pyx_kp_u__10);
-  Py_VISIT(traverse_module_state->__pyx_n_s__15);
-  Py_VISIT(traverse_module_state->__pyx_n_s__29);
+  Py_VISIT(traverse_module_state->__pyx_n_s__14);
+  Py_VISIT(traverse_module_state->__pyx_n_s__28);
   Py_VISIT(traverse_module_state->__pyx_kp_b__3);
+  Py_VISIT(traverse_module_state->__pyx_kp_s__4);
   Py_VISIT(traverse_module_state->__pyx_kp_s__5);
-  Py_VISIT(traverse_module_state->__pyx_kp_s__6);
-  Py_VISIT(traverse_module_state->__pyx_n_s__9);
+  Py_VISIT(traverse_module_state->__pyx_n_s__8);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__9);
   Py_VISIT(traverse_module_state->__pyx_n_s_alive_num);
   Py_VISIT(traverse_module_state->__pyx_n_s_args);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio);
@@ -3302,7 +3247,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_i);
   Py_VISIT(traverse_module_state->__pyx_n_s_imencode);
   Py_VISIT(traverse_module_state->__pyx_n_s_import);
-  Py_VISIT(traverse_module_state->__pyx_n_s_imwrite);
   Py_VISIT(traverse_module_state->__pyx_n_s_init);
   Py_VISIT(traverse_module_state->__pyx_n_s_init_subclass);
   Py_VISIT(traverse_module_state->__pyx_n_s_initializing);
@@ -3334,12 +3278,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_process_frames_async);
   Py_VISIT(traverse_module_state->__pyx_n_s_process_thread);
   Py_VISIT(traverse_module_state->__pyx_n_s_put);
-  Py_VISIT(traverse_module_state->__pyx_n_s_putText);
   Py_VISIT(traverse_module_state->__pyx_n_s_qualname);
   Py_VISIT(traverse_module_state->__pyx_n_s_queue);
   Py_VISIT(traverse_module_state->__pyx_n_s_range);
   Py_VISIT(traverse_module_state->__pyx_n_s_read);
-  Py_VISIT(traverse_module_state->__pyx_n_s_rectangle);
   Py_VISIT(traverse_module_state->__pyx_n_s_release);
   Py_VISIT(traverse_module_state->__pyx_n_s_reset_error_number);
   Py_VISIT(traverse_module_state->__pyx_n_s_resize);
@@ -3349,7 +3291,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_rval);
   Py_VISIT(traverse_module_state->__pyx_n_s_self);
   Py_VISIT(traverse_module_state->__pyx_n_s_send);
-  Py_VISIT(traverse_module_state->__pyx_n_s_send_tcp_request);
+  Py_VISIT(traverse_module_state->__pyx_n_s_send_off_tcp_request);
+  Py_VISIT(traverse_module_state->__pyx_n_s_send_on_tcp_request);
   Py_VISIT(traverse_module_state->__pyx_n_s_set_name);
   Py_VISIT(traverse_module_state->__pyx_n_s_sleep);
   Py_VISIT(traverse_module_state->__pyx_n_s_spec);
@@ -3364,51 +3307,40 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_time_diff);
   Py_VISIT(traverse_module_state->__pyx_n_s_to);
   Py_VISIT(traverse_module_state->__pyx_n_s_tobytes);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tolist);
   Py_VISIT(traverse_module_state->__pyx_n_s_torch);
   Py_VISIT(traverse_module_state->__pyx_n_s_ultralytics);
   Py_VISIT(traverse_module_state->__pyx_n_s_utils_public_way);
   Py_VISIT(traverse_module_state->__pyx_n_s_utils_video);
   Py_VISIT(traverse_module_state->__pyx_kp_s_utils_video_py);
   Py_VISIT(traverse_module_state->__pyx_kp_s_weights_yolov8s_pt);
-  Py_VISIT(traverse_module_state->__pyx_n_s_x1);
-  Py_VISIT(traverse_module_state->__pyx_n_s_x2);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_xxx_jpg);
-  Py_VISIT(traverse_module_state->__pyx_n_s_xyxy);
-  Py_VISIT(traverse_module_state->__pyx_n_s_y1);
-  Py_VISIT(traverse_module_state->__pyx_n_s_y2);
-  Py_VISIT(traverse_module_state->__pyx_float_0_5);
   Py_VISIT(traverse_module_state->__pyx_int_0);
   Py_VISIT(traverse_module_state->__pyx_int_1);
   Py_VISIT(traverse_module_state->__pyx_int_2);
   Py_VISIT(traverse_module_state->__pyx_int_9);
-  Py_VISIT(traverse_module_state->__pyx_int_10);
-  Py_VISIT(traverse_module_state->__pyx_int_255);
   Py_VISIT(traverse_module_state->__pyx_int_370);
   Py_VISIT(traverse_module_state->__pyx_int_670);
   Py_VISIT(traverse_module_state->__pyx_int_86400);
   Py_VISIT(traverse_module_state->__pyx_codeobj_);
   Py_VISIT(traverse_module_state->__pyx_tuple__2);
-  Py_VISIT(traverse_module_state->__pyx_tuple__4);
-  Py_VISIT(traverse_module_state->__pyx_tuple__7);
-  Py_VISIT(traverse_module_state->__pyx_tuple__11);
-  Py_VISIT(traverse_module_state->__pyx_tuple__13);
+  Py_VISIT(traverse_module_state->__pyx_tuple__6);
+  Py_VISIT(traverse_module_state->__pyx_tuple__10);
+  Py_VISIT(traverse_module_state->__pyx_tuple__12);
+  Py_VISIT(traverse_module_state->__pyx_tuple__15);
   Py_VISIT(traverse_module_state->__pyx_tuple__16);
-  Py_VISIT(traverse_module_state->__pyx_tuple__17);
-  Py_VISIT(traverse_module_state->__pyx_tuple__19);
-  Py_VISIT(traverse_module_state->__pyx_tuple__21);
-  Py_VISIT(traverse_module_state->__pyx_tuple__24);
-  Py_VISIT(traverse_module_state->__pyx_tuple__28);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__8);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__12);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__14);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__18);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__20);
+  Py_VISIT(traverse_module_state->__pyx_tuple__18);
+  Py_VISIT(traverse_module_state->__pyx_tuple__20);
+  Py_VISIT(traverse_module_state->__pyx_tuple__23);
+  Py_VISIT(traverse_module_state->__pyx_tuple__27);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__7);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__11);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__13);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__17);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__19);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__21);
   Py_VISIT(traverse_module_state->__pyx_codeobj__22);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__23);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__24);
   Py_VISIT(traverse_module_state->__pyx_codeobj__25);
   Py_VISIT(traverse_module_state->__pyx_codeobj__26);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__27);
   return 0;
 }
 #endif
@@ -3443,11 +3375,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #endif
 #define __pyx_ptype_5utils_5video___pyx_scope_struct__generate_frames __pyx_mstate_global->__pyx_ptype_5utils_5video___pyx_scope_struct__generate_frames
 #define __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number __pyx_mstate_global->__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number
-#define __pyx_kp_s_483A0170010000004544 __pyx_mstate_global->__pyx_kp_s_483A0170010000004544
-#define __pyx_kp_s_483A0170010100004544 __pyx_mstate_global->__pyx_kp_s_483A0170010100004544
 #define __pyx_n_s_COLOR_BGR2RGB __pyx_mstate_global->__pyx_n_s_COLOR_BGR2RGB
 #define __pyx_kp_s_Error_number_cleared __pyx_mstate_global->__pyx_kp_s_Error_number_cleared
-#define __pyx_n_s_FONT_HERSHEY_SIMPLEX __pyx_mstate_global->__pyx_n_s_FONT_HERSHEY_SIMPLEX
 #define __pyx_n_s_Image __pyx_mstate_global->__pyx_n_s_Image
 #define __pyx_n_s_PIL __pyx_mstate_global->__pyx_n_s_PIL
 #define __pyx_n_s_Queue __pyx_mstate_global->__pyx_n_s_Queue
@@ -3465,13 +3394,13 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_RTSPCamera_reset_error_number __pyx_mstate_global->__pyx_n_s_RTSPCamera_reset_error_number
 #define __pyx_n_s_Thread __pyx_mstate_global->__pyx_n_s_Thread
 #define __pyx_n_s_YOLO __pyx_mstate_global->__pyx_n_s_YOLO
-#define __pyx_kp_u__10 __pyx_mstate_global->__pyx_kp_u__10
-#define __pyx_n_s__15 __pyx_mstate_global->__pyx_n_s__15
-#define __pyx_n_s__29 __pyx_mstate_global->__pyx_n_s__29
+#define __pyx_n_s__14 __pyx_mstate_global->__pyx_n_s__14
+#define __pyx_n_s__28 __pyx_mstate_global->__pyx_n_s__28
 #define __pyx_kp_b__3 __pyx_mstate_global->__pyx_kp_b__3
+#define __pyx_kp_s__4 __pyx_mstate_global->__pyx_kp_s__4
 #define __pyx_kp_s__5 __pyx_mstate_global->__pyx_kp_s__5
-#define __pyx_kp_s__6 __pyx_mstate_global->__pyx_kp_s__6
-#define __pyx_n_s__9 __pyx_mstate_global->__pyx_n_s__9
+#define __pyx_n_s__8 __pyx_mstate_global->__pyx_n_s__8
+#define __pyx_kp_u__9 __pyx_mstate_global->__pyx_kp_u__9
 #define __pyx_n_s_alive_num __pyx_mstate_global->__pyx_n_s_alive_num
 #define __pyx_n_s_args __pyx_mstate_global->__pyx_n_s_args
 #define __pyx_n_s_asyncio __pyx_mstate_global->__pyx_n_s_asyncio
@@ -3517,7 +3446,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_i __pyx_mstate_global->__pyx_n_s_i
 #define __pyx_n_s_imencode __pyx_mstate_global->__pyx_n_s_imencode
 #define __pyx_n_s_import __pyx_mstate_global->__pyx_n_s_import
-#define __pyx_n_s_imwrite __pyx_mstate_global->__pyx_n_s_imwrite
 #define __pyx_n_s_init __pyx_mstate_global->__pyx_n_s_init
 #define __pyx_n_s_init_subclass __pyx_mstate_global->__pyx_n_s_init_subclass
 #define __pyx_n_s_initializing __pyx_mstate_global->__pyx_n_s_initializing
@@ -3549,12 +3477,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_process_frames_async __pyx_mstate_global->__pyx_n_s_process_frames_async
 #define __pyx_n_s_process_thread __pyx_mstate_global->__pyx_n_s_process_thread
 #define __pyx_n_s_put __pyx_mstate_global->__pyx_n_s_put
-#define __pyx_n_s_putText __pyx_mstate_global->__pyx_n_s_putText
 #define __pyx_n_s_qualname __pyx_mstate_global->__pyx_n_s_qualname
 #define __pyx_n_s_queue __pyx_mstate_global->__pyx_n_s_queue
 #define __pyx_n_s_range __pyx_mstate_global->__pyx_n_s_range
 #define __pyx_n_s_read __pyx_mstate_global->__pyx_n_s_read
-#define __pyx_n_s_rectangle __pyx_mstate_global->__pyx_n_s_rectangle
 #define __pyx_n_s_release __pyx_mstate_global->__pyx_n_s_release
 #define __pyx_n_s_reset_error_number __pyx_mstate_global->__pyx_n_s_reset_error_number
 #define __pyx_n_s_resize __pyx_mstate_global->__pyx_n_s_resize
@@ -3564,7 +3490,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_rval __pyx_mstate_global->__pyx_n_s_rval
 #define __pyx_n_s_self __pyx_mstate_global->__pyx_n_s_self
 #define __pyx_n_s_send __pyx_mstate_global->__pyx_n_s_send
-#define __pyx_n_s_send_tcp_request __pyx_mstate_global->__pyx_n_s_send_tcp_request
+#define __pyx_n_s_send_off_tcp_request __pyx_mstate_global->__pyx_n_s_send_off_tcp_request
+#define __pyx_n_s_send_on_tcp_request __pyx_mstate_global->__pyx_n_s_send_on_tcp_request
 #define __pyx_n_s_set_name __pyx_mstate_global->__pyx_n_s_set_name
 #define __pyx_n_s_sleep __pyx_mstate_global->__pyx_n_s_sleep
 #define __pyx_n_s_spec __pyx_mstate_global->__pyx_n_s_spec
@@ -3579,51 +3506,40 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_time_diff __pyx_mstate_global->__pyx_n_s_time_diff
 #define __pyx_n_s_to __pyx_mstate_global->__pyx_n_s_to
 #define __pyx_n_s_tobytes __pyx_mstate_global->__pyx_n_s_tobytes
-#define __pyx_n_s_tolist __pyx_mstate_global->__pyx_n_s_tolist
 #define __pyx_n_s_torch __pyx_mstate_global->__pyx_n_s_torch
 #define __pyx_n_s_ultralytics __pyx_mstate_global->__pyx_n_s_ultralytics
 #define __pyx_n_s_utils_public_way __pyx_mstate_global->__pyx_n_s_utils_public_way
 #define __pyx_n_s_utils_video __pyx_mstate_global->__pyx_n_s_utils_video
 #define __pyx_kp_s_utils_video_py __pyx_mstate_global->__pyx_kp_s_utils_video_py
 #define __pyx_kp_s_weights_yolov8s_pt __pyx_mstate_global->__pyx_kp_s_weights_yolov8s_pt
-#define __pyx_n_s_x1 __pyx_mstate_global->__pyx_n_s_x1
-#define __pyx_n_s_x2 __pyx_mstate_global->__pyx_n_s_x2
-#define __pyx_kp_s_xxx_jpg __pyx_mstate_global->__pyx_kp_s_xxx_jpg
-#define __pyx_n_s_xyxy __pyx_mstate_global->__pyx_n_s_xyxy
-#define __pyx_n_s_y1 __pyx_mstate_global->__pyx_n_s_y1
-#define __pyx_n_s_y2 __pyx_mstate_global->__pyx_n_s_y2
-#define __pyx_float_0_5 __pyx_mstate_global->__pyx_float_0_5
 #define __pyx_int_0 __pyx_mstate_global->__pyx_int_0
 #define __pyx_int_1 __pyx_mstate_global->__pyx_int_1
 #define __pyx_int_2 __pyx_mstate_global->__pyx_int_2
 #define __pyx_int_9 __pyx_mstate_global->__pyx_int_9
-#define __pyx_int_10 __pyx_mstate_global->__pyx_int_10
-#define __pyx_int_255 __pyx_mstate_global->__pyx_int_255
 #define __pyx_int_370 __pyx_mstate_global->__pyx_int_370
 #define __pyx_int_670 __pyx_mstate_global->__pyx_int_670
 #define __pyx_int_86400 __pyx_mstate_global->__pyx_int_86400
 #define __pyx_codeobj_ __pyx_mstate_global->__pyx_codeobj_
 #define __pyx_tuple__2 __pyx_mstate_global->__pyx_tuple__2
-#define __pyx_tuple__4 __pyx_mstate_global->__pyx_tuple__4
-#define __pyx_tuple__7 __pyx_mstate_global->__pyx_tuple__7
-#define __pyx_tuple__11 __pyx_mstate_global->__pyx_tuple__11
-#define __pyx_tuple__13 __pyx_mstate_global->__pyx_tuple__13
+#define __pyx_tuple__6 __pyx_mstate_global->__pyx_tuple__6
+#define __pyx_tuple__10 __pyx_mstate_global->__pyx_tuple__10
+#define __pyx_tuple__12 __pyx_mstate_global->__pyx_tuple__12
+#define __pyx_tuple__15 __pyx_mstate_global->__pyx_tuple__15
 #define __pyx_tuple__16 __pyx_mstate_global->__pyx_tuple__16
-#define __pyx_tuple__17 __pyx_mstate_global->__pyx_tuple__17
-#define __pyx_tuple__19 __pyx_mstate_global->__pyx_tuple__19
-#define __pyx_tuple__21 __pyx_mstate_global->__pyx_tuple__21
-#define __pyx_tuple__24 __pyx_mstate_global->__pyx_tuple__24
-#define __pyx_tuple__28 __pyx_mstate_global->__pyx_tuple__28
-#define __pyx_codeobj__8 __pyx_mstate_global->__pyx_codeobj__8
-#define __pyx_codeobj__12 __pyx_mstate_global->__pyx_codeobj__12
-#define __pyx_codeobj__14 __pyx_mstate_global->__pyx_codeobj__14
-#define __pyx_codeobj__18 __pyx_mstate_global->__pyx_codeobj__18
-#define __pyx_codeobj__20 __pyx_mstate_global->__pyx_codeobj__20
+#define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
+#define __pyx_tuple__20 __pyx_mstate_global->__pyx_tuple__20
+#define __pyx_tuple__23 __pyx_mstate_global->__pyx_tuple__23
+#define __pyx_tuple__27 __pyx_mstate_global->__pyx_tuple__27
+#define __pyx_codeobj__7 __pyx_mstate_global->__pyx_codeobj__7
+#define __pyx_codeobj__11 __pyx_mstate_global->__pyx_codeobj__11
+#define __pyx_codeobj__13 __pyx_mstate_global->__pyx_codeobj__13
+#define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
+#define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
+#define __pyx_codeobj__21 __pyx_mstate_global->__pyx_codeobj__21
 #define __pyx_codeobj__22 __pyx_mstate_global->__pyx_codeobj__22
-#define __pyx_codeobj__23 __pyx_mstate_global->__pyx_codeobj__23
+#define __pyx_codeobj__24 __pyx_mstate_global->__pyx_codeobj__24
 #define __pyx_codeobj__25 __pyx_mstate_global->__pyx_codeobj__25
 #define __pyx_codeobj__26 __pyx_mstate_global->__pyx_codeobj__26
-#define __pyx_codeobj__27 __pyx_mstate_global->__pyx_codeobj__27
 /* #### Code section: module_code ### */
 
 /* "utils/video.py":15
@@ -5179,10 +5095,6 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
   PyObject *__pyx_v_boxes = NULL;
   PyObject *__pyx_v_person_count = NULL;
   PyObject *__pyx_v_boxs = NULL;
-  PyObject *__pyx_v_x1 = NULL;
-  PyObject *__pyx_v_y1 = NULL;
-  PyObject *__pyx_v_x2 = NULL;
-  PyObject *__pyx_v_y2 = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5196,8 +5108,6 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
   PyObject *(*__pyx_t_9)(PyObject *);
   int __pyx_t_10;
   double __pyx_t_11;
-  PyObject *__pyx_t_12 = NULL;
-  PyObject *(*__pyx_t_13)(PyObject *);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5400,7 +5310,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
  *         for boxs in boxes:
  *             if results[0].names[boxs.cls[0].item()] == 'person':             # <<<<<<<<<<<<<<
  *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()
+ *                     person_count += 1
  */
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -5449,8 +5359,8 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
  *         for boxs in boxes:
  *             if results[0].names[boxs.cls[0].item()] == 'person':
  *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:             # <<<<<<<<<<<<<<
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+ *                     person_count += 1
+ *         return person_count
  */
       __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_boxs, __pyx_n_s_conf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -5501,349 +5411,21 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
         /* "utils/video.py":66
  *             if results[0].names[boxs.cls[0].item()] == 'person':
  *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()             # <<<<<<<<<<<<<<
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
- * 
- */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_boxs, __pyx_n_s_xyxy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_tolist); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = NULL;
-        __pyx_t_7 = 0;
-        #if CYTHON_UNPACK_METHODS
-        if (likely(PyMethod_Check(__pyx_t_1))) {
-          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
-          if (likely(__pyx_t_2)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-            __Pyx_INCREF(__pyx_t_2);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_1, function);
-            __pyx_t_7 = 1;
-          }
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-          __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        }
-        if ((likely(PyTuple_CheckExact(__pyx_t_5))) || (PyList_CheckExact(__pyx_t_5))) {
-          PyObject* sequence = __pyx_t_5;
-          Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-          if (unlikely(size != 4)) {
-            if (size > 4) __Pyx_RaiseTooManyValuesError(4);
-            else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-            __PYX_ERR(0, 66, __pyx_L1_error)
-          }
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          if (likely(PyTuple_CheckExact(sequence))) {
-            __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
-            __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
-            __pyx_t_6 = PyTuple_GET_ITEM(sequence, 2); 
-            __pyx_t_4 = PyTuple_GET_ITEM(sequence, 3); 
-          } else {
-            __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
-            __pyx_t_2 = PyList_GET_ITEM(sequence, 1); 
-            __pyx_t_6 = PyList_GET_ITEM(sequence, 2); 
-            __pyx_t_4 = PyList_GET_ITEM(sequence, 3); 
-          }
-          __Pyx_INCREF(__pyx_t_1);
-          __Pyx_INCREF(__pyx_t_2);
-          __Pyx_INCREF(__pyx_t_6);
-          __Pyx_INCREF(__pyx_t_4);
-          #else
-          {
-            Py_ssize_t i;
-            PyObject** temps[4] = {&__pyx_t_1,&__pyx_t_2,&__pyx_t_6,&__pyx_t_4};
-            for (i=0; i < 4; i++) {
-              PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 66, __pyx_L1_error)
-              __Pyx_GOTREF(item);
-              *(temps[i]) = item;
-            }
-          }
-          #endif
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        } else {
-          Py_ssize_t index = -1;
-          PyObject** temps[4] = {&__pyx_t_1,&__pyx_t_2,&__pyx_t_6,&__pyx_t_4};
-          __pyx_t_12 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 66, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_12);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_13 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_12);
-          for (index=0; index < 4; index++) {
-            PyObject* item = __pyx_t_13(__pyx_t_12); if (unlikely(!item)) goto __pyx_L7_unpacking_failed;
-            __Pyx_GOTREF(item);
-            *(temps[index]) = item;
-          }
-          if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_12), 4) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
-          __pyx_t_13 = NULL;
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          goto __pyx_L8_unpacking_done;
-          __pyx_L7_unpacking_failed:;
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          __pyx_t_13 = NULL;
-          if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-          __PYX_ERR(0, 66, __pyx_L1_error)
-          __pyx_L8_unpacking_done:;
-        }
-        __Pyx_XDECREF_SET(__pyx_v_x1, __pyx_t_1);
-        __pyx_t_1 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_y1, __pyx_t_2);
-        __pyx_t_2 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_x2, __pyx_t_6);
-        __pyx_t_6 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_y2, __pyx_t_4);
-        __pyx_t_4 = 0;
-
-        /* "utils/video.py":67
- *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)             # <<<<<<<<<<<<<<
- * 
- *                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
- */
-        __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_v_x1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_y1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_v_x2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_v_y2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF_SET(__pyx_v_x1, __pyx_t_5);
-        __pyx_t_5 = 0;
-        __Pyx_DECREF_SET(__pyx_v_y1, __pyx_t_4);
-        __pyx_t_4 = 0;
-        __Pyx_DECREF_SET(__pyx_v_x2, __pyx_t_6);
-        __pyx_t_6 = 0;
-        __Pyx_DECREF_SET(__pyx_v_y2, __pyx_t_2);
-        __pyx_t_2 = 0;
-
-        /* "utils/video.py":69
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
- * 
- *                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)             # <<<<<<<<<<<<<<
- *                     cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
- *                                 cv2.FONT_HERSHEY_SIMPLEX,
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_cv2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_rectangle); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_INCREF(__pyx_v_x1);
-        __Pyx_GIVEREF(__pyx_v_x1);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_x1)) __PYX_ERR(0, 69, __pyx_L1_error);
-        __Pyx_INCREF(__pyx_v_y1);
-        __Pyx_GIVEREF(__pyx_v_y1);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_v_y1)) __PYX_ERR(0, 69, __pyx_L1_error);
-        __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_INCREF(__pyx_v_x2);
-        __Pyx_GIVEREF(__pyx_v_x2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_x2)) __PYX_ERR(0, 69, __pyx_L1_error);
-        __Pyx_INCREF(__pyx_v_y2);
-        __Pyx_GIVEREF(__pyx_v_y2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_y2)) __PYX_ERR(0, 69, __pyx_L1_error);
-        __pyx_t_1 = NULL;
-        __pyx_t_7 = 0;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_4))) {
-          __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_4);
-          if (likely(__pyx_t_1)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-            __Pyx_INCREF(__pyx_t_1);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_4, function);
-            __pyx_t_7 = 1;
-          }
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[6] = {__pyx_t_1, __pyx_v_frame, __pyx_t_6, __pyx_t_5, __pyx_tuple__4, __pyx_int_2};
-          __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_7, 5+__pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "utils/video.py":70
- * 
- *                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
- *                     cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),             # <<<<<<<<<<<<<<
- *                                 cv2.FONT_HERSHEY_SIMPLEX,
- *                                 0.5, (0, 255, 0), 2)
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_putText); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_results, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_names); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_boxs, __pyx_n_s_cls); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_n_s_item); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = NULL;
-        __pyx_t_7 = 0;
-        #if CYTHON_UNPACK_METHODS
-        if (likely(PyMethod_Check(__pyx_t_1))) {
-          __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_1);
-          if (likely(__pyx_t_12)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-            __Pyx_INCREF(__pyx_t_12);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_1, function);
-            __pyx_t_7 = 1;
-          }
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[2] = {__pyx_t_12, NULL};
-          __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        }
-        __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyInt_SubtractObjC(__pyx_v_y1, __pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __Pyx_INCREF(__pyx_v_x1);
-        __Pyx_GIVEREF(__pyx_v_x1);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_x1)) __PYX_ERR(0, 70, __pyx_L1_error);
-        __Pyx_GIVEREF(__pyx_t_4);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error);
-        __pyx_t_4 = 0;
-
-        /* "utils/video.py":71
- *                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
- *                     cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
- *                                 cv2.FONT_HERSHEY_SIMPLEX,             # <<<<<<<<<<<<<<
- *                                 0.5, (0, 255, 0), 2)
- *                     cv2.imwrite("xxx.jpg", frame)
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_cv2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_FONT_HERSHEY_SIMPLEX); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 71, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-        /* "utils/video.py":72
- *                     cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
- *                                 cv2.FONT_HERSHEY_SIMPLEX,
- *                                 0.5, (0, 255, 0), 2)             # <<<<<<<<<<<<<<
- *                     cv2.imwrite("xxx.jpg", frame)
- *                     person_count += 1
- */
-        __pyx_t_4 = NULL;
-        __pyx_t_7 = 0;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-          if (likely(__pyx_t_4)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-            __Pyx_INCREF(__pyx_t_4);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_5, function);
-            __pyx_t_7 = 1;
-          }
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[8] = {__pyx_t_4, __pyx_v_frame, __pyx_t_1, __pyx_t_6, __pyx_t_12, __pyx_float_0_5, __pyx_tuple__4, __pyx_int_2};
-          __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 7+__pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "utils/video.py":73
- *                                 cv2.FONT_HERSHEY_SIMPLEX,
- *                                 0.5, (0, 255, 0), 2)
- *                     cv2.imwrite("xxx.jpg", frame)             # <<<<<<<<<<<<<<
- *                     person_count += 1
- *         return person_count
- */
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_cv2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_imwrite); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 73, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = NULL;
-        __pyx_t_7 = 0;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_12))) {
-          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_12);
-          if (likely(__pyx_t_5)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_12);
-            __Pyx_INCREF(__pyx_t_5);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_12, function);
-            __pyx_t_7 = 1;
-          }
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_kp_s_xxx_jpg, __pyx_v_frame};
-          __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+1-__pyx_t_7, 2+__pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        }
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "utils/video.py":74
- *                                 0.5, (0, 255, 0), 2)
- *                     cv2.imwrite("xxx.jpg", frame)
  *                     person_count += 1             # <<<<<<<<<<<<<<
  *         return person_count
  * 
  */
-        __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_person_count, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF_SET(__pyx_v_person_count, __pyx_t_2);
-        __pyx_t_2 = 0;
+        __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_person_count, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_DECREF_SET(__pyx_v_person_count, __pyx_t_5);
+        __pyx_t_5 = 0;
 
         /* "utils/video.py":65
  *         for boxs in boxes:
  *             if results[0].names[boxs.cls[0].item()] == 'person':
  *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:             # <<<<<<<<<<<<<<
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+ *                     person_count += 1
+ *         return person_count
  */
       }
 
@@ -5852,7 +5434,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
  *         for boxs in boxes:
  *             if results[0].names[boxs.cls[0].item()] == 'person':             # <<<<<<<<<<<<<<
  *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
- *                     x1, y1, x2, y2 = boxs.xyxy[0].tolist()
+ *                     person_count += 1
  */
     }
 
@@ -5866,8 +5448,8 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "utils/video.py":75
- *                     cv2.imwrite("xxx.jpg", frame)
+  /* "utils/video.py":67
+ *                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
  *                     person_count += 1
  *         return person_count             # <<<<<<<<<<<<<<
  * 
@@ -5894,7 +5476,6 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_12);
   __Pyx_AddTraceback("utils.video.RTSPCamera.dispose_frame_async", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -5903,16 +5484,12 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_7dispose_frame_async(CYTHON
   __Pyx_XDECREF(__pyx_v_boxes);
   __Pyx_XDECREF(__pyx_v_person_count);
   __Pyx_XDECREF(__pyx_v_boxs);
-  __Pyx_XDECREF(__pyx_v_x1);
-  __Pyx_XDECREF(__pyx_v_y1);
-  __Pyx_XDECREF(__pyx_v_x2);
-  __Pyx_XDECREF(__pyx_v_y2);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "utils/video.py":77
+/* "utils/video.py":69
  *         return person_count
  * 
  *     def get_person_count(self) -> int:             # <<<<<<<<<<<<<<
@@ -5973,12 +5550,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 77, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 69, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_person_count") < 0)) __PYX_ERR(0, 77, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_person_count") < 0)) __PYX_ERR(0, 69, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5989,7 +5566,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_person_count", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 77, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_person_count", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 69, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6027,29 +5604,29 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_9get_person_count(CYTHON_UN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_person_count", 1);
 
-  /* "utils/video.py":78
+  /* "utils/video.py":70
  * 
  *     def get_person_count(self) -> int:
  *         person_num = self.person_count             # <<<<<<<<<<<<<<
  *         if person_num == 0:
  *             return 0
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_person_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_person_num = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "utils/video.py":79
+  /* "utils/video.py":71
  *     def get_person_count(self) -> int:
  *         person_num = self.person_count
  *         if person_num == 0:             # <<<<<<<<<<<<<<
  *             return 0
  *         return person_num
  */
-  __pyx_t_2 = (__Pyx_PyInt_BoolEqObjC(__pyx_v_person_num, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyInt_BoolEqObjC(__pyx_v_person_num, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "utils/video.py":80
+    /* "utils/video.py":72
  *         person_num = self.person_count
  *         if person_num == 0:
  *             return 0             # <<<<<<<<<<<<<<
@@ -6057,12 +5634,12 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_9get_person_count(CYTHON_UN
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_int_0)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_int_0))) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_int_0)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_int_0))) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_INCREF(__pyx_int_0);
     __pyx_r = ((PyObject*)__pyx_int_0);
     goto __pyx_L0;
 
-    /* "utils/video.py":79
+    /* "utils/video.py":71
  *     def get_person_count(self) -> int:
  *         person_num = self.person_count
  *         if person_num == 0:             # <<<<<<<<<<<<<<
@@ -6071,7 +5648,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_9get_person_count(CYTHON_UN
  */
   }
 
-  /* "utils/video.py":81
+  /* "utils/video.py":73
  *         if person_num == 0:
  *             return 0
  *         return person_num             # <<<<<<<<<<<<<<
@@ -6079,12 +5656,12 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_9get_person_count(CYTHON_UN
  *     def is_alive(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_person_num))||((__pyx_v_person_num) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_person_num))) __PYX_ERR(0, 81, __pyx_L1_error)
+  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_person_num))||((__pyx_v_person_num) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_person_num))) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_person_num);
   __pyx_r = ((PyObject*)__pyx_v_person_num);
   goto __pyx_L0;
 
-  /* "utils/video.py":77
+  /* "utils/video.py":69
  *         return person_count
  * 
  *     def get_person_count(self) -> int:             # <<<<<<<<<<<<<<
@@ -6104,7 +5681,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_9get_person_count(CYTHON_UN
   return __pyx_r;
 }
 
-/* "utils/video.py":83
+/* "utils/video.py":75
  *         return person_num
  * 
  *     def is_alive(self):             # <<<<<<<<<<<<<<
@@ -6165,12 +5742,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "is_alive") < 0)) __PYX_ERR(0, 83, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "is_alive") < 0)) __PYX_ERR(0, 75, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6181,7 +5758,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("is_alive", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 83, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("is_alive", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 75, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6227,7 +5804,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_alive", 1);
 
-  /* "utils/video.py":84
+  /* "utils/video.py":76
  * 
  *     def is_alive(self):
  *         alive_num = 0             # <<<<<<<<<<<<<<
@@ -6237,16 +5814,16 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_alive_num = __pyx_int_0;
 
-  /* "utils/video.py":85
+  /* "utils/video.py":77
  *     def is_alive(self):
  *         alive_num = 0
  *         for i in range(self.camera_number):             # <<<<<<<<<<<<<<
  *             if self.cap and self.cap.isOpened():
  *                 alive_num += 1
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_camera_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_camera_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
@@ -6254,9 +5831,9 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
     __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -6265,28 +5842,28 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
         #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -6296,7 +5873,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 85, __pyx_L1_error)
+          else __PYX_ERR(0, 77, __pyx_L1_error)
         }
         break;
       }
@@ -6305,25 +5882,25 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "utils/video.py":86
+    /* "utils/video.py":78
  *         alive_num = 0
  *         for i in range(self.camera_number):
  *             if self.cap and self.cap.isOpened():             # <<<<<<<<<<<<<<
  *                 alive_num += 1
  *         return alive_num
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_6) {
     } else {
       __pyx_t_5 = __pyx_t_6;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_isOpened); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -6344,29 +5921,29 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_9, 0+__pyx_t_9);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_5 = __pyx_t_6;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_5) {
 
-      /* "utils/video.py":87
+      /* "utils/video.py":79
  *         for i in range(self.camera_number):
  *             if self.cap and self.cap.isOpened():
  *                 alive_num += 1             # <<<<<<<<<<<<<<
  *         return alive_num
  * 
  */
-      __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_alive_num, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_alive_num, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF_SET(__pyx_v_alive_num, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "utils/video.py":86
+      /* "utils/video.py":78
  *         alive_num = 0
  *         for i in range(self.camera_number):
  *             if self.cap and self.cap.isOpened():             # <<<<<<<<<<<<<<
@@ -6375,7 +5952,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
  */
     }
 
-    /* "utils/video.py":85
+    /* "utils/video.py":77
  *     def is_alive(self):
  *         alive_num = 0
  *         for i in range(self.camera_number):             # <<<<<<<<<<<<<<
@@ -6385,7 +5962,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "utils/video.py":88
+  /* "utils/video.py":80
  *             if self.cap and self.cap.isOpened():
  *                 alive_num += 1
  *         return alive_num             # <<<<<<<<<<<<<<
@@ -6397,7 +5974,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
   __pyx_r = __pyx_v_alive_num;
   goto __pyx_L0;
 
-  /* "utils/video.py":83
+  /* "utils/video.py":75
  *         return person_num
  * 
  *     def is_alive(self):             # <<<<<<<<<<<<<<
@@ -6421,7 +5998,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_11is_alive(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "utils/video.py":90
+/* "utils/video.py":82
  *         return alive_num
  * 
  *     def release(self):             # <<<<<<<<<<<<<<
@@ -6482,12 +6059,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 90, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 82, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "release") < 0)) __PYX_ERR(0, 90, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "release") < 0)) __PYX_ERR(0, 82, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6498,7 +6075,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("release", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 90, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("release", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 82, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6537,16 +6114,16 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_13release(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("release", 1);
 
-  /* "utils/video.py":91
+  /* "utils/video.py":83
  * 
  *     def release(self):
  *         self.cap.release()             # <<<<<<<<<<<<<<
  * 
  *     def get_error(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cap); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_release); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_release); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6567,13 +6144,13 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_13release(CYTHON_UNUSED PyO
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "utils/video.py":90
+  /* "utils/video.py":82
  *         return alive_num
  * 
  *     def release(self):             # <<<<<<<<<<<<<<
@@ -6596,7 +6173,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_13release(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "utils/video.py":93
+/* "utils/video.py":85
  *         self.cap.release()
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
@@ -6657,12 +6234,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error") < 0)) __PYX_ERR(0, 93, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error") < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6673,7 +6250,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 93, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 85, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6715,14 +6292,14 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_error", 1);
 
-  /* "utils/video.py":94
+  /* "utils/video.py":86
  * 
  *     def get_error(self):
  *         person_number = self.get_person_count()             # <<<<<<<<<<<<<<
  *         if person_number >= 9 and person_number != self.number:
  *             if self.state == 0:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_person_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_person_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -6742,59 +6319,59 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_v_person_number = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "utils/video.py":95
+  /* "utils/video.py":87
  *     def get_error(self):
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:             # <<<<<<<<<<<<<<
  *             if self.state == 0:
- *                 send_tcp_request("483A0170010100004544")
+ *                 send_on_tcp_request()
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_person_number, __pyx_int_9, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_person_number, __pyx_int_9, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
   } else {
     __pyx_t_5 = __pyx_t_6;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_v_person_number, __pyx_t_1, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_person_number, __pyx_t_1, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = __pyx_t_6;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "utils/video.py":96
+    /* "utils/video.py":88
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:
  *             if self.state == 0:             # <<<<<<<<<<<<<<
- *                 send_tcp_request("483A0170010100004544")
+ *                 send_on_tcp_request()
  *                 self.state = 1
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_state); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_state); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_2, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_5 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_2, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_5) {
 
-      /* "utils/video.py":97
+      /* "utils/video.py":89
  *         if person_number >= 9 and person_number != self.number:
  *             if self.state == 0:
- *                 send_tcp_request("483A0170010100004544")             # <<<<<<<<<<<<<<
+ *                 send_on_tcp_request()             # <<<<<<<<<<<<<<
  *                 self.state = 1
  *             self.number = person_number
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_send_tcp_request); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_send_on_tcp_request); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_3 = NULL;
       __pyx_t_4 = 0;
@@ -6811,87 +6388,98 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
       }
       #endif
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_s_483A0170010100004544};
-        __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+        PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+        __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "utils/video.py":98
+      /* "utils/video.py":90
  *             if self.state == 0:
- *                 send_tcp_request("483A0170010100004544")
+ *                 send_on_tcp_request()
  *                 self.state = 1             # <<<<<<<<<<<<<<
  *             self.number = person_number
  *             self.error_number += 1
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_state, __pyx_int_1) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_state, __pyx_int_1) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
 
-      /* "utils/video.py":96
+      /* "utils/video.py":88
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:
  *             if self.state == 0:             # <<<<<<<<<<<<<<
- *                 send_tcp_request("483A0170010100004544")
+ *                 send_on_tcp_request()
  *                 self.state = 1
  */
     }
 
-    /* "utils/video.py":99
- *                 send_tcp_request("483A0170010100004544")
+    /* "utils/video.py":91
+ *                 send_on_tcp_request()
  *                 self.state = 1
  *             self.number = person_number             # <<<<<<<<<<<<<<
  *             self.error_number += 1
  *             return ":"
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_v_person_number) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_v_person_number) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
 
-    /* "utils/video.py":100
+    /* "utils/video.py":92
  *                 self.state = 1
  *             self.number = person_number
  *             self.error_number += 1             # <<<<<<<<<<<<<<
  *             return ":"
- *         else:
+ *         elif person_number < 9:
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_t_1) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_t_1) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "utils/video.py":101
+    /* "utils/video.py":93
  *             self.number = person_number
  *             self.error_number += 1
  *             return ":"             # <<<<<<<<<<<<<<
- *         else:
- *             # if self.state == 1:
+ *         elif person_number < 9:
+ *             send_off_tcp_request()
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_kp_s__5);
-    __pyx_r = __pyx_kp_s__5;
+    __Pyx_INCREF(__pyx_kp_s__4);
+    __pyx_r = __pyx_kp_s__4;
     goto __pyx_L0;
 
-    /* "utils/video.py":95
+    /* "utils/video.py":87
  *     def get_error(self):
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:             # <<<<<<<<<<<<<<
  *             if self.state == 0:
- *                 send_tcp_request("483A0170010100004544")
+ *                 send_on_tcp_request()
  */
   }
 
-  /* "utils/video.py":105
- *             # if self.state == 1:
- *             # print("1")
- *             send_tcp_request("483A0170010000004544")             # <<<<<<<<<<<<<<
+  /* "utils/video.py":94
+ *             self.error_number += 1
+ *             return ":"
+ *         elif person_number < 9:             # <<<<<<<<<<<<<<
+ *             send_off_tcp_request()
+ *             self.state = 0
+ */
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_person_number, __pyx_int_9, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 94, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_5) {
+
+    /* "utils/video.py":95
+ *             return ":"
+ *         elif person_number < 9:
+ *             send_off_tcp_request()             # <<<<<<<<<<<<<<
  *             self.state = 0
  *             self.number = 0
  */
-  /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_send_tcp_request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_send_off_tcp_request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     __pyx_t_4 = 0;
@@ -6908,34 +6496,34 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
     }
     #endif
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_s_483A0170010000004544};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "utils/video.py":106
- *             # print("1")
- *             send_tcp_request("483A0170010000004544")
+    /* "utils/video.py":96
+ *         elif person_number < 9:
+ *             send_off_tcp_request()
  *             self.state = 0             # <<<<<<<<<<<<<<
  *             self.number = 0
  *             return ""
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_state, __pyx_int_0) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_state, __pyx_int_0) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
 
-    /* "utils/video.py":107
- *             send_tcp_request("483A0170010000004544")
+    /* "utils/video.py":97
+ *             send_off_tcp_request()
  *             self.state = 0
  *             self.number = 0             # <<<<<<<<<<<<<<
  *             return ""
  * 
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number, __pyx_int_0) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
 
-    /* "utils/video.py":108
+    /* "utils/video.py":98
  *             self.state = 0
  *             self.number = 0
  *             return ""             # <<<<<<<<<<<<<<
@@ -6943,12 +6531,20 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
  *     def get_error_number(self):
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_kp_s__6);
-    __pyx_r = __pyx_kp_s__6;
+    __Pyx_INCREF(__pyx_kp_s__5);
+    __pyx_r = __pyx_kp_s__5;
     goto __pyx_L0;
+
+    /* "utils/video.py":94
+ *             self.error_number += 1
+ *             return ":"
+ *         elif person_number < 9:             # <<<<<<<<<<<<<<
+ *             send_off_tcp_request()
+ *             self.state = 0
+ */
   }
 
-  /* "utils/video.py":93
+  /* "utils/video.py":85
  *         self.cap.release()
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
@@ -6957,6 +6553,8 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
  */
 
   /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
@@ -6970,7 +6568,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_15get_error(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "utils/video.py":110
+/* "utils/video.py":100
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
@@ -7031,12 +6629,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 100, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error_number") < 0)) __PYX_ERR(0, 110, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_error_number") < 0)) __PYX_ERR(0, 100, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7047,7 +6645,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 110, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 100, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7083,7 +6681,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_17get_error_number(CYTHON_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_error_number", 1);
 
-  /* "utils/video.py":111
+  /* "utils/video.py":101
  * 
  *     def get_error_number(self):
  *         return self.error_number             # <<<<<<<<<<<<<<
@@ -7091,13 +6689,13 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_17get_error_number(CYTHON_U
  *     def clear_error_number(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_error_number); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "utils/video.py":110
+  /* "utils/video.py":100
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
@@ -7116,7 +6714,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_17get_error_number(CYTHON_U
   return __pyx_r;
 }
 
-/* "utils/video.py":113
+/* "utils/video.py":103
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
@@ -7177,12 +6775,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clear_error_number") < 0)) __PYX_ERR(0, 113, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "clear_error_number") < 0)) __PYX_ERR(0, 103, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7193,7 +6791,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("clear_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 113, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("clear_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 103, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7229,27 +6827,27 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_19clear_error_number(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("clear_error_number", 1);
 
-  /* "utils/video.py":114
+  /* "utils/video.py":104
  * 
  *     def clear_error_number(self):
  *         self.error_number = 0             # <<<<<<<<<<<<<<
  *         print("Error number cleared.")
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_error_number, __pyx_int_0) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
 
-  /* "utils/video.py":115
+  /* "utils/video.py":105
  *     def clear_error_number(self):
  *         self.error_number = 0
  *         print("Error number cleared.")             # <<<<<<<<<<<<<<
  * 
  *     async def reset_error_number(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "utils/video.py":113
+  /* "utils/video.py":103
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
@@ -7271,7 +6869,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_19clear_error_number(CYTHON
 }
 static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "utils/video.py":117
+/* "utils/video.py":107
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -7332,12 +6930,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 117, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 107, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "reset_error_number") < 0)) __PYX_ERR(0, 117, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "reset_error_number") < 0)) __PYX_ERR(0, 107, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7348,7 +6946,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reset_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 117, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reset_error_number", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 107, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7387,7 +6985,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_21reset_error_number(CYTHON
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5utils_5video___pyx_scope_struct_1_reset_error_number *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 117, __pyx_L1_error)
+    __PYX_ERR(0, 107, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -7395,7 +6993,7 @@ static PyObject *__pyx_pf_5utils_5video_10RTSPCamera_21reset_error_number(CYTHON
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5utils_5video_10RTSPCamera_23generator1, __pyx_codeobj__8, (PyObject *) __pyx_cur_scope, __pyx_n_s_reset_error_number, __pyx_n_s_RTSPCamera_reset_error_number, __pyx_n_s_utils_video); if (unlikely(!gen)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_5utils_5video_10RTSPCamera_23generator1, __pyx_codeobj__7, (PyObject *) __pyx_cur_scope, __pyx_n_s_reset_error_number, __pyx_n_s_RTSPCamera_reset_error_number, __pyx_n_s_utils_video); if (unlikely(!gen)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7432,9 +7030,9 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 107, __pyx_L1_error)
 
-  /* "utils/video.py":118
+  /* "utils/video.py":108
  * 
  *     async def reset_error_number(self):
  *         while True:             # <<<<<<<<<<<<<<
@@ -7443,16 +7041,16 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
  */
   while (1) {
 
-    /* "utils/video.py":120
+    /* "utils/video.py":110
  *         while True:
  *             #
  *             current_time = time.time()             # <<<<<<<<<<<<<<
  *             #
  *             time_diff = 86400 - (current_time % 86400)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -7473,7 +7071,7 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -7482,16 +7080,16 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "utils/video.py":122
+    /* "utils/video.py":112
  *             current_time = time.time()
  *             #
  *             time_diff = 86400 - (current_time % 86400)             # <<<<<<<<<<<<<<
  *             #
  *             await asyncio.sleep(time_diff)
  */
-    __pyx_t_1 = __Pyx_PyInt_RemainderObjC(__pyx_cur_scope->__pyx_v_current_time, __pyx_int_86400, 0x15180, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_RemainderObjC(__pyx_cur_scope->__pyx_v_current_time, __pyx_int_86400, 0x15180, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyInt_SubtractCObj(__pyx_int_86400, __pyx_t_1, 0x15180, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_SubtractCObj(__pyx_int_86400, __pyx_t_1, 0x15180, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_time_diff);
@@ -7499,16 +7097,16 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "utils/video.py":124
+    /* "utils/video.py":114
  *             time_diff = 86400 - (current_time % 86400)
  *             #
  *             await asyncio.sleep(time_diff)             # <<<<<<<<<<<<<<
  *             #
  *             self.clear_error_number()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_asyncio); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sleep); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_sleep); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -7529,7 +7127,7 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
       PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_time_diff};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
@@ -7544,22 +7142,22 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 124, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 114, __pyx_L1_error)
     } else {
       PyObject* exc_type = __Pyx_PyErr_CurrentExceptionType();
       if (exc_type) {
         if (likely(exc_type == PyExc_StopIteration || (exc_type != PyExc_GeneratorExit && __Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))) PyErr_Clear();
-        else __PYX_ERR(0, 124, __pyx_L1_error)
+        else __PYX_ERR(0, 114, __pyx_L1_error)
       }
     }
 
-    /* "utils/video.py":126
+    /* "utils/video.py":116
  *             await asyncio.sleep(time_diff)
  *             #
  *             self.clear_error_number()             # <<<<<<<<<<<<<<
  *             print("Error number cleared.")
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_clear_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_clear_error_number); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = NULL;
     __pyx_t_4 = 0;
@@ -7579,24 +7177,24 @@ static PyObject *__pyx_gb_5utils_5video_10RTSPCamera_23generator1(__pyx_Coroutin
       PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "utils/video.py":127
+    /* "utils/video.py":117
  *             #
  *             self.clear_error_number()
  *             print("Error number cleared.")             # <<<<<<<<<<<<<<
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "utils/video.py":117
+  /* "utils/video.py":107
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
@@ -7990,11 +7588,8 @@ static PyMethodDef __pyx_methods[] = {
 
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
-    {&__pyx_kp_s_483A0170010000004544, __pyx_k_483A0170010000004544, sizeof(__pyx_k_483A0170010000004544), 0, 0, 1, 0},
-    {&__pyx_kp_s_483A0170010100004544, __pyx_k_483A0170010100004544, sizeof(__pyx_k_483A0170010100004544), 0, 0, 1, 0},
     {&__pyx_n_s_COLOR_BGR2RGB, __pyx_k_COLOR_BGR2RGB, sizeof(__pyx_k_COLOR_BGR2RGB), 0, 0, 1, 1},
     {&__pyx_kp_s_Error_number_cleared, __pyx_k_Error_number_cleared, sizeof(__pyx_k_Error_number_cleared), 0, 0, 1, 0},
-    {&__pyx_n_s_FONT_HERSHEY_SIMPLEX, __pyx_k_FONT_HERSHEY_SIMPLEX, sizeof(__pyx_k_FONT_HERSHEY_SIMPLEX), 0, 0, 1, 1},
     {&__pyx_n_s_Image, __pyx_k_Image, sizeof(__pyx_k_Image), 0, 0, 1, 1},
     {&__pyx_n_s_PIL, __pyx_k_PIL, sizeof(__pyx_k_PIL), 0, 0, 1, 1},
     {&__pyx_n_s_Queue, __pyx_k_Queue, sizeof(__pyx_k_Queue), 0, 0, 1, 1},
@@ -8012,13 +7607,13 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_RTSPCamera_reset_error_number, __pyx_k_RTSPCamera_reset_error_number, sizeof(__pyx_k_RTSPCamera_reset_error_number), 0, 0, 1, 1},
     {&__pyx_n_s_Thread, __pyx_k_Thread, sizeof(__pyx_k_Thread), 0, 0, 1, 1},
     {&__pyx_n_s_YOLO, __pyx_k_YOLO, sizeof(__pyx_k_YOLO), 0, 0, 1, 1},
-    {&__pyx_kp_u__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0, 0},
-    {&__pyx_n_s__15, __pyx_k__15, sizeof(__pyx_k__15), 0, 0, 1, 1},
-    {&__pyx_n_s__29, __pyx_k__29, sizeof(__pyx_k__29), 0, 0, 1, 1},
+    {&__pyx_n_s__14, __pyx_k__14, sizeof(__pyx_k__14), 0, 0, 1, 1},
+    {&__pyx_n_s__28, __pyx_k__28, sizeof(__pyx_k__28), 0, 0, 1, 1},
     {&__pyx_kp_b__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 0, 0},
+    {&__pyx_kp_s__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 0, 1, 0},
     {&__pyx_kp_s__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 0, 1, 0},
-    {&__pyx_kp_s__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 0, 1, 0},
-    {&__pyx_n_s__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 0, 1, 1},
+    {&__pyx_n_s__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 0, 1, 1},
+    {&__pyx_kp_u__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0, 0},
     {&__pyx_n_s_alive_num, __pyx_k_alive_num, sizeof(__pyx_k_alive_num), 0, 0, 1, 1},
     {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
     {&__pyx_n_s_asyncio, __pyx_k_asyncio, sizeof(__pyx_k_asyncio), 0, 0, 1, 1},
@@ -8064,7 +7659,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
     {&__pyx_n_s_imencode, __pyx_k_imencode, sizeof(__pyx_k_imencode), 0, 0, 1, 1},
     {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
-    {&__pyx_n_s_imwrite, __pyx_k_imwrite, sizeof(__pyx_k_imwrite), 0, 0, 1, 1},
     {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
     {&__pyx_n_s_init_subclass, __pyx_k_init_subclass, sizeof(__pyx_k_init_subclass), 0, 0, 1, 1},
     {&__pyx_n_s_initializing, __pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 0, 1, 1},
@@ -8096,12 +7690,10 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_process_frames_async, __pyx_k_process_frames_async, sizeof(__pyx_k_process_frames_async), 0, 0, 1, 1},
     {&__pyx_n_s_process_thread, __pyx_k_process_thread, sizeof(__pyx_k_process_thread), 0, 0, 1, 1},
     {&__pyx_n_s_put, __pyx_k_put, sizeof(__pyx_k_put), 0, 0, 1, 1},
-    {&__pyx_n_s_putText, __pyx_k_putText, sizeof(__pyx_k_putText), 0, 0, 1, 1},
     {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
     {&__pyx_n_s_queue, __pyx_k_queue, sizeof(__pyx_k_queue), 0, 0, 1, 1},
     {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
     {&__pyx_n_s_read, __pyx_k_read, sizeof(__pyx_k_read), 0, 0, 1, 1},
-    {&__pyx_n_s_rectangle, __pyx_k_rectangle, sizeof(__pyx_k_rectangle), 0, 0, 1, 1},
     {&__pyx_n_s_release, __pyx_k_release, sizeof(__pyx_k_release), 0, 0, 1, 1},
     {&__pyx_n_s_reset_error_number, __pyx_k_reset_error_number, sizeof(__pyx_k_reset_error_number), 0, 0, 1, 1},
     {&__pyx_n_s_resize, __pyx_k_resize, sizeof(__pyx_k_resize), 0, 0, 1, 1},
@@ -8111,7 +7703,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_rval, __pyx_k_rval, sizeof(__pyx_k_rval), 0, 0, 1, 1},
     {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
     {&__pyx_n_s_send, __pyx_k_send, sizeof(__pyx_k_send), 0, 0, 1, 1},
-    {&__pyx_n_s_send_tcp_request, __pyx_k_send_tcp_request, sizeof(__pyx_k_send_tcp_request), 0, 0, 1, 1},
+    {&__pyx_n_s_send_off_tcp_request, __pyx_k_send_off_tcp_request, sizeof(__pyx_k_send_off_tcp_request), 0, 0, 1, 1},
+    {&__pyx_n_s_send_on_tcp_request, __pyx_k_send_on_tcp_request, sizeof(__pyx_k_send_on_tcp_request), 0, 0, 1, 1},
     {&__pyx_n_s_set_name, __pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 0, 1, 1},
     {&__pyx_n_s_sleep, __pyx_k_sleep, sizeof(__pyx_k_sleep), 0, 0, 1, 1},
     {&__pyx_n_s_spec, __pyx_k_spec, sizeof(__pyx_k_spec), 0, 0, 1, 1},
@@ -8126,19 +7719,12 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_time_diff, __pyx_k_time_diff, sizeof(__pyx_k_time_diff), 0, 0, 1, 1},
     {&__pyx_n_s_to, __pyx_k_to, sizeof(__pyx_k_to), 0, 0, 1, 1},
     {&__pyx_n_s_tobytes, __pyx_k_tobytes, sizeof(__pyx_k_tobytes), 0, 0, 1, 1},
-    {&__pyx_n_s_tolist, __pyx_k_tolist, sizeof(__pyx_k_tolist), 0, 0, 1, 1},
     {&__pyx_n_s_torch, __pyx_k_torch, sizeof(__pyx_k_torch), 0, 0, 1, 1},
     {&__pyx_n_s_ultralytics, __pyx_k_ultralytics, sizeof(__pyx_k_ultralytics), 0, 0, 1, 1},
     {&__pyx_n_s_utils_public_way, __pyx_k_utils_public_way, sizeof(__pyx_k_utils_public_way), 0, 0, 1, 1},
     {&__pyx_n_s_utils_video, __pyx_k_utils_video, sizeof(__pyx_k_utils_video), 0, 0, 1, 1},
     {&__pyx_kp_s_utils_video_py, __pyx_k_utils_video_py, sizeof(__pyx_k_utils_video_py), 0, 0, 1, 0},
     {&__pyx_kp_s_weights_yolov8s_pt, __pyx_k_weights_yolov8s_pt, sizeof(__pyx_k_weights_yolov8s_pt), 0, 0, 1, 0},
-    {&__pyx_n_s_x1, __pyx_k_x1, sizeof(__pyx_k_x1), 0, 0, 1, 1},
-    {&__pyx_n_s_x2, __pyx_k_x2, sizeof(__pyx_k_x2), 0, 0, 1, 1},
-    {&__pyx_kp_s_xxx_jpg, __pyx_k_xxx_jpg, sizeof(__pyx_k_xxx_jpg), 0, 0, 1, 0},
-    {&__pyx_n_s_xyxy, __pyx_k_xyxy, sizeof(__pyx_k_xyxy), 0, 0, 1, 1},
-    {&__pyx_n_s_y1, __pyx_k_y1, sizeof(__pyx_k_y1), 0, 0, 1, 1},
-    {&__pyx_n_s_y2, __pyx_k_y2, sizeof(__pyx_k_y2), 0, 0, 1, 1},
     {0, 0, 0, 0, 0, 0, 0}
   };
   return __Pyx_InitStrings(__pyx_string_tab);
@@ -8146,8 +7732,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_round = __Pyx_GetBuiltinName(__pyx_n_s_round); if (!__pyx_builtin_round) __PYX_ERR(0, 65, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 85, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 105, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -8169,27 +7755,16 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "utils/video.py":69
- *                     x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
- * 
- *                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)             # <<<<<<<<<<<<<<
- *                     cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
- *                                 cv2.FONT_HERSHEY_SIMPLEX,
- */
-  __pyx_tuple__4 = PyTuple_Pack(3, __pyx_int_0, __pyx_int_255, __pyx_int_0); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-
-  /* "utils/video.py":115
+  /* "utils/video.py":105
  *     def clear_error_number(self):
  *         self.error_number = 0
  *         print("Error number cleared.")             # <<<<<<<<<<<<<<
  * 
  *     async def reset_error_number(self):
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_Error_number_cleared); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 115, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__7);
-  __Pyx_GIVEREF(__pyx_tuple__7);
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Error_number_cleared); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
 
   /* "utils/video.py":15
  * 
@@ -8198,10 +7773,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.cap: cv2.VideoCapture = None
  *         self.last_frame_time = time.time()
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_init, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_init, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 15, __pyx_L1_error)
 
   /* "utils/video.py":35
  *         self.process_thread.start()
@@ -8210,10 +7785,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         while True:
  *             frame = self.frame_queue.get()
  */
-  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 35, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_process_frames_async, 35, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_frame); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_process_frames_async, 35, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 35, __pyx_L1_error)
 
   /* "utils/video.py":41
  *             self.person_count = self.dispose_frame_async(frame)
@@ -8222,10 +7797,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         while True:
  *             rval, frame = self.cap.read()
  */
-  __pyx_tuple__16 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_rval, __pyx_n_s_frame, __pyx_n_s__15, __pyx_n_s_buffer, __pyx_n_s_jpg_as_text, __pyx_n_s_elapsed_time); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 41, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_generate_frames, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_rval, __pyx_n_s_frame, __pyx_n_s__14, __pyx_n_s_buffer, __pyx_n_s_jpg_as_text, __pyx_n_s_elapsed_time); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_generate_frames, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 41, __pyx_L1_error)
 
   /* "utils/video.py":58
  *                 self.last_frame_time = time.time()
@@ -8234,85 +7809,85 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
  *         results = self.model(pil_frame)  #
  */
-  __pyx_tuple__17 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_frame, __pyx_n_s_pil_frame, __pyx_n_s_results, __pyx_n_s_boxes, __pyx_n_s_person_count, __pyx_n_s_boxs, __pyx_n_s_x1, __pyx_n_s_y1, __pyx_n_s_x2, __pyx_n_s_y2); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 58, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__17);
-  __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_dispose_frame_async, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_frame, __pyx_n_s_pil_frame, __pyx_n_s_results, __pyx_n_s_boxes, __pyx_n_s_person_count, __pyx_n_s_boxs); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_dispose_frame_async, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 58, __pyx_L1_error)
 
-  /* "utils/video.py":77
+  /* "utils/video.py":69
  *         return person_count
  * 
  *     def get_person_count(self) -> int:             # <<<<<<<<<<<<<<
  *         person_num = self.person_count
  *         if person_num == 0:
  */
-  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_num); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__19);
-  __Pyx_GIVEREF(__pyx_tuple__19);
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_person_count, 77, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_num); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_person_count, 69, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 69, __pyx_L1_error)
 
-  /* "utils/video.py":83
+  /* "utils/video.py":75
  *         return person_num
  * 
  *     def is_alive(self):             # <<<<<<<<<<<<<<
  *         alive_num = 0
  *         for i in range(self.camera_number):
  */
-  __pyx_tuple__21 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_alive_num, __pyx_n_s_i); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__21);
-  __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_is_alive, 83, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_alive_num, __pyx_n_s_i); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__20);
+  __Pyx_GIVEREF(__pyx_tuple__20);
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_is_alive, 75, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 75, __pyx_L1_error)
 
-  /* "utils/video.py":90
+  /* "utils/video.py":82
  *         return alive_num
  * 
  *     def release(self):             # <<<<<<<<<<<<<<
  *         self.cap.release()
  * 
  */
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_release, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_release, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 82, __pyx_L1_error)
 
-  /* "utils/video.py":93
+  /* "utils/video.py":85
  *         self.cap.release()
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:
  */
-  __pyx_tuple__24 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_number); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__24);
-  __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_error, 93, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_person_number); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__23);
+  __Pyx_GIVEREF(__pyx_tuple__23);
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_error, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 85, __pyx_L1_error)
 
-  /* "utils/video.py":110
+  /* "utils/video.py":100
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
  *         return self.error_number
  * 
  */
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_error_number, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_get_error_number, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 100, __pyx_L1_error)
 
-  /* "utils/video.py":113
+  /* "utils/video.py":103
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
  *         self.error_number = 0
  *         print("Error number cleared.")
  */
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_clear_error_number, 113, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_clear_error_number, 103, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 103, __pyx_L1_error)
 
-  /* "utils/video.py":117
+  /* "utils/video.py":107
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             #
  */
-  __pyx_tuple__28 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_current_time, __pyx_n_s_time_diff); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__28);
-  __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_reset_error_number, 117, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_current_time, __pyx_n_s_time_diff); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__27);
+  __Pyx_GIVEREF(__pyx_tuple__27);
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_utils_video_py, __pyx_n_s_reset_error_number, 107, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8323,13 +7898,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
 static CYTHON_SMALL_CODE int __Pyx_InitConstants(void) {
   if (__Pyx_CreateStringTabAndInitStrings() < 0) __PYX_ERR(0, 1, __pyx_L1_error);
-  __pyx_float_0_5 = PyFloat_FromDouble(0.5); if (unlikely(!__pyx_float_0_5)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_2 = PyInt_FromLong(2); if (unlikely(!__pyx_int_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_9 = PyInt_FromLong(9); if (unlikely(!__pyx_int_9)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_10 = PyInt_FromLong(10); if (unlikely(!__pyx_int_10)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_255 = PyInt_FromLong(255); if (unlikely(!__pyx_int_255)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_370 = PyInt_FromLong(370); if (unlikely(!__pyx_int_370)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_670 = PyInt_FromLong(670); if (unlikely(!__pyx_int_670)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_86400 = PyInt_FromLong(86400L); if (unlikely(!__pyx_int_86400)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -8403,15 +7975,15 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number_spec, NULL); if (unlikely(!__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number)) __PYX_ERR(0, 117, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number_spec, __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number_spec, NULL); if (unlikely(!__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number)) __PYX_ERR(0, 107, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number_spec, __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
   #else
   __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number = &__pyx_type_5utils_5video___pyx_scope_struct_1_reset_error_number;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5utils_5video___pyx_scope_struct_1_reset_error_number->tp_print = 0;
@@ -8827,7 +8399,7 @@ if (!__Pyx_RefNanny) {
  * from PIL import Image
  * from ultralytics import YOLO             # <<<<<<<<<<<<<<
  * 
- * from utils.public_way import send_tcp_request
+ * from utils.public_way import send_on_tcp_request, send_off_tcp_request
  */
   __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -8846,21 +8418,28 @@ if (!__Pyx_RefNanny) {
   /* "utils/video.py":11
  * from ultralytics import YOLO
  * 
- * from utils.public_way import send_tcp_request             # <<<<<<<<<<<<<<
+ * from utils.public_way import send_on_tcp_request, send_off_tcp_request             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_send_tcp_request);
-  __Pyx_GIVEREF(__pyx_n_s_send_tcp_request);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_send_tcp_request)) __PYX_ERR(0, 11, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_n_s_send_on_tcp_request);
+  __Pyx_GIVEREF(__pyx_n_s_send_on_tcp_request);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_send_on_tcp_request)) __PYX_ERR(0, 11, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_n_s_send_off_tcp_request);
+  __Pyx_GIVEREF(__pyx_n_s_send_off_tcp_request);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_send_off_tcp_request)) __PYX_ERR(0, 11, __pyx_L1_error);
   __pyx_t_3 = __Pyx_Import(__pyx_n_s_utils_public_way, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_send_tcp_request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_send_on_tcp_request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_send_tcp_request, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_send_on_tcp_request, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_send_off_tcp_request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_send_off_tcp_request, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -8881,7 +8460,7 @@ if (!__Pyx_RefNanny) {
  *         self.cap: cv2.VideoCapture = None
  *         self.last_frame_time = time.time()
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_1__init__, 0, __pyx_n_s_RTSPCamera___init, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_1__init__, 0, __pyx_n_s_RTSPCamera___init, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8893,7 +8472,7 @@ if (!__Pyx_RefNanny) {
  *         while True:
  *             frame = self.frame_queue.get()
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_3process_frames_async, 0, __pyx_n_s_RTSPCamera_process_frames_async, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_3process_frames_async, 0, __pyx_n_s_RTSPCamera_process_frames_async, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_process_frames_async, __pyx_t_2) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8917,98 +8496,98 @@ if (!__Pyx_RefNanny) {
  *         pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
  *         results = self.model(pil_frame)  #
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_8dispose_frame_async, 0, __pyx_n_s_RTSPCamera_dispose_frame_async, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_8dispose_frame_async, 0, __pyx_n_s_RTSPCamera_dispose_frame_async, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_dispose_frame_async, __pyx_t_2) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "utils/video.py":77
+  /* "utils/video.py":69
  *         return person_count
  * 
  *     def get_person_count(self) -> int:             # <<<<<<<<<<<<<<
  *         person_num = self.person_count
  *         if person_num == 0:
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_10get_person_count, 0, __pyx_n_s_RTSPCamera_get_person_count, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_10get_person_count, 0, __pyx_n_s_RTSPCamera_get_person_count, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_person_count, __pyx_t_4) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_person_count, __pyx_t_4) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":83
+  /* "utils/video.py":75
  *         return person_num
  * 
  *     def is_alive(self):             # <<<<<<<<<<<<<<
  *         alive_num = 0
  *         for i in range(self.camera_number):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_12is_alive, 0, __pyx_n_s_RTSPCamera_is_alive, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_12is_alive, 0, __pyx_n_s_RTSPCamera_is_alive, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_is_alive, __pyx_t_4) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_is_alive, __pyx_t_4) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":90
+  /* "utils/video.py":82
  *         return alive_num
  * 
  *     def release(self):             # <<<<<<<<<<<<<<
  *         self.cap.release()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_14release, 0, __pyx_n_s_RTSPCamera_release, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_14release, 0, __pyx_n_s_RTSPCamera_release, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_release, __pyx_t_4) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_release, __pyx_t_4) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":93
+  /* "utils/video.py":85
  *         self.cap.release()
  * 
  *     def get_error(self):             # <<<<<<<<<<<<<<
  *         person_number = self.get_person_count()
  *         if person_number >= 9 and person_number != self.number:
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_16get_error, 0, __pyx_n_s_RTSPCamera_get_error, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_16get_error, 0, __pyx_n_s_RTSPCamera_get_error, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error, __pyx_t_4) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error, __pyx_t_4) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":110
+  /* "utils/video.py":100
  *             return ""
  * 
  *     def get_error_number(self):             # <<<<<<<<<<<<<<
  *         return self.error_number
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_18get_error_number, 0, __pyx_n_s_RTSPCamera_get_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_18get_error_number, 0, __pyx_n_s_RTSPCamera_get_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_get_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":113
+  /* "utils/video.py":103
  *         return self.error_number
  * 
  *     def clear_error_number(self):             # <<<<<<<<<<<<<<
  *         self.error_number = 0
  *         print("Error number cleared.")
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_20clear_error_number, 0, __pyx_n_s_RTSPCamera_clear_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_20clear_error_number, 0, __pyx_n_s_RTSPCamera_clear_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_clear_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_clear_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "utils/video.py":117
+  /* "utils/video.py":107
  *         print("Error number cleared.")
  * 
  *     async def reset_error_number(self):             # <<<<<<<<<<<<<<
  *         while True:
  *             #
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_22reset_error_number, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_RTSPCamera_reset_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5utils_5video_10RTSPCamera_22reset_error_number, __Pyx_CYFUNCTION_COROUTINE, __pyx_n_s_RTSPCamera_reset_error_number, NULL, __pyx_n_s_utils_video, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_reset_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_reset_error_number, __pyx_t_4) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "utils/video.py":14
@@ -10580,139 +10159,6 @@ static double __Pyx__PyObject_AsDouble(PyObject* obj) {
 bad:
     return (double)-1;
 }
-
-/* PyIntBinop */
-#if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_SubtractObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check) {
-    CYTHON_MAYBE_UNUSED_VAR(intval);
-    CYTHON_MAYBE_UNUSED_VAR(inplace);
-    CYTHON_UNUSED_VAR(zerodivision_check);
-    #if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_CheckExact(op1))) {
-        const long b = intval;
-        long x;
-        long a = PyInt_AS_LONG(op1);
-        
-            x = (long)((unsigned long)a - (unsigned long)b);
-            if (likely((x^a) >= 0 || (x^~b) >= 0))
-                return PyInt_FromLong(x);
-            return PyLong_Type.tp_as_number->nb_subtract(op1, op2);
-    }
-    #endif
-    #if CYTHON_USE_PYLONG_INTERNALS
-    if (likely(PyLong_CheckExact(op1))) {
-        const long b = intval;
-        long a, x;
-#ifdef HAVE_LONG_LONG
-        const PY_LONG_LONG llb = intval;
-        PY_LONG_LONG lla, llx;
-#endif
-        if (unlikely(__Pyx_PyLong_IsZero(op1))) {
-            return PyLong_FromLong(-intval);
-        }
-        if (likely(__Pyx_PyLong_IsCompact(op1))) {
-            a = __Pyx_PyLong_CompactValue(op1);
-        } else {
-            const digit* digits = __Pyx_PyLong_Digits(op1);
-            const Py_ssize_t size = __Pyx_PyLong_SignedDigitCount(op1);
-            switch (size) {
-                case -2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = (long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = (long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = (long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-                    #ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-                    #endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                default: return PyLong_Type.tp_as_number->nb_subtract(op1, op2);
-            }
-        }
-                x = a - b;
-            return PyLong_FromLong(x);
-#ifdef HAVE_LONG_LONG
-        long_long:
-                llx = lla - llb;
-            return PyLong_FromLongLong(llx);
-#endif
-        
-        
-    }
-    #endif
-    if (PyFloat_CheckExact(op1)) {
-        const long b = intval;
-#if CYTHON_COMPILING_IN_LIMITED_API
-        double a = __pyx_PyFloat_AsDouble(op1);
-#else
-        double a = PyFloat_AS_DOUBLE(op1);
-#endif
-            double result;
-            
-            PyFPE_START_PROTECT("subtract", return NULL)
-            result = ((double)a) - (double)b;
-            PyFPE_END_PROTECT(result)
-            return PyFloat_FromDouble(result);
-    }
-    return (inplace ? PyNumber_InPlaceSubtract : PyNumber_Subtract)(op1, op2);
-}
-#endif
 
 /* PyIntBinop */
 #if !CYTHON_COMPILING_IN_PYPY
@@ -13609,7 +13055,7 @@ static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *
 #endif
 static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
 #if PY_MAJOR_VERSION < 3
-    PyObject *module, *from_list, *star = __pyx_n_s__9;
+    PyObject *module, *from_list, *star = __pyx_n_s__8;
     CYTHON_UNUSED_VAR(parts_tuple);
     from_list = PyList_New(1);
     if (unlikely(!from_list))
@@ -13780,7 +13226,7 @@ ignore:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_kp_u__10);
+        module_dot = PyUnicode_Concat(module_name, __pyx_kp_u__9);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -15553,7 +14999,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__29);
+        name = __Pyx_NewRef(__pyx_n_s__28);
     }
     return name;
 }
