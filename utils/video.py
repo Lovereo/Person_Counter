@@ -63,14 +63,6 @@ class RTSPCamera:
         for boxs in boxes:
             if results[0].names[boxs.cls[0].item()] == 'person':
                 if float(round(boxs.conf[0].item(), 2)) >= 0.65:
-                    x1, y1, x2, y2 = boxs.xyxy[0].tolist()
-                    x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
-
-                    cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    cv2.putText(frame, results[0].names[boxs.cls[0].item()], (x1, y1 - 10),
-                                cv2.FONT_HERSHEY_SIMPLEX,
-                                0.5, (0, 255, 0), 2)
-                    cv2.imwrite("xxx.jpg", frame)
                     person_count += 1
         return person_count
 
