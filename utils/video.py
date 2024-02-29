@@ -8,7 +8,7 @@ import torch
 from PIL import Image
 from ultralytics import YOLO
 
-from utils.public_way import send_tcp_request
+from utils.public_way import send_on_tcp_request, send_off_tcp_request
 
 
 class RTSPCamera:
@@ -86,15 +86,13 @@ class RTSPCamera:
         person_number = self.get_person_count()
         if person_number >= 9 and person_number != self.number:
             if self.state == 0:
-                send_tcp_request("483A0170010100004544")
+                send_on_tcp_request()
                 self.state = 1
             self.number = person_number
             self.error_number += 1
             return "警告:当前区域人数已经超限"
-        else:
-            # if self.state == 1:
-            # print("1")
-            send_tcp_request("483A0170010000004544")
+        elif person_number < 9:
+            send_off_tcp_request()
             self.state = 0
             self.number = 0
             return ""
