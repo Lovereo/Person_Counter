@@ -18,7 +18,6 @@ a = Analysis(
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    cipher="afd2a36e3fd2f49db8418f467ca8a812",
     noarchive=False,
 )
 pyz = PYZ(a.pure)
