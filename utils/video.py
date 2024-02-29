@@ -8,7 +8,7 @@ import torch
 from PIL import Image
 from ultralytics import YOLO
 
-from utlis.public_way import send_tcp_request
+from utils.public_way import send_tcp_request
 
 
 class RTSPCamera:

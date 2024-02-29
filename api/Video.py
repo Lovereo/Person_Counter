@@ -7,7 +7,7 @@ from starlette.background import BackgroundTasks
 from starlette.responses import StreamingResponse
 from model import video
 
-from utlis.video import RTSPCamera
+from utils.video import RTSPCamera
 
 videoRouter = APIRouter(prefix='/video', tags=['About Video'])
 
