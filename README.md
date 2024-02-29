@@ -18,8 +18,10 @@ How to Build?
 
 以下是更新日志：
 
-2.26: update api/video.py,   ulits/Video_processing.py   , change /output api, now need add ipaddress after /output, for example /ouput/192.168.3.66
+2.26: update api/video.py,   utils/Video_processing.py   , change /output api, now need add ipaddress after /output, for example /ouput/192.168.3.66
 
-2.27: Update ulits/Video_processing.py
+2.27: Update utils/Video_processing.py
 
-2.28: Update ulits/public_way.py ulits/Video_processing.py api/Video.py main.py, update warring
+2.28: Update utils/public_way.py utils/Video_processing.py api/Video.py main.py, update warring
+
+2.29: Update utils/video.py utils/public_way.py api/Video.py
