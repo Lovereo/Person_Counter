@@ -12,8 +12,8 @@ from utils.public_way import send_on_tcp_request, send_off_tcp_request
 
 
 class RTSPCamera:
-    def __init__(self):
-        self.cap: cv2.VideoCapture = None
+    def __init__(self, camera_url):
+        self.cap: cv2.VideoCapture = cv2.VideoCapture(camera_url)
         self.last_frame_time = time.time()
         self.frame_counter = 0
         self.person_count = 0
@@ -66,14 +66,16 @@ class RTSPCamera:
                     person_count += 1
         return person_count
 
-    def get_person_count(self) -> int:
+    def get_person_count(self):
         person_num = self.person_count
         if person_num == 0:
-            return 0
+            return None
         return person_num
 
     def is_alive(self):
         alive_num = 0
+        if self.camera_number is None:
+            return None
         for i in range(self.camera_number):
             if self.cap and self.cap.isOpened():
                 alive_num += 1
@@ -90,12 +92,12 @@ class RTSPCamera:
                 self.state = 1
             self.number = person_number
             self.error_number += 1
-            return "警告:当前区域人数已经超限"
+            return True, "警告:当前区域人数已经超限"
         elif person_number < 9:
             send_off_tcp_request()
             self.state = 0
             self.number = 0
-            return ""
+            return False, ""
 
     def get_error_number(self):
         return self.error_number
