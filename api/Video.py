@@ -1,62 +1,43 @@
-import asyncio
 from typing import List
 
-import cv2
-from fastapi import APIRouter, Query, Depends
-from starlette.background import BackgroundTasks
+from fastapi import APIRouter
 from starlette.responses import StreamingResponse
 from model import video, error
-
-from utils.video import RTSPCamera
+from utils.video import generate_frames, latest_person_counts, exceed_count, camera_active
 
 videoRouter = APIRouter(prefix='/video', tags=['About Video'])
 
-camera = RTSPCamera()
+
+connections = {}
 
 
-@videoRouter.get("/output/{camera_url}")
-async def video_feed(camera_url: str = Query(...)):
-    # camera = RTSPCamera()
-    if camera_url is None:
-        return {"code": 400, "msg": "摄像头IP错误"}
-    camera.cap = cv2.VideoCapture("rtsp://admin:tangtangtui123.@" + str(camera_url) + "/live")
-    if camera.cap is None:
-        return {"code": 400, "msg": "摄像头异常失败"}
-    return StreamingResponse(camera.generate_frames(), media_type="multipart/x-mixed-replace;boundary=frame")
+@videoRouter.get("/output/{camera_id}")
+def video_feed(camera_id: str):
+    """ 返回视频流的 Response """
+    return StreamingResponse(generate_frames(camera_id),
+                             media_type="multipart/x-mixed-replace;boundary=frame")
 
 
-@videoRouter.get("/number", response_model=video.Number or error.Error)
-async def get_number():
-    # camera = RTSPCamera()
-    # asyncio.create_task(run_back_camera_frame())
-    person_count = camera.get_person_count()
-    if person_count is None:
-        return error.Error(code=400, message="获取人数失败")
-    return video.Number(value=str(person_count))
-
-
-@videoRouter.get("/error", response_model=video.Error or error.Error)
-async def get_error():
-    err, value = camera.get_error()
-    if err:
-        return video.Error(value=value)
+@videoRouter.get("/person_count/{camera_id}", response_model=video.Number or error.Error)
+async def get_person_count(camera_id: str):
+    if camera_id in latest_person_counts:
+        return video.Number(value=latest_person_counts[camera_id])
     else:
-        return error.Error(code=400, message="获取错误次数失败")
-
-
-@videoRouter.get("/isalive", response_model=List[video.IsAlive] or error.Error)
-async def is_alive():
-    numbers = camera.is_alive()
-    if numbers is None:
-        return error.Error(code=400, message="获取摄像头存活数失败")
-    items = [
-        {"name": "运行", "value": numbers},
-        {"name": "关闭", "value": camera.camera_number - numbers}
-    ]
-    return items
+        return error.Error(code=400, message="获取人数失败")
 
 
 @videoRouter.get("/errorNumber", response_model=video.Error)
-async def get_error_number():
-    asyncio.create_task(camera.reset_error_number())
-    return video.Error(value=camera.get_error_number())
+def get_error_number():
+    # video.Error(value=exceed_count)
+    return video.Error(value=exceed_count)
+
+
+@videoRouter.get("/camera_status", response_model=List[video.IsAlive] or error.Error)
+def get_camera_status():
+    active_count = sum(status for status in camera_active.values() if status)
+    inactive_count = len(camera_active) - active_count
+    items = [
+        {"name": "运行", "value": active_count},
+        {"name": "关闭", "value": inactive_count}
+    ]
+    return items

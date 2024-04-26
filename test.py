@@ -1,27 +1,105 @@
-import socket
+class RTSPCamera:
+    def __init__(self):
+        connect_cameras()
+        self.last_frame_time = time.time()
+        self.frame_counter = 0
+        self.person_count = 0
+        self.model = YOLO('../weights/yolov8s.pt')
+        if torch.cuda.is_available():
+            self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
+        self.model.to(self.device)
+        self.camera_number = 1
+        self.state = 0
+        self.number = 0
+        self.frame_queue = [queue.Queue()]
+        self.error_number = 0
+        # self.process_thread = threading.Thread(target=self.process_frames_async)
+        # self.process_thread.daemon = True  # 设置为守护线程，以确保程序退出时线程也会退出
+        # self.process_thread.start()
 
+    def process_frames_async(self):
+        while True:
+            for i in range(len(self.frame_queue)):
+                frame = self.frame_queue[i].get()
+                # 处理帧图像
+                self.person_count = self.dispose_frame_async(frame)
 
-def send_tcp_request(hex_data, server_ip, server_port):
-    # 将十六进制字符串转换为字节
-    data = bytes.fromhex(hex_data)
+    async def generate_frames(self, cap):
+        cap = caps[int(cap)]
+        while True:
+            rval, frame = cap.read()
+            if not rval:
+                break
 
-    # 创建 TCP socket
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        # 连接到服务器
-        s.connect((server_ip, server_port))
+            frame = cv2.resize(frame, (670, 370))
+            _, buffer = cv2.imencode('.jpg', frame)
+            jpg_as_text = buffer.tobytes()
 
-        # 发送数据
-        s.sendall(data)
-        print(f"Sent Hex Data: {hex_data}")
+            yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + jpg_as_text + b'\r\n')
 
-        # 接收数据
-        received_data = s.recv(1024)
-        print(f"Received Hex Data: {received_data.hex()}")
+            # elapsed_time = time.time() - self.last_frame_time
+            # if elapsed_time >= 2:
+            #     self.frame_queue[int(cap)].put(frame)
+            #     self.last_frame_time = time.time()
 
+    def dispose_frame_async(self, frame):
+        pil_frame = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        results = self.model(pil_frame)  # 不需要异步调用
+        boxes = results[0].boxes
+        person_count = 0
+        for boxs in boxes:
+            if results[0].names[boxs.cls[0].item()] == 'person':
+                if float(round(boxs.conf[0].item(), 2)) >= 0.65:
+                    person_count += 1
+        return person_count
 
-# 使用示例
-if __name__ == "__main__":
-    hex_data = "483A0170010000004544"  # 待发送的十六进制数据
-    server_ip = "192.168.3.253"
-    server_port = 1030  # 服务器端口
-    send_tcp_request(hex_data, server_ip, server_port)
+    def get_person_count(self):
+        person_num = self.person_count
+        if person_num == 0:
+            return None
+        return person_num
+
+    def is_alive(self):
+        alive_num = 0
+        if self.camera_number is None:
+            return None
+        for i in range(self.camera_number):
+            if self.cap and self.cap.isOpened():
+                alive_num += 1
+        return alive_num
+
+    def get_error(self):
+        person_number = self.get_person_count()
+        if person_number >= 9 and person_number != self.number:
+            if self.state == 0:
+                send_on_tcp_request()
+                self.state = 1
+            self.number = person_number
+            self.error_number += 1
+            return True, "警告:当前区域人数已经超限"
+        elif person_number < 9:
+            send_off_tcp_request()
+            self.state = 0
+            self.number = 0
+            return False, ""
+
+    def get_error_number(self):
+        return self.error_number
+
+    def clear_error_number(self):
+        self.error_number = 0
+        print("Error number cleared.")
+
+    async def reset_error_number(self):
+        while True:
+            # 获取当前时间
+            current_time = time.time()
+            # 计算距离第二天零点的时间差
+            time_diff = 86400 - (current_time % 86400)
+            # 等待直到下一天
+            await asyncio.sleep(time_diff)
+            # 清零错误数
+            self.clear_error_number()
+            print("Error number cleared.")

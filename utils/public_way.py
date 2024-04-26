@@ -10,6 +10,7 @@ def send_on_tcp_request():
         # 连接到服务器
         s.connect(("192.168.3.253", 1030))
         s.sendall(turn_on_the_signal)
+        return
 
 
 def send_off_tcp_request():
@@ -18,3 +19,4 @@ def send_off_tcp_request():
         # 连接到服务器
         s.connect(("192.168.3.253", 1030))
         s.sendall(turn_off_the_signal)
+        return
